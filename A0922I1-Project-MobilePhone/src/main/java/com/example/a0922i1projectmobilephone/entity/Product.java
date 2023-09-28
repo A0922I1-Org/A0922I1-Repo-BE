@@ -20,8 +20,8 @@ public class Product {
     private Integer cost;
     @Column(name = "screen_size")
     private String screenSize;
-    @Column(name = "font_camera")
-    private String fontCamera;
+    @Column(name = "front_camera")
+    private String frontCamera;
     @Column(name = "back_camera")
     private String backCamera;
     @Column(name = "product_cpu")
