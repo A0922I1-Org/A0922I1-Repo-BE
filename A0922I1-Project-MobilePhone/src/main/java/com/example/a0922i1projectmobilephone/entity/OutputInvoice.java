@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 @Entity
 @AllArgsConstructor
@@ -18,8 +19,13 @@ public class OutputInvoice {
     private Integer outputInvoiceId;
     @Column(name = "payment_method")
     private String paymentMethod;
+
     @Column(name = "total_price")
     private double totalPrice;
+
+    @Column(name="date_output_invoice")
+    private Date dateOutputInvoice;
+
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private Customer customer;
