@@ -29,6 +29,18 @@ public class Employee {
     private String numberPhoneEmployee;
     @Column(name = "position_employee")
     private String positionEmployee;
-    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private Set<User> user;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public Employee(String nameEmployee,
+                    String addressEmployee,
+                    Date birthdayEmployee,
+                    String positionEmployee,
+                    String username,
+                    String email,
+                    String avatar,
+                    String encode) {
+    }
 }

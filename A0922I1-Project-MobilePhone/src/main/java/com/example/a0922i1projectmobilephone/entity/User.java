@@ -1,12 +1,17 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.Set;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,13 +21,22 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
+
     @Column(name = "user_name")
     private String username;
+
     @Column(name = "password")
     private String password;
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private Set<UserRole> userRoles;
-    @ManyToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "employeeId")
-    private Employee employee;
+
+    @Column(name = "email")
+    @Email
+    private String email;
+    @Lob
+    private String avatar;
+
+    @ManyToMany
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> role = new LinkedHashSet<>();
 }

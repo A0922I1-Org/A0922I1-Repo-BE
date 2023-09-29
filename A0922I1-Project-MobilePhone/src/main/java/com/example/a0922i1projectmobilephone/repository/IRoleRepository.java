@@ -1,0 +1,16 @@
+package com.example.a0922i1projectmobilephone.repository;
+
+import com.example.a0922i1projectmobilephone.entity.Role;
+import com.example.a0922i1projectmobilephone.entity.RoleName;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
+
+public interface IRoleRepository extends JpaRepository<Role, Integer> {
+    @Query(value = "SELECT r.role_name FROM role r WHERE r.role_name = :roleName", nativeQuery = true)
+    Role findByRoleName(@Param("roleName") RoleName roleName);
+
+
+}
