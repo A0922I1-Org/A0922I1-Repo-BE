@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.LinkedHashSet;
 import java.util.Set;
 @Entity
 @AllArgsConstructor
@@ -23,14 +24,16 @@ public class User {
     @Column(name = "password")
     @JsonIgnore
     private String password;
+
     @Column(name = "email")
     @Email
     private String email;
     @Lob
     private String avatar;
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private Set<UserRole> userRoles;
-    @ManyToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "employeeId")
-    private Employee employee;
+
+    @ManyToMany
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> role = new LinkedHashSet<>();
 }

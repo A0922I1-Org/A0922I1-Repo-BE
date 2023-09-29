@@ -17,7 +17,11 @@ public class Product {
     @Column(name = "product_name")
     private String productName;
     @Column(name = "cost")
-    private Integer cost;
+    private Integer costPrice;
+    @Column(name = "sellingPrice_product")
+    private Integer sellingPrice;
+    @Column(name = "quantity _product")
+    private Integer quantity ;
     @Column(name = "screen_size")
     private String screenSize;
     @Column(name = "front_camera")
