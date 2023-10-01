@@ -8,6 +8,8 @@ import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 @Entity
 @AllArgsConstructor
@@ -24,7 +26,4 @@ public class Role {
     @NaturalId
     private RoleName roleName;
 
-    @JsonBackReference
-    @ManyToMany(mappedBy = "role", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private Set<User> user;
 }

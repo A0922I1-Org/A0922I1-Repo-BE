@@ -8,6 +8,7 @@ import com.example.a0922i1projectmobilephone.dto.request.SignUpForm;
 import com.example.a0922i1projectmobilephone.entity.Employee;
 import com.example.a0922i1projectmobilephone.entity.Role;
 import com.example.a0922i1projectmobilephone.entity.RoleName;
+import com.example.a0922i1projectmobilephone.entity.User;
 import com.example.a0922i1projectmobilephone.security.jwt.JwtProvider;
 import com.example.a0922i1projectmobilephone.security.userprincal.UserPrinciple;
 import com.example.a0922i1projectmobilephone.service.Impl.EmployeeServiceImpl;
@@ -22,12 +23,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 import static jdk.nashorn.internal.objects.NativeArray.forEach;
@@ -51,42 +50,32 @@ public class AuthController {
 
     @PostMapping("/signUp")
     public ResponseEntity<?> register(@RequestBody SignUpForm signUpForm) {
-
         if (userService.existsByUsername(signUpForm.getUser().getUsername())) {
             return new ResponseEntity<>(new ReponseMessage("user đã tồn tại"), HttpStatus.OK);
         }
         if (userService.existsByEmail(signUpForm.getUser().getEmail())) {
-            return new ResponseEntity<>(new ReponseMessage("email đẫ tồn tại"), HttpStatus.OK);
+            return new ResponseEntity<>(new ReponseMessage("email đã tồn tại"), HttpStatus.OK);
         }
+        //Xử lý Role
         Set<String> strRoles = signUpForm.getRole();
         Set<Role> roles = new HashSet<>();
-        strRoles.forEach(role -> {
-            switch (role) {
-                case "admin":
+        strRoles.forEach(role ->{
+            switch (role.toUpperCase()){
+                case "ADMIN":
                     Role adminRole = roleService.findByRoleName(RoleName.ADMIN);
-                    if (adminRole != null) {
-                        roles.add(adminRole);
-                    }
+                    roles.add(adminRole);
                     break;
-                case "sale":
-                    Role saleRole = roleService.findByRoleName(RoleName.SALE);
-                    if (saleRole != null) {
-                        roles.add(saleRole);
-                    }
-                    break;
-                case "business":
+                case "BUSINESS":
                     Role businessRole = roleService.findByRoleName(RoleName.BUSINESS);
-                    if (businessRole != null) {
-                        roles.add(businessRole);
-                    }
+                    roles.add(businessRole);
                     break;
-                case "storage":
+                case "STORAGE":
                     Role storageRole = roleService.findByRoleName(RoleName.STORAGE);
-                    if (storageRole != null) {
-                        roles.add(storageRole);
-                    }
+                    roles.add(storageRole);
                     break;
-                default:
+                case "SALE":
+                    Role saleRole = roleService.findByRoleName(RoleName.SALE);
+                    roles.add(saleRole);
                     break;
             }
         });
@@ -100,13 +89,15 @@ public class AuthController {
                 signUpForm.getUser().getAvatar(),
                 passwordEncoder.encode(signUpForm.getUser().getPassword())
         );
-        BeanUtils.copyProperties(signUpForm,employee);
+        BeanUtils.copyProperties(signUpForm, employee);
         employee.getUser().setPassword(passwordEncoder.encode(signUpForm.getUser().getPassword()));
+        employee.getUser().setRole(roles);
         employeeService.saveEmployee(employee);
-        return new ResponseEntity<>(new ReponseMessage("yes"), HttpStatus.OK);
+        return new ResponseEntity<>(new ReponseMessage("Tạo account thành công!!!"), HttpStatus.OK);
     }
 
-    @PostMapping("/signIn")
+
+    @GetMapping("/signIn")
     public ResponseEntity<?> login(@RequestBody SignInForm signInForm){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword()));

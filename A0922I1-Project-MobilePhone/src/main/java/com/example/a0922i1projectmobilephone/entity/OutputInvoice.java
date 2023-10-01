@@ -24,7 +24,7 @@ public class OutputInvoice {
 
     @Column(name="date_output_invoice")
     private Date dateOutputInvoice;
-    
+
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private Customer customer;

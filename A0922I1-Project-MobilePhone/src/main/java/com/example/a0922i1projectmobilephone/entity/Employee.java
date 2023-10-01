@@ -42,5 +42,14 @@ public class Employee {
                     String email,
                     String avatar,
                     String encode) {
+        this.nameEmployee = nameEmployee;
+        this.addressEmployee = addressEmployee;
+        this.birthdayEmployee = birthdayEmployee;
+        this.positionEmployee = positionEmployee;
+        this.user = new User();
+        this.user.setUsername(username);
+        this.user.setEmail(email);
+        this.user.setAvatar(avatar);
+        this.user.setPassword(encode);
     }
 }
