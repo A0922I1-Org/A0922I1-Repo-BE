@@ -8,7 +8,6 @@ import com.example.a0922i1projectmobilephone.dto.request.SignUpForm;
 import com.example.a0922i1projectmobilephone.entity.Employee;
 import com.example.a0922i1projectmobilephone.entity.Role;
 import com.example.a0922i1projectmobilephone.entity.RoleName;
-import com.example.a0922i1projectmobilephone.entity.User;
 import com.example.a0922i1projectmobilephone.security.jwt.JwtProvider;
 import com.example.a0922i1projectmobilephone.security.userprincal.UserPrinciple;
 import com.example.a0922i1projectmobilephone.service.Impl.EmployeeServiceImpl;
@@ -21,15 +20,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
-
-import static jdk.nashorn.internal.objects.NativeArray.forEach;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RequestMapping("/api/auth")
 @RestController
@@ -59,26 +58,30 @@ public class AuthController {
         //Xử lý Role
         Set<String> strRoles = signUpForm.getRole();
         Set<Role> roles = new HashSet<>();
-        strRoles.forEach(role ->{
-            switch (role.toUpperCase()){
-                case "ADMIN":
-                    Role adminRole = roleService.findByRoleName(RoleName.ADMIN);
-                    roles.add(adminRole);
-                    break;
-                case "BUSINESS":
-                    Role businessRole = roleService.findByRoleName(RoleName.BUSINESS);
-                    roles.add(businessRole);
-                    break;
-                case "STORAGE":
-                    Role storageRole = roleService.findByRoleName(RoleName.STORAGE);
-                    roles.add(storageRole);
-                    break;
-                case "SALE":
-                    Role saleRole = roleService.findByRoleName(RoleName.SALE);
-                    roles.add(saleRole);
-                    break;
+        Iterator<String> iterator = strRoles.iterator();
+        if (iterator.hasNext()) {
+            String firstRole = iterator.next();
+            if (!firstRole.isEmpty()) {
+                switch (firstRole.toUpperCase()) {
+                    case "ADMIN":
+                        Role adminRole = roleService.findByRoleName(RoleName.ADMIN.toString());
+                        roles.add(adminRole);
+                        break;
+                    case "BUSINESS":
+                        Role businessRole = roleService.findByRoleName(RoleName.BUSINESS.toString());
+                        roles.add(businessRole);
+                        break;
+                    case "STORAGE":
+                        Role storageRole = roleService.findByRoleName(RoleName.STORAGE.toString());
+                        roles.add(storageRole);
+                        break;
+                    case "SALE":
+                        Role saleRole = roleService.findByRoleName(RoleName.SALE.toString());
+                        roles.add(saleRole);
+                        break;
+                }
             }
-        });
+        }
         Employee employee = new Employee(
                 signUpForm.getNameEmployee(),
                 signUpForm.getAddressEmployee(),
@@ -97,13 +100,21 @@ public class AuthController {
     }
 
 
-    @GetMapping("/signIn")
-    public ResponseEntity<?> login(@RequestBody SignInForm signInForm){
+    @PostMapping ("/signIn")
+    public ResponseEntity<?> login(@RequestBody SignInForm signInForm) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtProvider.createToken(authentication);
-        UserPrinciple userPrinciple = (UserPrinciple) authentication.getPrincipal();
-        return ResponseEntity.ok(new JwtResponse(token, userPrinciple.getUsername(), userPrinciple.getAuthorities()));
+        UserPrinciple UserPrinciple = (UserPrinciple) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+        return ResponseEntity.ok(
+                new JwtResponse(
+                        token,
+                        UserPrinciple.getUsername(),
+                        UserPrinciple.getAuthorities()
+                )
+        );
     }
 }

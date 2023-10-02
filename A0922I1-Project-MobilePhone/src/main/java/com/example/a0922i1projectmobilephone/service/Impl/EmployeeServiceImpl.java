@@ -15,4 +15,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
     public void saveEmployee(Employee employee) {
         employeeRepository.save(employee);
     }
+
+    @Override
+    public Employee findByNameEmployee(String nameEmployee) {
+        return employeeRepository.findByNameEmployee(nameEmployee);
+    }
+
 }

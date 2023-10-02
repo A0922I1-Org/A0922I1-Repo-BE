@@ -10,6 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IRoleRepository extends JpaRepository<Role, Integer> {
-    @Query(value = "SELECT r.role_name FROM role r WHERE r.role_name = :roleName", nativeQuery = true)
-    Role findByRoleName(@Param("roleName") RoleName roleName);
+    @Query(value = "SELECT r.role_id,r.role_name FROM role r WHERE r.role_name = :roleName", nativeQuery = true)
+    Role findByRoleName(@Param("roleName") String roleName);
 }
