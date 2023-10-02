@@ -1,5 +1,7 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -37,13 +39,17 @@ public class Product {
     @Column(name = "description_product")
     private String description;
     @OneToMany(mappedBy = "product" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<InputInvoiceDetail> inputInvoiceDetails;
     @OneToMany(mappedBy = "product" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<OutputInvoiceDetail> outputInvoiceDetails;
     @ManyToOne
-    @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
+    @JsonManagedReference
+    @JoinColumn(name = "category_id", referencedColumnName = "categoryId")
     private Category category;
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "brand_id", referencedColumnName = "brandId")
     private Brand brand;
 }

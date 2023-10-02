@@ -1,5 +1,6 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,5 +26,6 @@ public class Supplier {
     @Column(name = "supplier_address")
     private String supplierAddress;
     @OneToMany(mappedBy = "supplier" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<InputInvoice> inputInvoice;
 }

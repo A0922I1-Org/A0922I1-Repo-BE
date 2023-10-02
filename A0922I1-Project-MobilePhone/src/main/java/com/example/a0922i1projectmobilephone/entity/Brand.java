@@ -1,5 +1,6 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,5 +21,6 @@ public class Brand {
     @Column(name = "brand_name")
     private String brandName;
     @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<Product> product;
 }

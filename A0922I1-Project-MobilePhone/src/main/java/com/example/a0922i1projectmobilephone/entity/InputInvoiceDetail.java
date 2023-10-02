@@ -1,5 +1,6 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "input_invoice_detail")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -21,10 +23,12 @@ public class InputInvoiceDetail {
     @Column(name = "amount")
     private int amount;
     @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "productId")
+    @JoinColumn(name = "product_id")
+    @JsonManagedReference
     private Product product;
     @ManyToOne
-    @JoinColumn(name = "input_invoice_id", referencedColumnName = "inputInvoiceId")
+    @JoinColumn(name = "input_invoice_id")
+    @JsonManagedReference
     private InputInvoice inputInvoice;
 
 }
