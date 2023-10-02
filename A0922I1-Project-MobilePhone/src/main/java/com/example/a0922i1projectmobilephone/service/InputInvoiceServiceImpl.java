@@ -14,8 +14,9 @@ public class InputInvoiceServiceImpl implements InputInvoiceService {
     @Autowired
     private InputInvoiceRepoImpl inputInvoiceRepoImpl;
     @Override
-    public void addNewInputInvoice( Integer supplierId) {
+    public int addNewInputInvoice( Integer supplierId) {
         Date currentDate = new Date();
-        this.inputInvoiceRepoImpl.addNewInputInvoice(currentDate, supplierId);
+        int inputInvoiceId = this.inputInvoiceRepoImpl.addNewInputInvoice(currentDate, supplierId);
+        return inputInvoiceId;
     }
 }

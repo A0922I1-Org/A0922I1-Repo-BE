@@ -5,5 +5,5 @@ import java.util.Date;
 
 @Service
 public interface InputInvoiceService {
-void addNewInputInvoice( Integer supplierId);
+int addNewInputInvoice( Integer supplierId);
 }

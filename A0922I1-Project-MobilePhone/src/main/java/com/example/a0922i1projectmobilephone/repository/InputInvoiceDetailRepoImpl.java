@@ -1,6 +1,6 @@
 package com.example.a0922i1projectmobilephone.repository;
 
-import com.example.a0922i1projectmobilephone.dto.InputInvoiceDetailDto;
+import com.example.a0922i1projectmobilephone.dto.InputInvoiceDetailListDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +21,7 @@ public class InputInvoiceDetailRepoImpl {
     @PersistenceContext
     private EntityManager em;
 
-    public Page<InputInvoiceDetailDto> search(String supplierName, String productName, Date startDate, Date endDate, Pageable pageable) {
+    public Page<InputInvoiceDetailListDto> search(String supplierName, String productName, Date startDate, Date endDate, Pageable pageable) {
         String sql_search = "SELECT i.inputInvoiceDate AS inputInvoiceDate," +
                 " i_detail.amount AS amount, i_detail.inputInvoiceCost AS inputInvoiceCost," +
                 " p.productName AS productName," +
@@ -57,11 +57,20 @@ public class InputInvoiceDetailRepoImpl {
             query.setParameter("endDate", endDate);
         }
 
-        List<InputInvoiceDetailDto> resultList = query.getResultList();
+        List<InputInvoiceDetailListDto> resultList = query.getResultList();
         int start = (int) pageable.getOffset();
         int end = Math.min((start + pageable.getPageSize()), resultList.size());
-        Page<InputInvoiceDetailDto> page = new PageImpl<>(resultList.subList(start, end), pageable, resultList.size());
+        Page<InputInvoiceDetailListDto> page = new PageImpl<>(resultList.subList(start, end), pageable, resultList.size());
         return page;
+    }
+
+    public void addInputInvoiceDetail(int inputInvoiceId){
+        em.createNativeQuery("INSERT INTO mobilephone.input_invoice_detail(amount, input_invoice_cost, input_invoice_id, product_id)" +
+                " VALUES (?1, ?2, ?3, ?4)")
+                .setParameter()
+                .setParameter()
+                .setParameter(3, inputInvoiceId)
+                .setParameter()
     }
 }
 
