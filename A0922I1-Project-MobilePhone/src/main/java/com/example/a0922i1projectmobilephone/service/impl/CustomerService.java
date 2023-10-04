@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerService implements ICustomerService {
     @Autowired
@@ -16,6 +18,12 @@ public class CustomerService implements ICustomerService {
     public void save(Customer customer) {
         iRepositoryCustomer.save(customer);
     }
+
+    @Override
+    public Customer findById(int id) {
+        return iRepositoryCustomer.findById(id);
+    }
+
 
     @Override
     public Page<Customer> listCustomers(int page, String option, String search, String numberPhone) {

@@ -23,5 +23,10 @@ public class CustomerController {
         Page<Customer> customers = customerService.listCustomers(page, option, search, numberPhone);
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
+    @RequestMapping(path = "/api/customers/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> findByIdCustomer(@RequestParam(required = false) int id){
+        Customer customer = customerService.findById(id);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
+    }
 
 }

@@ -26,5 +26,7 @@ public interface IRepositoryCustomer extends JpaRepository<Customer, Integer> {
                                   @Param("search") String search,
                                   @Param("numberPhone") String numberPhone,
                                   @Param("isAll") int isAll);
+    @Query(value = "select * from customer  where customer_id = ?1", nativeQuery = true)
+    Customer findById(int id);
 
 }
