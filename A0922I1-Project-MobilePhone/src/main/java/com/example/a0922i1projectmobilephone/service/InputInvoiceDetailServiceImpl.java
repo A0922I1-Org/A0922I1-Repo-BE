@@ -1,6 +1,7 @@
 package com.example.a0922i1projectmobilephone.service;
 
 import com.example.a0922i1projectmobilephone.dto.InputInvoiceDetailListDto;
+import com.example.a0922i1projectmobilephone.entity.InputInvoiceDetail;
 import com.example.a0922i1projectmobilephone.repository.InputInvoiceDetailRepoImpl;
 import com.example.a0922i1projectmobilephone.repository.InputInvoiceDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,14 @@ public class InputInvoiceDetailServiceImpl implements InputInvoiceDetailService 
     private InputInvoiceDetailRepoImpl inputInvoiceDetailRepo;
 
     @Override
-    public Page<InputInvoiceDetailListDto> getInputInvoiceDetail(int pageNo, int pageSize) {
+    public Page<InputInvoiceDetail> getInputInvoiceDetail(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         return inputInvoiceDetailRepository.getInputInvoiceDetail(pageable);
     }
 
 
     @Override
-    public Page<InputInvoiceDetailListDto> search(String supplierName, String productName, String startDate, String endDate, int pageNo, int pageSize) {
+    public Page<InputInvoiceDetail> search(String supplierName, String productName, String startDate, String endDate, int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         Date startDateConverted = null;
         Date endDateConverted = null;

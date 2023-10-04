@@ -17,8 +17,7 @@ public class InputInvoiceRepoImpl {
 
     public int addNewInputInvoice(Date currentDate, Integer supplierId) {
         if (
-                em.createNativeQuery("INSERT INTO input_invoice(input_invoice_date, supplier_id)" +
-                                "VALUES(?1, ?2)")
+                em.createQuery("INSERT INTO InputInvoice(inputInvoiceDate, supplier) V ")
                         .setParameter(1, currentDate)
                         .setParameter(2, supplierId)
                         .executeUpdate() > 0
