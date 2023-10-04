@@ -21,6 +21,8 @@ public class SupplierServiceImpl implements ISupplierService{
     }
 
 
+
+
     @Override
     public Optional<Supplier> findById(int id) {
         return supplierRepository.findById(id);
@@ -35,5 +37,16 @@ public class SupplierServiceImpl implements ISupplierService{
     @Override
     public boolean existsById(int id) {
         return supplierRepository.existsById(id);
+    }
+
+    @Override
+    public Page<Supplier> searchSuppliers(String name, String address, String phone, int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+
+        if (name == null && address == null && phone == null) {
+            return supplierRepository.findAll(pageable);
+        } else {
+            return supplierRepository.searchSuppliers(name, address, phone, pageable);
+        }
     }
 }

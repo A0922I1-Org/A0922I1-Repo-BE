@@ -16,7 +16,7 @@ public class SupplierController {
     @GetMapping("/paged")
     public ResponseEntity<Page<Supplier>> getAllSupplier(
             @RequestParam(defaultValue = "1") int pageNo,
-            @RequestParam(defaultValue = "10") int pageSize) {
+            @RequestParam(defaultValue = "8") int pageSize) {
         Page<Supplier> page = supplierService.findAll(pageNo, pageSize);
         return new ResponseEntity<>(page, HttpStatus.OK);
     }
@@ -30,6 +30,18 @@ public class SupplierController {
         supplierService.deleteById(id);
         return new ResponseEntity<>("Đã xóa nhà cung cấp thành công", HttpStatus.OK);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<Page<Supplier>> searchSupplier(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String address,
+            @RequestParam(required = false) String phone,
+            @RequestParam(defaultValue = "1") int pageNo,
+            @RequestParam(defaultValue = "8") int pageSize) {
+        Page<Supplier> page = supplierService.searchSuppliers(name, address, phone, pageNo, pageSize);
+        return new ResponseEntity<>(page, HttpStatus.OK);
+    }
+
 
 
 }
