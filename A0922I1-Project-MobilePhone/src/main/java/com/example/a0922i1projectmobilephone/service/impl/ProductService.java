@@ -19,7 +19,7 @@ public class ProductService implements IProductService {
         if (StringUtils.isEmpty(option) && StringUtils.isEmpty(storage)){
             isAll = 1;
         }
-        return iRepositoryProduct.listProduct(Pageable.ofSize(8).withPage(page), search, storage, isAll);
+        return iRepositoryProduct.listProduct(Pageable.ofSize(2).withPage(page), option, search, storage, isAll);
     }
 
 }

@@ -10,10 +10,19 @@ import javax.transaction.Transactional;
 
 @Transactional
 public interface IRepositoryProduct extends JpaRepository<Product, Integer> {
-
-    @Query(value = "")
+    @Query(value = "select *  " +
+            " from product " +
+            "WHERE\n" +
+            "    (\n" +
+            "        (:option = 'name' AND name_product LIKE %:search%) OR\n" +
+            "        (:option = 'cost' AND cost_product  = :search) OR\n" +
+            "        (:option = 'cpu' AND product_cpu LIKE %:search%)\n" +
+            "    )\n" +
+            "    OR :isAll = 1" +
+            "    OR product_storage LIKE %:storage%\n", nativeQuery = true)
     Page<Product> listProduct(Pageable pageable,
                               @Param("option") String option,
                               @Param("search") String search,
+                              @Param("storage") String storage,
                               @Param("isAll") int isAll);
 }
