@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProductController {
     @Autowired
     private IProductService iProductService;
-    @RequestMapping(path = "/api/products", method = RequestMethod.GET)
-    public ResponseEntity<?> getAllProduct(@RequestParam(defaultValue = "0") int page){
-        Page<Product> products = iProductService.getAllProduct(page);
-        return new ResponseEntity<>(products, HttpStatus.OK);
-    }
+//    @RequestMapping(path = "/api/products", method = RequestMethod.GET)
+//    public ResponseEntity<?> getAllProduct(@RequestParam(defaultValue = "0") int page){
+////        Page<Product> products = iProductService.(page);
+////        return new ResponseEntity<>(products, HttpStatus.OK);
+//    }
 }

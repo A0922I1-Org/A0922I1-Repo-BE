@@ -4,9 +4,8 @@ import org.springframework.data.domain.Page;
 
 
 public interface ICustomerService {
-    Page<Customer> getAllCustomers(int page);
     void save(Customer customer);
-    Page<Customer> searchCustomer(int page, String option, String string, String numberPhone);
+    Page<Customer> listCustomers(int page, String option, String search, String numberPhone);
 }
 
 

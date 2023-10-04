@@ -16,16 +16,11 @@ public class CustomerController {
    @Autowired
     private ICustomerService customerService;
     @RequestMapping(path = "/api/customers", method = RequestMethod.GET)
-    public ResponseEntity<?> getAllCustomer(@RequestParam(defaultValue = "0") int page){
-        Page<Customer> customers = customerService.getAllCustomers(page);
-        return new ResponseEntity<>(customers, HttpStatus.OK);
-    }
-    @RequestMapping(path = "api/search", method = RequestMethod.GET)
-    public ResponseEntity<?> searchCustomer(@RequestParam(required = false) int page,
+    public ResponseEntity<?> searchCustomer(@RequestParam(defaultValue = "0") int page,
                                             @RequestParam(required = false) String option,
-                                            @RequestParam(required = false) String string,
+                                            @RequestParam(required = false) String search,
                                             @RequestParam(required = false) String numberPhone){
-        Page<Customer> customers = customerService.searchCustomer(page, option, string, numberPhone);
+        Page<Customer> customers = customerService.listCustomers(page, option, search, numberPhone);
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
