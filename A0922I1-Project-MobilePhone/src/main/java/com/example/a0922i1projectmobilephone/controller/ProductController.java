@@ -12,13 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -31,67 +31,54 @@ public class ProductController {
     @Autowired
     private ICategoryService categoryService;
 
-    @GetMapping("/product/list")
-    private ResponseEntity<Map<String, Object>> showProductLists(Model model,
-                                                                 @RequestParam("page") Optional<Integer> page,
-                                                                 @RequestParam("size") Optional<Integer> size) {
-        Integer currentPage = page.orElse(1);
-        Integer pageSize = size.orElse(5);
-        model.addAttribute("currentPage", currentPage);
-        Page<Product> products = productService.findAllProducts(PageRequest.of(currentPage - 1, pageSize));
-        model.addAttribute("products", products);
-        int totalPages = products.getTotalPages();
-        if (totalPages > 1) {
-            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
-        }
-        if (products.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        Map<String, Object> responseBody = new HashMap<>();
-        responseBody.put("products", products);
-        responseBody.put("pageNumbers", model.asMap().get("pageNumbers"));
-        return new ResponseEntity<>(responseBody, HttpStatus.OK);
-    }
+//    @GetMapping("/product/list")
+//    private ResponseEntity<Page<Product>> showProductLists(Model model,
+//                                                           @RequestParam("page") Optional<Integer> page,
+//                                                           @RequestParam("size") Optional<Integer> size) {
+//        Integer currentPage = page.orElse(1);
+//        Integer pageSize = size.orElse(8);
+//        model.addAttribute("currentPage", currentPage);
+//        Page<Product> products = productService.findAllProducts(PageRequest.of(currentPage - 1, pageSize));
+//        if (products.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
+//        return new ResponseEntity<>(products, HttpStatus.OK);
+//    }
 
     @GetMapping("/product/{id}")
-    public ResponseEntity<Product> findProductById (@PathVariable("id")Integer idProduct) {
+    public ResponseEntity<Product> findProductById(@PathVariable("id") Integer idProduct) {
         Product product = productService.findProductById(idProduct);
-        if (product==null) {
+        if (product == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(product,HttpStatus.OK);
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
     @DeleteMapping("/product/{id}")
-    public ResponseEntity<String> deleteProductById (@PathVariable("id")Integer idProduct) {
+    public ResponseEntity<?> deleteProductById(@PathVariable("id") Integer idProduct) {
         boolean deletedProduct = productService.deleteProductById(idProduct);
         if (deletedProduct) {
-            return new ResponseEntity<>("Delete product successfully", HttpStatus.OK);
+            return new ResponseEntity<>(Collections.singletonMap("message", "Delete product successfully"), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/product/search")
-    public ResponseEntity<Map<String, Object>> searchProducts(
+    public ResponseEntity<Page<Product>> searchProducts(
             Model model,
-            @RequestParam(name = "brandName", required = false) String brandName,
-            @RequestParam(name = "sellingPrice", required = false) String sellingPrice,
-            @RequestParam(name = "productName", required = false) String productName,
-            @RequestParam(name = "page", required = false, defaultValue = "1") int page,
-            @RequestParam(name = "size", required = false, defaultValue = "5") int size) {
-        Page<Product> products = productService.searchProducts(brandName, sellingPrice, productName, PageRequest.of(page - 1, size));
-        model.addAttribute("products", products);
-        int totalPages = products.getTotalPages();
-        if (totalPages > 1) {
-            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
-        }
+            @RequestParam("brandName") String brandName,
+            @RequestParam("sellingPrice") String sellingPrice,
+            @RequestParam("productName") String productName,
+            @RequestParam("page") Optional<Integer> page,
+            @RequestParam("size") Optional<Integer> size) {
+        Integer currentPage = page.orElse(1);
+        Integer pageSize = size.orElse(8);
+        model.addAttribute("currentPage", currentPage);
+        Page<Product> products = productService.searchProducts(brandName, sellingPrice, productName, PageRequest.of(currentPage-1, pageSize));
         if (products.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        Map<String, Object> responseBody = new HashMap<>();
-        responseBody.put("products", products);
-        responseBody.put("pageNumbers", model.asMap().get("pageNumbers"));
-        return new ResponseEntity<>(responseBody, HttpStatus.OK);
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
 }

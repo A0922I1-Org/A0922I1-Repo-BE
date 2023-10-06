@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface IProductService {
-    Page<Product> findAllProducts(Pageable pageable);
+    Page<Product> findAllProducts(Pageable pageable)
     Product findProductById (Integer productId);
     boolean deleteProductById (Integer productId);
     Page<Product> searchProducts (String brandName, String sellingPrice, String productName, Pageable pageable);
