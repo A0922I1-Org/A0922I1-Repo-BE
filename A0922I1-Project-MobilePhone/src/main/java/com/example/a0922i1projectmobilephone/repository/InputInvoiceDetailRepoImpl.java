@@ -1,6 +1,7 @@
 package com.example.a0922i1projectmobilephone.repository;
 
 import com.example.a0922i1projectmobilephone.dto.InputInvoiceDetailListDto;
+import com.example.a0922i1projectmobilephone.dto.ProductInputDto;
 import com.example.a0922i1projectmobilephone.entity.InputInvoiceDetail;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -68,6 +69,9 @@ public class InputInvoiceDetailRepoImpl {
 //                .setParameter()
 //                .setParameter(3, inputInvoiceId)
 //                .setParameter()
+//    }
+//    public int addInputInvoiceDetail(ProductInputDto dto, Integer inputInvoiceId){
+//        em.createNativeQuery("INSERT INTO input_invoice_detail()")
 //    }
 }
 
