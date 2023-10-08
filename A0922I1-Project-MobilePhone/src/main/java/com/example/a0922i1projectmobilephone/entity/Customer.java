@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
     @Column(name = "customer_name")
     private String customerName;
@@ -29,4 +29,23 @@ public class Customer {
     @OneToMany(mappedBy = "customer" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<OutputInvoice> outputInvoice;
 
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getCustomerPhone() {
+        return customerPhone;
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
 }

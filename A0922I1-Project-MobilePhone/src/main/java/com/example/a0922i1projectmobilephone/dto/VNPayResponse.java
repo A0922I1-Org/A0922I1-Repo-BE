@@ -1,4 +1,4 @@
-package com.dto;
+package com.example.a0922i1projectmobilephone.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
