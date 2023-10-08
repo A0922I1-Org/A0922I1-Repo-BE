@@ -1,6 +1,5 @@
 package com.example.a0922i1projectmobilephone.repository;
-
-import com.entity.OutputInvoice;
+import com.example.a0922i1projectmobilephone.entity.OutputInvoice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 
 @Repository
-public interface InvoiceRepository extends JpaRepository<OutputInvoice, Long> {
+public interface OutputInvoiceRepository extends JpaRepository<OutputInvoice, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO output_invoice (payment_method, total_price, customer_id) VALUES (?1, ?2, ?3)", nativeQuery = true)
