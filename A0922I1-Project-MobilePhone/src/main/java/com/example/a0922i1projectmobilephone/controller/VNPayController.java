@@ -1,8 +1,8 @@
-package com.controller;
+package com.example.a0922i1projectmobilephone.controller;
 
-import com.Config.VNPayService;
-import com.dto.VNPayDTO;
-import com.dto.VNPayResponse;
+import com.example.a0922i1projectmobilephone.Config.VNPayService;
+import com.example.a0922i1projectmobilephone.dto.VNPayDTO;
+import com.example.a0922i1projectmobilephone.dto.VNPayResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

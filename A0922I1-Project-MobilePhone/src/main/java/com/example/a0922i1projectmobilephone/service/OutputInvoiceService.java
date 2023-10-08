@@ -1,8 +1,9 @@
 package com.example.a0922i1projectmobilephone.service;
+import com.example.a0922i1projectmobilephone.entity.OutputInvoice;
 
-import com.example.a0922i1projectmobilephone.dto.OutputInvoiceDTO;
+import java.util.Optional;
 
 
-public interface InvoiceService {
-    void payment(OutputInvoiceDTO request);
+public interface OutputInvoiceService {
+    void payment(OutputInvoice request);
 }

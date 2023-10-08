@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class A0922I1ProjectMobilePhoneApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(A0922I1ProjectMobilePhoneApplication.class, args);
     }

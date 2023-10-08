@@ -13,7 +13,7 @@ import java.util.Set;
 @Setter
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
     @Column(name = "name_product")
     private String productName;

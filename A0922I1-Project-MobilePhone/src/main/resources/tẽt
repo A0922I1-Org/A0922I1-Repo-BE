@@ -1,0 +1,76 @@
+package com.example.a0922i1projectmobilephone.service.impl;
+
+
+import com.example.a0922i1projectmobilephone.dto.CustomerDTO;
+import com.example.a0922i1projectmobilephone.dto.OutputInvoiceDTO;
+import com.example.a0922i1projectmobilephone.dto.OutputInvoiceDetailDTO;
+import com.example.a0922i1projectmobilephone.dto.ProductDTO;
+import com.example.a0922i1projectmobilephone.entity.Customer;
+import com.example.a0922i1projectmobilephone.entity.OutputInvoice;
+import com.example.a0922i1projectmobilephone.entity.OutputInvoiceDetail;
+import com.example.a0922i1projectmobilephone.entity.Product;
+import com.example.a0922i1projectmobilephone.repository.CustomerRepository;
+import com.example.a0922i1projectmobilephone.repository.OutputInvoiceDetailRepository;
+import com.example.a0922i1projectmobilephone.repository.OutputInvoiceRepository;
+import com.example.a0922i1projectmobilephone.repository.ProductRepository;
+import com.example.a0922i1projectmobilephone.service.OutputInvoiceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
+
+@Service
+public class OutputInvoiceServiceImpl implements OutputInvoiceService {
+    @Autowired
+    private OutputInvoiceRepository invoiceRepository;
+    @Autowired
+    private OutputInvoiceDetailRepository invoiceDetailRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
+    @Autowired
+    private ProductRepository productRepository;
+
+
+    @Override
+    @Transactional
+    public void payment(OutputInvoiceDTO request) {
+        OutputInvoice outputInvoice = new OutputInvoice();
+        Customer customer = request.getCustomer();
+
+        if (customer.getCustomerId() == null) {
+            customerRepository.saveCustomer(customer.getCustomerName(), customer.getCustomerPhone(), customer.getCustomerAddress(), customer.getCustomerEmail());
+        }
+
+        Optional<Customer> existingCustomerOptional = customerRepository.findCustomerById(customer.getCustomerId());
+
+        if (existingCustomerOptional.isPresent()) {
+            Customer existingCustomer = existingCustomerOptional.get();
+            outputInvoice.setCustomer(existingCustomer);
+        }
+
+        outputInvoice.setPaymentMethod(request.getPaymentMethod());
+        outputInvoice.setTotalPrice(0.0);
+
+
+        invoiceRepository.saveOutputInvoice(outputInvoice.getPaymentMethod(), outputInvoice.getTotalPrice(), customer.getCustomerId());
+        outputInvoice.setOutputInvoiceId(invoiceRepository.getLastOutputInvoiceId());
+        if (request.getInvoiceDetail() != null) {
+            for (OutputInvoiceDetailDTO outputInvoiceDetailDTO : request.getInvoiceDetail()) {
+                ProductDTO productDTO = outputInvoiceDetailDTO.getProductDTO();
+
+                productDTO = productRepository.findProductById(productDTO.getProductId());
+
+                outputInvoiceDetailDTO.setProductDTO(productDTO);
+                outputInvoiceDetailDTO.setQuantity(outputInvoiceDetailDTO.getQuantity());
+                outputInvoiceDetailDTO.setSubTotal(productDTO.getCostPrice() * outputInvoiceDetailDTO.getQuantity());
+                outputInvoiceDetailDTO.setOutputInvoice(outputInvoice);
+
+                invoiceDetailRepository.saveOutputInvoiceDetail(outputInvoiceDetailDTO.getQuantity(), outputInvoiceDetailDTO.getSubTotal(), outputInvoiceDetailDTO.getOutputInvoice().getOutputInvoiceId(), productDTO.getProductId());
+                outputInvoice.setTotalPrice(outputInvoice.getTotalPrice() + outputInvoiceDetailDTO.getSubTotal());
+            }
+        }
+        invoiceRepository.updateTotalPrice(outputInvoice.getOutputInvoiceId(), outputInvoice.getTotalPrice());
+    }
+
+}

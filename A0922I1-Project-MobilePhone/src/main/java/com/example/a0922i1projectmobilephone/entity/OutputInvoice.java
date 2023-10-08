@@ -17,7 +17,7 @@ import java.util.Set;
 @Setter
 public class OutputInvoice {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer outputInvoiceId;
     @Column(name = "payment_method")
     private String paymentMethod;
