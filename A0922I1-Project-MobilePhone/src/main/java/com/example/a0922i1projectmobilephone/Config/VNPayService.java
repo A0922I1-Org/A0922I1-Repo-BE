@@ -1,4 +1,4 @@
-package com.example.a0922i1projectmobilephone.Config;
+package com.Config;
 
 import org.springframework.stereotype.Service;
 

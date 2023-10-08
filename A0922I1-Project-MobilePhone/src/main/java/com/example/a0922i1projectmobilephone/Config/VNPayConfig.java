@@ -1,7 +1,6 @@
-package com.example.a0922i1projectmobilephone.Config;
+package com.Config;
 
 import org.springframework.stereotype.Component;
-
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
