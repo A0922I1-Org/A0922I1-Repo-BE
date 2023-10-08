@@ -25,4 +25,6 @@ public interface IRepositoryProduct extends JpaRepository<Product, Integer> {
                               @Param("search") String search,
                               @Param("storage") String storage,
                               @Param("isAll") int isAll);
+    @Query(value = "select * from product  where product_id = ?1", nativeQuery = true)
+    Product findById(int id);
 }

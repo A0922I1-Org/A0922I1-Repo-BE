@@ -14,6 +14,11 @@ public class ProductService implements IProductService {
     private IRepositoryProduct iRepositoryProduct;
 
     @Override
+    public Product findById(int id) {
+        return iRepositoryProduct.findById(id);
+    }
+
+    @Override
     public Page<Product> listProduct(int page, String option, String search, String storage) {
         int isAll = 0;
         if (StringUtils.isEmpty(option) && StringUtils.isEmpty(storage)){

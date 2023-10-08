@@ -6,21 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api")
+@CrossOrigin("*")
 public class ProductController {
     @Autowired
     private IProductService iProductService;
-    @RequestMapping(path = "/api/products", method = RequestMethod.GET)
+    @RequestMapping(path = "/products", method = RequestMethod.GET)
     public ResponseEntity<?> getAllProduct(@RequestParam(defaultValue = "0") int page,
                                            @RequestParam(required = false) String option,
                                            @RequestParam(required = false) String search,
                                            @RequestParam(required = false) String storage){
     Page<Product> products = iProductService.listProduct(page, option, search, storage);
     return new  ResponseEntity<> (products, HttpStatus.OK);
+    }
+    @RequestMapping(path = "/product/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> findByIdProduct(@PathVariable(required = false) int id){
+        Product product = iProductService.findById(id);
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 }

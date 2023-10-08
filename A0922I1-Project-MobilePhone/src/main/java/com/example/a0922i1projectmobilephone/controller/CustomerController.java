@@ -9,20 +9,21 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api")
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class CustomerController {
    @Autowired
     private ICustomerService customerService;
-    @RequestMapping(path = "/api/customers", method = RequestMethod.GET)
-    public ResponseEntity<?> searchCustomer(@RequestParam(defaultValue = "0") int page,
+    @RequestMapping(path = "/customers", method = RequestMethod.GET)
+    public ResponseEntity<?> getAllCustomer(@RequestParam(defaultValue = "0") int page,
                                             @RequestParam(required = false) String option,
                                             @RequestParam(required = false) String search,
                                             @RequestParam(required = false) String numberPhone){
         Page<Customer> customers = customerService.listCustomers(page, option, search, numberPhone);
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
-    @RequestMapping(path = "/api/customers/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> findByIdCustomer(@RequestParam(required = false) int id){
+    @RequestMapping(path = "/customer/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> findByIdCustomer(@PathVariable (required = false) int id){
         Customer customer = customerService.findById(id);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
