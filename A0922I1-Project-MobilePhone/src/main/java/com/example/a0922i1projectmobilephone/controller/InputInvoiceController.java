@@ -1,8 +1,7 @@
 package com.example.a0922i1projectmobilephone.controller;
-import com.example.a0922i1projectmobilephone.dto.InputInvoiceDetailListDto;
+import com.example.a0922i1projectmobilephone.dto.InputInvoiceDto;
 import com.example.a0922i1projectmobilephone.dto.SupplierIdDto;
 import com.example.a0922i1projectmobilephone.entity.InputInvoiceDetail;
-import com.example.a0922i1projectmobilephone.entity.Supplier;
 import com.example.a0922i1projectmobilephone.service.InputInvoiceDetailService;
 import com.example.a0922i1projectmobilephone.service.InputInvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,17 +43,18 @@ public class InputInvoiceController {
     }
 
     @PostMapping("/new-input-invoice")
-    public ResponseEntity<SupplierIdDto> addNewInputInvoice(
-            @RequestBody SupplierIdDto supplier
+    public ResponseEntity<HttpStatus> addNewInputInvoice(
+            @RequestBody InputInvoiceDto dto
             ){
         System.out.println("Đã vào method");
-        System.out.println(supplier.getSupplierId());
 
-        this.inputInvoiceService.addNewInputInvoice(supplier);
-        return new ResponseEntity<>(supplier ,HttpStatus.CREATED);
+        this.inputInvoiceService.addNewInputInvoice(dto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
-    public ResponseEntity<> addNewInputDetail(
-            @RequestBody
-    )
+//    @PostMapping("/new-input-invoice-detail")
+//    public ResponseEntity<HttpStatus> addNewInputDetail(
+//            @RequestBody ProductInputDto productInputDto
+//            ){
+//
+//    }
 }

@@ -24,7 +24,5 @@ public interface InputInvoiceDetailRepository extends JpaRepository<InputInvoice
     Page<InputInvoiceDetail> getInputInvoiceDetail(Pageable pageable);
 
 
-    @Query(value = "insert into supplier(supplier_address,supplier_email,supplier_name,supplier_phone) " +
-                    "VALUES(?1, ?2, ?3, ?4)", nativeQuery = true)
-    void addNewSupplier(String name, String phone, String mail, String address);
+
 }
