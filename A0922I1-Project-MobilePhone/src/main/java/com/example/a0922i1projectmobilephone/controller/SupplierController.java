@@ -21,6 +21,26 @@ public class SupplierController {
         return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
+    @GetMapping("/sort/name")
+    public ResponseEntity<Page<Supplier>> sortByNameSupplier(
+            @RequestParam(defaultValue = "1") int pageNo,
+            @RequestParam(defaultValue = "8") int pageSize,
+            @RequestParam int flag) {
+        Page<Supplier> page = supplierService.sortBySupplierName(flag,pageNo, pageSize);
+        return new ResponseEntity<>(page, HttpStatus.OK);
+    }
+
+    @GetMapping("/sort/id")
+    public ResponseEntity<Page<Supplier>> sortByIdSupplier(
+            @RequestParam(defaultValue = "1") int pageNo,
+            @RequestParam(defaultValue = "8") int pageSize,
+            @RequestParam int flag) {
+        Page<Supplier> page = supplierService.sortBySupplierId(flag,pageNo, pageSize);
+        return new ResponseEntity<>(page, HttpStatus.OK);
+    }
+
+
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteSupplier(@PathVariable Integer id) {
         if (!supplierService.existsById(id)) {

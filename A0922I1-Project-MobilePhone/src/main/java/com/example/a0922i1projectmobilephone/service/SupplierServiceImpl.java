@@ -11,16 +11,15 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class SupplierServiceImpl implements ISupplierService{
+public class SupplierServiceImpl implements ISupplierService {
     @Autowired
     private ISupplierRepository supplierRepository;
+
     @Override
     public Page<Supplier> findAll(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         return supplierRepository.findAllSupplier(pageable);
     }
-
-
 
 
     @Override
@@ -38,6 +37,25 @@ public class SupplierServiceImpl implements ISupplierService{
     public boolean existsById(int id) {
         return supplierRepository.existsById(id);
     }
+
+    @Override
+    public Page<Supplier> sortBySupplierName(int flag, int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        if (flag % 2 == 0) {
+            return supplierRepository.sortBySupplierNameAscend(pageable);
+        }else {
+            return supplierRepository.sortBySupplierNameReduce(pageable);
+        }
+    }
+
+    @Override
+    public Page<Supplier> sortBySupplierId(int flag, int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        if (flag % 2 == 0) {
+            return supplierRepository.sortBySupplierIdAscend(pageable);
+        }else {
+            return supplierRepository.sortBySupplierIdReduce(pageable);
+        }    }
 
     @Override
     public Page<Supplier> searchSuppliers(String name, String address, String phone, int pageNo, int pageSize) {

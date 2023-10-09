@@ -11,5 +11,7 @@ public interface ISupplierService {
     boolean deleteById(int id);
     boolean existsById(int id);
 
+    Page<Supplier> sortBySupplierName(int flag, int pageNo, int pageSize);
+    Page<Supplier> sortBySupplierId(int flag, int pageNo, int pageSize);
     Page<Supplier> searchSuppliers(String name, String address, String phone, int pageNo, int pageSize);
 }
