@@ -1,27 +1,27 @@
-package com.example.a0922i1projectmobilephone.service;
+package com.example.a0922i1projectmobilephone.service.input_invoice;
 
 import com.example.a0922i1projectmobilephone.dto.InputInvoiceDto;
-import com.example.a0922i1projectmobilephone.dto.SupplierIdDto;
-import com.example.a0922i1projectmobilephone.entity.Supplier;
 import com.example.a0922i1projectmobilephone.repository.InputInvoiceDetailRepoImpl;
 import com.example.a0922i1projectmobilephone.repository.InputInvoiceRepoImpl;
-import com.example.a0922i1projectmobilephone.repository.InputInvoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import java.util.Date;
-
 @Service
 public class InputInvoiceServiceImpl implements InputInvoiceService {
     @Autowired
     private InputInvoiceRepoImpl inputInvoiceRepoImpl;
-    @Autowired
-    private InputInvoiceDetailRepoImpl inputInvoiceDetailRepo;
+
+   @Autowired
+   private InputInvoiceDetailService inputInvoiceDetailService;
     @Override
     public int addNewInputInvoice(InputInvoiceDto dto) {
         Date currentDate = new Date();
-        int inputInvoiceId = this.inputInvoiceRepoImpl.addNewInputInvoice(currentDate, dto.getSupplierIdDto().getSupplierId());
+        int inputInvoiceId = this.inputInvoiceRepoImpl.addNewInputInvoice(currentDate, dto.getSupplier().getSupplierId());
+        if (inputInvoiceId != 0){
+            inputInvoiceDetailService.addInputInvoiceDetail(dto.getProductInputDto(), inputInvoiceId);
+        }
         return 0;
     }
 }

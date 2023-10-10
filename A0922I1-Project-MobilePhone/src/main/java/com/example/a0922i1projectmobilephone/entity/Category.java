@@ -20,7 +20,6 @@ public class Category {
     private Integer categoryId;
     @Column(name = "category_name")
     private String categoryName;
-    @JsonBackReference
     @OneToMany(mappedBy = "category" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JsonBackReference
     private Set<Product> product;

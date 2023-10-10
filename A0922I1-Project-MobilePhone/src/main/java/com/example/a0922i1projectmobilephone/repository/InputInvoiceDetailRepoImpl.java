@@ -62,16 +62,16 @@ public class InputInvoiceDetailRepoImpl {
         return page;
     }
 
-//    public void addInputInvoiceDetail(int inputInvoiceId){
-//        em.createNativeQuery("INSERT INTO mobilephone.input_invoice_detail(amount, input_invoice_cost, input_invoice_id, product_id)" +
-//                " VALUES (?1, ?2, ?3, ?4)")
-//                .setParameter()
-//                .setParameter()
-//                .setParameter(3, inputInvoiceId)
-//                .setParameter()
-//    }
-//    public int addInputInvoiceDetail(ProductInputDto dto, Integer inputInvoiceId){
-//        em.createNativeQuery("INSERT INTO input_invoice_detail()")
-//    }
+    public int addInputInvoiceDetail(ProductInputDto dto, int inputInvoiceId){
+        em.createNativeQuery("insert into input_invoice_detail(amount, input_invoice_cost,input_invoice_id,product_id)" +
+                "values (?1, ?2, ?3, ?4)")
+                .setParameter(1, dto.getQuantity())
+                .setParameter(2, dto.getCostPrice())
+                .setParameter(3, inputInvoiceId)
+                .setParameter(4, dto.getProductId())
+                .executeUpdate();
+        return 0;
+    }
+
 }
 

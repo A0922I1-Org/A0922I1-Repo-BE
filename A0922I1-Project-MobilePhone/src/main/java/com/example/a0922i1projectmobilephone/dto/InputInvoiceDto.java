@@ -1,12 +1,15 @@
 package com.example.a0922i1projectmobilephone.dto;
 
-public class InputInvoiceDto {
-   private ProductInputDto[] productInputDto;
-   private SupplierIdDto supplierIdDto;
+import com.example.a0922i1projectmobilephone.entity.Supplier;
 
-    public InputInvoiceDto(ProductInputDto[] productInputDto, SupplierIdDto supplierIdDto) {
+public class InputInvoiceDto {
+
+   private ProductInputDto[] productInputDto;
+    private SupplierIdDto supplier;
+
+    public InputInvoiceDto(ProductInputDto[] productInputDto, SupplierIdDto supplier) {
         this.productInputDto = productInputDto;
-        this.supplierIdDto = supplierIdDto;
+        this.supplier = supplier;
     }
 
     public InputInvoiceDto() {
@@ -20,11 +23,11 @@ public class InputInvoiceDto {
         this.productInputDto = productInputDto;
     }
 
-    public SupplierIdDto getSupplierIdDto() {
-        return supplierIdDto;
+    public SupplierIdDto getSupplier() {
+        return supplier;
     }
 
-    public void setSupplierIdDto(SupplierIdDto supplierIdDto) {
-        this.supplierIdDto = supplierIdDto;
+    public void setSupplier(SupplierIdDto supplier) {
+        this.supplier = supplier;
     }
 }

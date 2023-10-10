@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Setter
 public class InputInvoiceDetail {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer inputInvoiceDetailId;
     @Column(name = "input_invoice_cost")
     @JsonProperty("inputInvoiceCost")

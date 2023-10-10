@@ -16,18 +16,24 @@ public class InputInvoiceRepoImpl {
 
 
     public int addNewInputInvoice(Date currentDate, Integer supplierId) {
+       boolean isCreate = false;
         if (
                 em.createNativeQuery("INSERT INTO input_invoice(input_invoice_date, supplier_id) VALUES(?1, ?2)")
                         .setParameter(1, currentDate)
                         .setParameter(2, supplierId)
                         .executeUpdate() > 0
         ) {
+            isCreate = true;
+        }
+        if (isCreate){
+
             return getLastInsert();
         }
         return 0;
     }
 
     int getLastInsert() {
-        return em.createNativeQuery("SELECT MAX(input_invoice_id) from input_invoice").getFirstResult();
+        return (int) em.createNativeQuery("SELECT MAX(input_invoice_id) from input_invoice").getSingleResult();
+
     }
 }
