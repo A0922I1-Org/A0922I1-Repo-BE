@@ -24,10 +24,6 @@ public class HomePageController {
     @Autowired
     private HomePageService homePageService;
 
-    //    @GetMapping
-//    public Page<Product> getAllProducts(@PageableDefault(value = 3, sort = "productName", direction = Sort.Direction.ASC) Pageable pageable) {
-//        return homePageService.showAll(pageable);
-//    }
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = homePageService.showAll();

@@ -16,11 +16,6 @@ public class ProductServiceImpl implements IProductService {
     private IProductRepository productRepository;
 
     @Override
-    public Page<Product> findAllProducts(Pageable pageable) {
-        return productRepository.findAllProducts(pageable);
-    }
-
-    @Override
     public Product findProductById(Integer productId) {
         return productRepository.findProductById(productId);
     }
@@ -32,7 +27,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Page<Product> searchProducts(String brandName, String sellingPrice, String productName, Pageable pageable) {
+    public Page<Product> getProductList(String brandName, String sellingPrice, String productName, Pageable pageable) {
         Double minPrice= null;
         Double maxPrice= null;
         if (Objects.equals(sellingPrice, "")) {

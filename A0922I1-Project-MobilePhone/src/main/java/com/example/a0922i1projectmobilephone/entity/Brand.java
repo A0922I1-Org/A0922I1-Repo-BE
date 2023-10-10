@@ -22,6 +22,5 @@ public class Brand {
     private String brandName;
     @JsonBackReference
     @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonBackReference
     private Set<Product> product;
 }

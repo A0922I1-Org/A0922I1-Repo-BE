@@ -8,13 +8,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import javax.transaction.Transactional;
 
 @Repository
 public interface IProductRepository extends JpaRepository<Product, Integer> {
-    @Query(value = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id ORDER BY p.product_id ASC",
-            countQuery = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id ORDER BY p.product_id ASC",
+    @Query(value = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id",
+            countQuery = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id",
             nativeQuery = true)
     Page<Product> findAllProducts(Pageable pageable);
 
@@ -32,15 +31,13 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
             "WHERE b.brand_name = :brandName " +
             "AND p.selling_price_product >= :minPrice " +
             "AND p.selling_price_product <= :maxPrice " +
-            "AND p.name_product LIKE CONCAT('%', :productName, '%') " +
-            "ORDER BY p.product_id ASC",
+            "AND p.name_product LIKE CONCAT('%', :productName, '%')",
             countQuery = "SELECT p.* FROM Product p " +
                     "JOIN Brand b ON p.brand_id = b.brand_id " +
                     "WHERE b.brand_name = :brandName " +
                     "AND p.selling_price_product >= :minPrice " +
                     "AND p.selling_price_product <= :maxPrice " +
-                    "AND p.name_product LIKE CONCAT('%', :productName, '%') " +
-                    "ORDER BY p.product_id ASC",
+                    "AND p.name_product LIKE CONCAT('%', :productName, '%')",
             nativeQuery = true)
     Page<Product> searchProducts(@Param("brandName") String brandName,
                                  @Param("minPrice") Double minPrice,
@@ -50,49 +47,41 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
 
     @Query(value = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id " +
             "WHERE b.brand_name = :brandName " +
-            "AND p.name_product LIKE CONCAT('%', :productName, '%') " +
-            "ORDER BY p.product_id ASC",
+            "AND p.name_product LIKE CONCAT('%', :productName, '%')",
             countQuery = "SELECT p.* FROM Product p " +
                     "JOIN Brand b ON p.brand_id = b.brand_id " +
                     "WHERE b.brand_name = :brandName " +
-                    "AND p.name_product LIKE CONCAT('%', :productName, '%') " +
-                    "ORDER BY p.product_id ASC",
+                    "AND p.name_product LIKE CONCAT('%', :productName, '%')",
             nativeQuery = true)
     Page<Product> searchProducts(@Param("brandName") String brandName,
                                  @Param("productName") String productName,
                                  Pageable pageable);
 
     @Query(value = "SELECT p.* FROM Product p " +
-            "WHERE p.name_product LIKE CONCAT('%', :productName, '%') " +
-            "ORDER BY p.product_id ASC",
+            "WHERE p.name_product LIKE CONCAT('%', :productName, '%')",
             countQuery = "SELECT p.* FROM Product p " +
-                    "WHERE p.name_product LIKE CONCAT('%', :productName, '%') " +
-                    "ORDER BY p.product_id ASC",
+                    "WHERE p.name_product LIKE CONCAT('%', :productName, '%')",
             nativeQuery = true)
     Page<Product> searchProductsByName(@Param("productName") String productName,
-                                 Pageable pageable);
+                                       Pageable pageable);
 
     @Query(value = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id " +
-            "WHERE b.brand_name = :brandName " +
-            "ORDER BY p.product_id ASC",
+            "WHERE b.brand_name = :brandName",
             countQuery = "SELECT p.* FROM Product p " +
                     "JOIN Brand b ON p.brand_id = b.brand_id " +
-                    "WHERE b.brand_name = :brandName " +
-                    "ORDER BY p.product_id ASC",
+                    "WHERE b.brand_name = :brandName",
             nativeQuery = true)
     Page<Product> searchProductsByBrand(@Param("brandName") String brandName,
-                                 Pageable pageable);
+                                        Pageable pageable);
 
     @Query(value = "SELECT p.* FROM Product p " +
             "WHERE p.selling_price_product >= :minPrice " +
             "AND p.selling_price_product <= :maxPrice " +
-            "AND p.name_product LIKE CONCAT('%', :productName, '%') " +
-            "ORDER BY p.product_id ASC",
+            "AND p.name_product LIKE CONCAT('%', :productName, '%')",
             countQuery = "SELECT p.* FROM Product p " +
                     "WHERE p.selling_price_product >= :minPrice " +
                     "AND p.selling_price_product <= :maxPrice " +
-                    "AND p.name_product LIKE CONCAT('%', :productName, '%') " +
-                    "ORDER BY p.product_id ASC",
+                    "AND p.name_product LIKE CONCAT('%', :productName, '%')",
             nativeQuery = true)
     Page<Product> searchProducts(@Param("minPrice") Double minPrice,
                                  @Param("maxPrice") Double maxPrice,
@@ -101,12 +90,10 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
 
     @Query(value = "SELECT p.* FROM Product p " +
             "WHERE p.selling_price_product >= :minPrice " +
-            "AND p.selling_price_product <= :maxPrice " +
-            "ORDER BY p.product_id ASC",
+            "AND p.selling_price_product <= :maxPrice",
             countQuery = "SELECT p.* FROM Product p " +
                     "WHERE p.selling_price_product >= :minPrice " +
-                    "AND p.selling_price_product <= :maxPrice " +
-                    "ORDER BY p.product_id ASC",
+                    "AND p.selling_price_product <= :maxPrice",
             nativeQuery = true)
     Page<Product> searchProducts(@Param("minPrice") Double minPrice,
                                  @Param("maxPrice") Double maxPrice,
@@ -115,14 +102,12 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
     @Query(value = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id " +
             "WHERE b.brand_name = :brandName " +
             "AND p.selling_price_product >= :minPrice " +
-            "AND p.selling_price_product <= :maxPrice " +
-            "ORDER BY p.product_id ASC",
+            "AND p.selling_price_product <= :maxPrice",
             countQuery = "SELECT p.* FROM Product p " +
                     "JOIN Brand b ON p.brand_id = b.brand_id " +
                     "WHERE b.brand_name = :brandName " +
                     "AND p.selling_price_product >= :minPrice " +
-                    "AND p.selling_price_product <= :maxPrice " +
-                    "ORDER BY p.product_id ASC",
+                    "AND p.selling_price_product <= :maxPrice",
             nativeQuery = true)
     Page<Product> searchProducts(@Param("brandName") String brandName,
                                  @Param("minPrice") Double minPrice,
