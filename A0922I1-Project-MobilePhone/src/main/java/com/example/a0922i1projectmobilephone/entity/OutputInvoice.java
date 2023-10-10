@@ -6,6 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.Set;
 @Entity
 @AllArgsConstructor
@@ -20,6 +24,8 @@ public class OutputInvoice {
     private String paymentMethod;
     @Column(name = "total_price")
     private double totalPrice;
+    @Column(name = "date_output_invoice")
+    private LocalDateTime dateOutputInvoice;
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private Customer customer;
