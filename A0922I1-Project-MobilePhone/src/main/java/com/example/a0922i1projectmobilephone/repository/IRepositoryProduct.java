@@ -15,7 +15,7 @@ public interface IRepositoryProduct extends JpaRepository<Product, Integer> {
             "WHERE\n" +
             "    (\n" +
             "        (:option = 'name' AND name_product LIKE %:search%) OR\n" +
-            "        (:option = 'cost' AND cost_product  = :search) OR\n" +
+            "        (:option = 'price' AND cost_product  = :search) OR\n" +
             "        (:option = 'cpu' AND product_cpu LIKE %:search%)\n" +
             "    )\n" +
             "    OR :isAll = 1" +
