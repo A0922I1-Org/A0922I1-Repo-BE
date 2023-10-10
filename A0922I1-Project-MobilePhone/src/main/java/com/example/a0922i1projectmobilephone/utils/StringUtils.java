@@ -8,4 +8,13 @@ public class StringUtils {
         }
         return "".equals(str.trim());
     }
+    public static int stringToInt(String str) {
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
 }

@@ -8,7 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 
 @Service
 public class CustomerService implements ICustomerService {
@@ -28,8 +28,13 @@ public class CustomerService implements ICustomerService {
     @Override
     public Page<Customer> listCustomers(int page, String option, String search, String numberPhone) {
         int isAll = 0;
+
         if (StringUtils.isEmpty(option) && StringUtils.isEmpty(numberPhone) ) {
             isAll = 1;
+
+        }
+        if(StringUtils.isEmpty(numberPhone)){
+            numberPhone = null;
         }
         return iRepositoryCustomer.searchCustomer(Pageable.ofSize(8).withPage(page), option, search, numberPhone, isAll);
     }
