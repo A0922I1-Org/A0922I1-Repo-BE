@@ -10,10 +10,6 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements IUserService {
     final IUserRepository userRepository;
 
-    @Autowired
-    EmployeeServiceImpl employeeService;
-
-
     public UserServiceImpl(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -39,8 +35,18 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public boolean checkCurrentPassword(String username, String presentPassword) {
+        return userRepository.checkCurrentPassword(username, presentPassword);
+    }
+
+    @Override
     public User save(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public void changePassword(String username, String newPass) {
+        userRepository.changePassword(username,newPass);
     }
 
 }

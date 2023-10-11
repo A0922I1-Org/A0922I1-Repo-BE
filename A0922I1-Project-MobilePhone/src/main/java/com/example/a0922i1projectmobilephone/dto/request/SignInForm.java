@@ -5,9 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+
 
 public class SignInForm {
+    @NotBlank
     private String username;
+    @NotBlank
     private String password;
 
     public SignInForm() {

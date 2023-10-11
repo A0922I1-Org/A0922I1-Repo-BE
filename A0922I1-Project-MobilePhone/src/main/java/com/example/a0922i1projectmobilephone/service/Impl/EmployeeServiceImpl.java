@@ -21,4 +21,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
         return employeeRepository.findByNameEmployee(nameEmployee);
     }
 
+    @Override
+    public Employee findByUser_Username(String username) {
+        return employeeRepository.findByUser_Username(username);
+    }
+
 }

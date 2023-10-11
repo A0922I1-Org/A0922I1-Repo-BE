@@ -3,11 +3,13 @@ package com.example.a0922i1projectmobilephone.controller;
 
 import com.example.a0922i1projectmobilephone.dto.reponse.JwtResponse;
 import com.example.a0922i1projectmobilephone.dto.reponse.ReponseMessage;
+import com.example.a0922i1projectmobilephone.dto.request.ChangePassword;
 import com.example.a0922i1projectmobilephone.dto.request.SignInForm;
 import com.example.a0922i1projectmobilephone.dto.request.SignUpForm;
 import com.example.a0922i1projectmobilephone.entity.Employee;
 import com.example.a0922i1projectmobilephone.entity.Role;
 import com.example.a0922i1projectmobilephone.entity.RoleName;
+import com.example.a0922i1projectmobilephone.entity.User;
 import com.example.a0922i1projectmobilephone.security.jwt.JwtProvider;
 import com.example.a0922i1projectmobilephone.security.userprincal.UserPrinciple;
 import com.example.a0922i1projectmobilephone.service.Impl.EmployeeServiceImpl;
@@ -20,18 +22,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 @RequestMapping("/api/auth")
 @RestController
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class AuthController {
     @Autowired
     UserServiceImpl userService;
@@ -100,21 +103,66 @@ public class AuthController {
     }
 
 
-    @PostMapping ("/signIn")
+    @PostMapping("/signIn")
     public ResponseEntity<?> login(@RequestBody SignInForm signInForm) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = jwtProvider.createToken(authentication);
-        UserPrinciple UserPrinciple = (UserPrinciple) SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getPrincipal();
-        return ResponseEntity.ok(
-                new JwtResponse(
-                        token,
-                        UserPrinciple.getUsername(),
-                        UserPrinciple.getAuthorities()
-                )
-        );
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword()));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String token = jwtProvider.createToken(authentication);
+            UserPrinciple UserPrinciple = (UserPrinciple) SecurityContextHolder.getContext()
+                    .getAuthentication()
+                    .getPrincipal();
+            return ResponseEntity.ok(
+                    new JwtResponse(
+                            token,
+                            UserPrinciple.getUsername(),
+                            UserPrinciple.getAuthorities()
+                    )
+            );
+        } catch (AuthenticationException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Sai tên người dùng hoặc mật khẩu");
+        }
+    }
+
+
+    @PostMapping("/checkCurrentPassword")
+    public ResponseEntity<?> changePassword(@RequestBody ChangePassword changePassword) {
+        // Kiểm tra tài khoản có tồn tại hay không
+            User user = userService.findByUsername(changePassword.getUsername());
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Tài khoản không tồn tại");
+        }
+        if (BCrypt.checkpw(changePassword.getPresentPassword(), user.getPassword())) {
+            System.out.println("It matches");
+            String newPassword = passwordEncoder.encode(changePassword.getConfirmPassword());
+            user.setPassword(newPassword);
+            userService.save(user);
+            return new ResponseEntity<>(new ChangePassword(
+                    changePassword.getUsername(), "", ""), HttpStatus.OK);
+        } else {
+            System.out.println("It does not match");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Mật khẩu hiện tại không đúng");
+
+        }
+    }
+
+    @GetMapping("/checkExistingUsername")
+    public boolean checkExistingUsername(@RequestParam String username) {
+        return userService.existsByUsername(username);
+    }
+
+    @GetMapping("/checkExistingEmail")
+    public boolean checkExistingEmail(@RequestParam String email) {
+        return userService.existsByEmail(email);
+    }
+
+
+    @GetMapping("/inforEmployee")
+    public ResponseEntity<Employee> getEmployeeForLoggedInUser(@RequestParam String username) {
+        // Dựa vào username, truy vấn thông tin người dùng từ cơ sở dữ liệu
+        Employee employee = employeeService.findByUser_Username(username);
+        // Trả về thông tin người dùng
+        return ResponseEntity.ok(employee);
     }
 }
