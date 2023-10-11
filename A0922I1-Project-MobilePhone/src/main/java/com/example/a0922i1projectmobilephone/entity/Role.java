@@ -25,5 +25,4 @@ public class Role {
     @Enumerated(EnumType.STRING)
     @NaturalId
     private RoleName roleName;
-
 }

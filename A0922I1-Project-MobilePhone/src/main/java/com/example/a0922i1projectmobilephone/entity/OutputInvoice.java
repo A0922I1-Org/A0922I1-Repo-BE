@@ -19,6 +19,7 @@ public class OutputInvoice {
     private Integer outputInvoiceId;
     @Column(name = "payment_method")
     private String paymentMethod;
+
     @Column(name = "total_price")
     private double totalPrice;
 
