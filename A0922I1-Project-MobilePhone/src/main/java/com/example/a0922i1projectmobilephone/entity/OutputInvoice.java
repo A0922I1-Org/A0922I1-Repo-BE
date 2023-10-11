@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Time;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
 @Entity
@@ -26,7 +24,7 @@ public class OutputInvoice {
     private double totalPrice;
 
     @Column(name="date_output_invoice")
-    private LocalDateTime dateOutputInvoice;
+    private Date dateOutputInvoice;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
