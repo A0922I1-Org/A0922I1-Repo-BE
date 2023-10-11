@@ -6,20 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api/suppliers")
-=======
+import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 @RestController
-@RequestMapping("/supplier")
-@CrossOrigin("*")
->>>>>>> NghiaBH-create-update-Supplier
+@RequestMapping("/api/suppliers")
 public class SupplierController {
     @Autowired
     private ISupplierService supplierService;
