@@ -1,5 +1,6 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.example.a0922i1projectmobilephone.controller.dto.SupplierDtoCreateUpdate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.Set;
 @Setter
 public class Supplier {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer supplierId;
     @Column(name = "supplier_name")
     private String supplierName;
