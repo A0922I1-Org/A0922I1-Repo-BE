@@ -1,12 +1,10 @@
-package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.supplierRepository;
 
 import com.example.a0922i1projectmobilephone.entity.Supplier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
 public interface ISupplierRepository extends JpaRepository<Supplier, Integer> {
     @Query(value = "SELECT * FROM supplier", nativeQuery = true)
@@ -27,8 +25,6 @@ public interface ISupplierRepository extends JpaRepository<Supplier, Integer> {
             "AND (:address IS NULL OR s.supplier_address LIKE CONCAT('%', :address, '%')) " +
             "AND (:phone IS NULL OR s.supplier_phone LIKE CONCAT('%', :phone, '%'))",
             nativeQuery = true)
-    Page<Supplier> searchSuppliers(@Param("name") String name,
-                                   @Param("address") String address,
-                                   @Param("phone") String phone,
-                                   Pageable pageable);
+    Page<Supplier> searchSuppliers(String name, String address, String phone, Pageable pageable);
+
 }

@@ -1,7 +1,8 @@
-package com.example.a0922i1projectmobilephone.service;
+package com.example.a0922i1projectmobilephone.service.supplierService.Impl;
 
 import com.example.a0922i1projectmobilephone.entity.Supplier;
-import com.example.a0922i1projectmobilephone.repository.ISupplierRepository;
+import com.example.a0922i1projectmobilephone.repository.supplierRepository.ISupplierRepository;
+import com.example.a0922i1projectmobilephone.service.ISupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -67,4 +68,5 @@ public class SupplierServiceImpl implements ISupplierService {
             return supplierRepository.searchSuppliers(name, address, phone, pageable);
         }
     }
+
 }

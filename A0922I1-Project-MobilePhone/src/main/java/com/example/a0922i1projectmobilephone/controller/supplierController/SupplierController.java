@@ -1,4 +1,4 @@
-package com.example.a0922i1projectmobilephone.controller;
+package com.example.a0922i1projectmobilephone.controller.supplierController;
 
 import com.example.a0922i1projectmobilephone.entity.Supplier;
 import com.example.a0922i1projectmobilephone.service.ISupplierService;
@@ -29,6 +29,8 @@ public class SupplierController {
         Page<Supplier> page = supplierService.sortBySupplierName(flag,pageNo, pageSize);
         return new ResponseEntity<>(page, HttpStatus.OK);
     }
+
+
 
     @GetMapping("/sort/id")
     public ResponseEntity<Page<Supplier>> sortByIdSupplier(
