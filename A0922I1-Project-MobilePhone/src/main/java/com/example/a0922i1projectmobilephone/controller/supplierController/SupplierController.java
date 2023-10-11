@@ -12,8 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
-@RequestMapping("/supplier")
+@RestController
+@RequestMapping("/api/supplier")
 @CrossOrigin("*")
 public class SupplierController {
     @Autowired
