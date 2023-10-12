@@ -1,9 +1,9 @@
 package com.example.a0922i1projectmobilephone.service.input_invoice;
 
-import com.example.a0922i1projectmobilephone.dto.ProductInputDto;
+import com.example.a0922i1projectmobilephone.dto.input_invoice.ProductInputDto;
 import com.example.a0922i1projectmobilephone.entity.InputInvoiceDetail;
-import com.example.a0922i1projectmobilephone.repository.InputInvoiceDetailRepoImpl;
-import com.example.a0922i1projectmobilephone.repository.InputInvoiceDetailRepository;
+import com.example.a0922i1projectmobilephone.repository.input_invoice.InputInvoiceDetailRepoImpl;
+import com.example.a0922i1projectmobilephone.repository.input_invoice.InputInvoiceDetailRepository;
 import com.example.a0922i1projectmobilephone.repository.manh_test.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -69,7 +69,7 @@ public class InputInvoiceDetailServiceImpl implements InputInvoiceDetailService 
         System.out.println("InputInvoice ID: " + inputInvoiceId);
 
         for (ProductInputDto p: dto){
-            if (p.getProductId() == 0){
+            if (p.getProductId() == null){
                 int productId = productRepo.addNewProduct(p);
                 System.out.println(productId);
                p.setProductId(productId);

@@ -1,7 +1,6 @@
 package com.example.a0922i1projectmobilephone.service.input_invoice;
 
-import com.example.a0922i1projectmobilephone.dto.InputInvoiceDto;
-import com.example.a0922i1projectmobilephone.dto.ProductInputDto;
+import com.example.a0922i1projectmobilephone.dto.input_invoice.ProductInputDto;
 import com.example.a0922i1projectmobilephone.entity.InputInvoiceDetail;
 import org.springframework.data.domain.Page;
 

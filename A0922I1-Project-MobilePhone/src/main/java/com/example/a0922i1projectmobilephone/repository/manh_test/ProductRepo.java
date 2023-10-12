@@ -1,6 +1,6 @@
 package com.example.a0922i1projectmobilephone.repository.manh_test;
 
-import com.example.a0922i1projectmobilephone.dto.ProductInputDto;
+import com.example.a0922i1projectmobilephone.dto.input_invoice.ProductInputDto;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

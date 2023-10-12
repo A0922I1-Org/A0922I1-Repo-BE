@@ -1,4 +1,4 @@
-package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.input_invoice;
 
 import com.example.a0922i1projectmobilephone.entity.InputInvoice;
 import org.springframework.data.jpa.repository.JpaRepository;

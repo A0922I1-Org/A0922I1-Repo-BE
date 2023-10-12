@@ -1,8 +1,7 @@
 package com.example.a0922i1projectmobilephone.service.input_invoice;
 
-import com.example.a0922i1projectmobilephone.dto.InputInvoiceDto;
-import com.example.a0922i1projectmobilephone.repository.InputInvoiceDetailRepoImpl;
-import com.example.a0922i1projectmobilephone.repository.InputInvoiceRepoImpl;
+import com.example.a0922i1projectmobilephone.dto.input_invoice.InputInvoiceDto;
+import com.example.a0922i1projectmobilephone.repository.input_invoice.InputInvoiceRepoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

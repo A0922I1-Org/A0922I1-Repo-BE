@@ -1,6 +1,5 @@
-package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.input_invoice;
 
-import com.example.a0922i1projectmobilephone.dto.InputInvoiceDetailListDto;
 import com.example.a0922i1projectmobilephone.entity.InputInvoiceDetail;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

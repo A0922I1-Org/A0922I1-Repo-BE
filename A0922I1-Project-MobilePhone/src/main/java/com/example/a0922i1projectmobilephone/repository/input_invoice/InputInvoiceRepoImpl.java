@@ -1,4 +1,4 @@
-package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.input_invoice;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

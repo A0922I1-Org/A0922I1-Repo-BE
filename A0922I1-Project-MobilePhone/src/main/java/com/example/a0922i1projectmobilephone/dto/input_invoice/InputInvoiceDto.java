@@ -1,6 +1,4 @@
-package com.example.a0922i1projectmobilephone.dto;
-
-import com.example.a0922i1projectmobilephone.entity.Supplier;
+package com.example.a0922i1projectmobilephone.dto.input_invoice;
 
 public class InputInvoiceDto {
 
