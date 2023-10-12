@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 test hdhdfdbzsfuyhd
 
+=======
+123455
+>>>>>>> DuyNN
