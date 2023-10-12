@@ -3,9 +3,6 @@ package com.example.a0922i1projectmobilephone.service;
 import com.example.a0922i1projectmobilephone.entity.ManagerPurchaseHistory;
 import org.springframework.data.domain.Page;
 
-
-import java.util.List;
-
 public interface Output_invoiceService {
     Page<ManagerPurchaseHistory> getAll(int pageNo, int pageSize);
     Page<ManagerPurchaseHistory> sortByTotalPrice(int pageNo, int pageSize);

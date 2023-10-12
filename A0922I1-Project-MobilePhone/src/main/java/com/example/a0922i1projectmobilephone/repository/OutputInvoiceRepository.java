@@ -12,12 +12,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface OutputInvoiceRepository extends JpaRepository<OutputInvoice, Integer> {
-        @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.product_name ) SEPARATOR ', ') AS productName\n" +
-                "FROM output_invoice AS o\n" +
-                "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
-                "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
-                "JOIN product AS p ON p.product_id = od.product_id\n" +
-                "GROUP BY o.output_invoice_id ", nativeQuery = true)
+    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.product_name ) SEPARATOR ', ') AS productName\n" +
+            "FROM output_invoice AS o\n" +
+            "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
+            "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
+            "JOIN product AS p ON p.product_id = od.product_id\n" +
+            "GROUP BY o.output_invoice_id ", nativeQuery = true)
     Page<ManagerPurchaseHistory> getAll(Pageable pageable);
 
 
