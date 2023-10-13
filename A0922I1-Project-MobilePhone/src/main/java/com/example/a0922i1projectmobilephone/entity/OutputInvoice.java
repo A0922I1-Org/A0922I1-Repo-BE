@@ -21,8 +21,10 @@ public class OutputInvoice {
     private Integer outputInvoiceId;
     @Column(name = "payment_method")
     private String paymentMethod;
+
     @Column(name = "total_price")
     private double totalPrice;
+  
     @Column(name="output_invoice_day")
     private Date dayOutput;
     @ManyToOne

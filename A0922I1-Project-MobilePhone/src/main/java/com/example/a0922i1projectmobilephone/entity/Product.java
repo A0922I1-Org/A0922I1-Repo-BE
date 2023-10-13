@@ -15,23 +15,27 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer productId;
-    @Column(name = "product_name")
+    @Column(name = "name_product")
     private String productName;
-    @Column(name = "cost")
-    private Integer cost;
-    @Column(name = "screen_size")
+    @Column(name = "cost_product")
+    private Integer costPrice;
+    @Column(name = "selling_price_product")
+    private Integer sellingPrice;
+    @Column(name = "quantity_product")
+    private Integer quantity ;
+    @Column(name = "screen_size_product")
     private String screenSize;
-    @Column(name = "font_camera")
-    private String fontCamera;
-    @Column(name = "back_camera")
+    @Column(name = "front_camera_product")
+    private String frontCamera;
+    @Column(name = "back_camera_product")
     private String backCamera;
-    @Column(name = "product_cpu")
+    @Column(name = "product_cpu_product")
     private String productCpu;
-    @Column(name = "image_url")
+    @Column(name = "image_url_product")
     private String imageUrl;
-    @Column(name = "product_storage")
+    @Column(name = "product_storage_product")
     private String productStorage;
-    @Column(name = "description")
+    @Column(name = "description_product")
     private String description;
     @OneToMany(mappedBy = "product" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JsonBackReference
