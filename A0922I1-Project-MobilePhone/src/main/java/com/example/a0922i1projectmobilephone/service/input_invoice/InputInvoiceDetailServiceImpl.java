@@ -26,8 +26,7 @@ public class InputInvoiceDetailServiceImpl implements InputInvoiceDetailService 
 
     @Override
     public Page<InputInvoiceDetail> getInputInvoiceDetail(int pageNo, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNo, pageSize);
-        return inputInvoiceDetailRepository.getInputInvoiceDetail(pageable);
+        return inputInvoiceDetailRepository.getInputInvoiceDetail(Pageable.ofSize(pageSize).withPage(pageNo));
     }
 
 

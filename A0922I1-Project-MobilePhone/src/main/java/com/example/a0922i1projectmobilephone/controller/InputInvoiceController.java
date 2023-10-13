@@ -29,10 +29,10 @@ public class InputInvoiceController {
 
     @GetMapping("/list")
     public ResponseEntity<Page<InputInvoiceDetail>> getAllInputInvoiceDetail(
-            @RequestParam(defaultValue = "1") int pageNo,
-            @RequestParam(defaultValue = "10") int pageSize
+            @RequestParam(defaultValue = "0") int pageNo,
+            @RequestParam(defaultValue = "8") int pageSize
     ){
-        Page<InputInvoiceDetail> inputInvoiceDetails = this.inputInvoiceDetailService.getInputInvoiceDetail(pageNo-1, pageSize);
+        Page<InputInvoiceDetail> inputInvoiceDetails = this.inputInvoiceDetailService.getInputInvoiceDetail(pageNo, pageSize);
         return new ResponseEntity<>(inputInvoiceDetails, HttpStatus.OK);
     }
     @GetMapping("/search")

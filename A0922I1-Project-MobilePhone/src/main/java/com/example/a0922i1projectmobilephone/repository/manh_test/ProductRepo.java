@@ -47,12 +47,12 @@ public int addNewProduct(ProductInputDto product){
 
    public int adjustQuantityAndCost(ProductInputDto dto){
         return em.createNativeQuery("update product" +
-        " set cost_product = (cost_product * quantity_product + ?1 )/(quantity_product + ?2), " +
-                "quantity_product = quantity_product + ?2 " +
-                        "where product_id = ?3")
+        " set cost_product = (cost_product * quantity_product + ?1 * ?2 )/(quantity_product + ?3), quantity_product = (quantity_product + ?4)  where product_id = ?5")
                 .setParameter(1, dto.getCostPrice())
                 .setParameter(2, dto.getQuantity())
-                .setParameter(3, dto.getProductId())
+                .setParameter(3, dto.getQuantity())
+                .setParameter(4, dto.getQuantity())
+                .setParameter(5, dto.getProductId())
                 .executeUpdate();
     }
 }
