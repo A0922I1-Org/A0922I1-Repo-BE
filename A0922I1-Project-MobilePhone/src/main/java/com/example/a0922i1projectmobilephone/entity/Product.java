@@ -1,10 +1,13 @@
 package com.example.a0922i1projectmobilephone.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +25,7 @@ public class Product {
     @Column(name = "selling_price_product")
     private Integer sellingPrice;
     @Column(name = "quantity_product")
-    private Integer quantity ;
+    private Integer quantity;
     @Column(name = "screen_size_product")
     private String screenSize;
     @Column(name = "front_camera_product")
@@ -37,18 +40,15 @@ public class Product {
     private String productStorage;
     @Column(name = "description_product")
     private String description;
-    @OneToMany(mappedBy = "product" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonBackReference
-    private Set<InputInvoiceDetail> inputInvoiceDetails;
-    @OneToMany(mappedBy = "product" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JsonBackReference
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private Set<OutputInvoiceDetail> outputInvoiceDetails;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
-    @JsonBackReference
     private Category category;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "brand_id", referencedColumnName = "brandId")
-    @JsonBackReference
     private Brand brand;
 }

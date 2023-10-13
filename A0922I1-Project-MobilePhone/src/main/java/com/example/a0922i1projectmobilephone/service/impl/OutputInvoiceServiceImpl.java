@@ -22,9 +22,9 @@ public class OutputInvoiceServiceImpl implements OutputInvoiceService {
     @Autowired
     private OutputInvoiceDetailRepository invoiceDetailRepository;
     @Autowired
-    private CustomerRepository customerRepository;
+    private IRepositoryCustomer customerRepository;
     @Autowired
-    private ProductRepository productRepository;
+    private IRepositoryProduct   productRepository;
 
 
     @Override

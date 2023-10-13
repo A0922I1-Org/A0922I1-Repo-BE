@@ -1,5 +1,6 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

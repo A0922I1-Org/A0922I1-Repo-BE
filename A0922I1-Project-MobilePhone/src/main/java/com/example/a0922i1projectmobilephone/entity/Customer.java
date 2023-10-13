@@ -1,5 +1,7 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,10 +25,11 @@ public class Customer {
     @Column(name = "customer_address")
     private String customerAddress;
     @Column(name = "customer_age")
-    private int customerAge;
+    private Integer customerAge;
     @Column(name = "customer_email")
     private String customerEmail;
     @OneToMany(mappedBy = "customer" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private Set<OutputInvoice> outputInvoice;
 
     public Integer getCustomerId() {
