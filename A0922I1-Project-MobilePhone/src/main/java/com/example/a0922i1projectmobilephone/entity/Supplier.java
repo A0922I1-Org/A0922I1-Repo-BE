@@ -1,5 +1,4 @@
 package com.example.a0922i1projectmobilephone.entity;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +14,7 @@ import java.util.Set;
 @Setter
 public class Supplier {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer supplierId;
     @Column(name = "supplier_name")
     private String supplierName;
