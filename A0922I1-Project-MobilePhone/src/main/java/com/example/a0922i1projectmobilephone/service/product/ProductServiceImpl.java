@@ -1,7 +1,6 @@
-package com.example.a0922i1projectmobilephone.service.impl;
+package com.example.a0922i1projectmobilephone.service.product;
 import com.example.a0922i1projectmobilephone.entity.Product;
 import com.example.a0922i1projectmobilephone.repository.product.IRepositoryProduct;
-import com.example.a0922i1projectmobilephone.service.IProductService;
 import com.example.a0922i1projectmobilephone.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductService implements IProductService {
+public class ProductServiceImpl implements IProductService {
     @Autowired
     private IRepositoryProduct iRepositoryProduct;
 

@@ -1,5 +1,6 @@
 package com.example.a0922i1projectmobilephone.controller.supplierController;
 
+import com.example.a0922i1projectmobilephone.dto.supplier.SupplierDtoCreateUpdate;
 import com.example.a0922i1projectmobilephone.entity.Supplier;
 import com.example.a0922i1projectmobilephone.service.ISupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 
-
-import com.example.a0922i1projectmobilephone.dto.input_invoice.supplier.SupplierDtoCreateUpdate;
 import com.example.a0922i1projectmobilephone.service.supplierService.create.ICreateSupplierService;
 import com.example.a0922i1projectmobilephone.service.supplierService.update.IUpdateSupplierService;
 
@@ -112,6 +111,9 @@ public class SupplierController {
         return new ResponseEntity<>(supplier, HttpStatus.OK);
     }
 
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Supplier> findById(@PathVariable Integer id){
+        return new ResponseEntity<>(this.supplierService.findById(id).get(), HttpStatus.OK);
+    }
 
 }

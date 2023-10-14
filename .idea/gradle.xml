@@ -5,10 +5,11 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/A0922I1-Project-MobilePhone" />
+        <option name="gradleJvm" value="corretto-1.8" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/A0922I1-Project-MobilePhone" />
           </set>
         </option>
       </GradleProjectSettings>

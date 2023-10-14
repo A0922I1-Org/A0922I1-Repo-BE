@@ -10,6 +10,5 @@
         <module name="A0922I1-Project-MobilePhone.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 package com.example.a0922i1projectmobilephone.service.supplierService.create.impl;
 
-import com.example.a0922i1projectmobilephone.dto.input_invoice.supplier.SupplierDtoCreateUpdate;
+import com.example.a0922i1projectmobilephone.dto.supplier.SupplierDtoCreateUpdate;
 import com.example.a0922i1projectmobilephone.repository.supplierRepository.create.impl.CreateSupplierRepository;
 import com.example.a0922i1projectmobilephone.service.supplierService.create.ICreateSupplierService;
 import org.springframework.beans.factory.annotation.Autowired;

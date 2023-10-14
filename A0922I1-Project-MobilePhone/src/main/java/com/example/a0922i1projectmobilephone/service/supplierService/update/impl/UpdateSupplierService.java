@@ -1,6 +1,6 @@
 package com.example.a0922i1projectmobilephone.service.supplierService.update.impl;
 
-import com.example.a0922i1projectmobilephone.dto.input_invoice.supplier.SupplierDtoCreateUpdate;
+import com.example.a0922i1projectmobilephone.dto.supplier.SupplierDtoCreateUpdate;
 import com.example.a0922i1projectmobilephone.entity.Supplier;
 import com.example.a0922i1projectmobilephone.repository.supplierRepository.update.IUpdateSupplierRepository;
 import com.example.a0922i1projectmobilephone.repository.supplierRepository.update.impl.UpdateSupplierRepository;

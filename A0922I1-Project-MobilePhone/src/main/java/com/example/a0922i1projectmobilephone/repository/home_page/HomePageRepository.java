@@ -1,4 +1,4 @@
-package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.home_page;
 
 import com.example.a0922i1projectmobilephone.entity.Product;
 import org.springframework.data.domain.Page;

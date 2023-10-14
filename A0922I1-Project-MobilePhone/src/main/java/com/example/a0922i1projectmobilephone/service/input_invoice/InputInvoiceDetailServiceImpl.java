@@ -4,7 +4,7 @@ import com.example.a0922i1projectmobilephone.dto.input_invoice.ProductInputDto;
 import com.example.a0922i1projectmobilephone.entity.InputInvoiceDetail;
 import com.example.a0922i1projectmobilephone.repository.input_invoice.InputInvoiceDetailRepoImpl;
 import com.example.a0922i1projectmobilephone.repository.input_invoice.InputInvoiceDetailRepository;
-import com.example.a0922i1projectmobilephone.repository.manh_test.ProductRepo;
+import com.example.a0922i1projectmobilephone.repository.input_invoice.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

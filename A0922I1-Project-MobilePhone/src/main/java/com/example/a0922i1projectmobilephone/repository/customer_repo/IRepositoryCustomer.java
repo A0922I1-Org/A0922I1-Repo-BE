@@ -1,4 +1,4 @@
-package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.customer_repo;
 
 import com.example.a0922i1projectmobilephone.entity.Customer;
 import org.springframework.data.domain.Page;
@@ -6,10 +6,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
 
 import javax.transaction.Transactional;
 
 @Transactional
+@Repository
 public interface IRepositoryCustomer extends JpaRepository<Customer, Integer> {
 
     @Query(value = "select customer_id, customer_phone, customer_name , customer_address, customer_age, customer_email " +

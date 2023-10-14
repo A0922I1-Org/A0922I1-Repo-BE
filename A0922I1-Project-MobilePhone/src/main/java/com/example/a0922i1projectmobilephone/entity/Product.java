@@ -28,11 +28,11 @@ public class Product {
     private String frontCamera;
     @Column(name = "back_camera_product")
     private String backCamera;
-    @Column(name = "product_cpu")
+    @Column(name = "product_cpu_product")
     private String productCpu;
     @Column(name = "image_url_product")
     private String imageUrl;
-    @Column(name = "product_storage")
+    @Column(name = "product_storage_product")
     private String productStorage;
     @Column(name = "description_product")
     private String description;

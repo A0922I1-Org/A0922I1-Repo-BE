@@ -1,9 +1,7 @@
-package com.example.a0922i1projectmobilephone.service.impl;
+package com.example.a0922i1projectmobilephone.service.customer_service;
 import com.example.a0922i1projectmobilephone.entity.Customer;
 import com.example.a0922i1projectmobilephone.repository.customer_repo.IRepositoryCustomer;
-import com.example.a0922i1projectmobilephone.service.ICustomerService;
 import com.example.a0922i1projectmobilephone.utils.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,9 +9,13 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class CustomerService implements ICustomerService {
-    @Autowired
-    private IRepositoryCustomer iRepositoryCustomer;
+public class CustomerServiceImpl implements ICustomerService {
+    private final IRepositoryCustomer iRepositoryCustomer;
+
+    public CustomerServiceImpl(IRepositoryCustomer iRepositoryCustomer) {
+        this.iRepositoryCustomer = iRepositoryCustomer;
+    }
+
     @Override
     public void save(Customer customer) {
         iRepositoryCustomer.save(customer);
