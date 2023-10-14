@@ -1,7 +1,6 @@
 package com.example.a0922i1projectmobilephone.controller;
 import com.example.a0922i1projectmobilephone.entity.Customer;
-import com.example.a0922i1projectmobilephone.service.ICustomerService;
-import com.example.a0922i1projectmobilephone.utils.StringUtils;
+import com.example.a0922i1projectmobilephone.service.customer_service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;

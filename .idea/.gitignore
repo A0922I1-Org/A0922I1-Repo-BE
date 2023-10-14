@@ -4,8 +4,14 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
 >>>>>>> DuyNN
+=======
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+>>>>>>> main

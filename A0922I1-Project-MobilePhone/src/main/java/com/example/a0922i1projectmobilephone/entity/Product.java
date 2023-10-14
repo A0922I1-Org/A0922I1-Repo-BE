@@ -1,6 +1,8 @@
 package com.example.a0922i1projectmobilephone.entity;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.*;
 import javax.persistence.*;
 import java.util.Set;
@@ -44,11 +46,10 @@ public class Product {
     private Set<OutputInvoiceDetail> outputInvoiceDetails;
     @ManyToOne
     @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
-    @JsonBackReference
+    @JsonManagedReference
     private Category category;
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(name = "brand_id", referencedColumnName = "brandId")
-    @JsonBackReference
     private Brand brand;
 }
