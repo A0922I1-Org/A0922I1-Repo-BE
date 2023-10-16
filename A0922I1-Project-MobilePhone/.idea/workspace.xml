@@ -4,78 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e127c345-df23-4155-95e9-39f71900a413" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/A0922I1-Repo-BE.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/A0922I1ProjectMobilePhoneApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/A0922I1ProjectMobilePhoneApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/HomePageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/ReportController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/dto/Report.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/dto/ReportDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/dto/reponse/JwtResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/dto/reponse/ReponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/dto/request/ChangePassword.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/dto/request/SignInForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/dto/request/SignUpForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/Brand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/Employee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/InputInvoice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/InputInvoiceDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/InputInvoiceDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/OutputInvoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/OutputInvoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/OutputInvoiceDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/OutputInvoiceDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/RoleName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/Supplier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/HomePageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/IEmployeeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/IRoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/IUserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/ReportRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/security/jwt/JwtEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/security/jwt/JwtProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/security/jwt/JwtTokenFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/security/userprincal/UserDetailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/security/userprincal/UserPrinciple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/IEmployeeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/IRoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/Impl/EmployeeServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/Impl/RoleServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/Impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/ReportService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/ReportServiceImp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/homepage/HomePageImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/homepage/HomePageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/validate/FormatDate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/validate/FormatProductId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/validate/ValidateFormat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/validate/ValidateFormatProductId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/validate/formValidation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/a0922i1projectmobilephone/A0922I1ProjectMobilePhoneApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="e127c345-df23-4155-95e9-39f71900a413" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -238,6 +167,7 @@
       <workItem from="1697441916944" duration="146000" />
       <workItem from="1697442710855" duration="256000" />
       <workItem from="1697443102097" duration="402000" />
+      <workItem from="1697446905703" duration="42000" />
     </task>
     <servers />
   </component>
