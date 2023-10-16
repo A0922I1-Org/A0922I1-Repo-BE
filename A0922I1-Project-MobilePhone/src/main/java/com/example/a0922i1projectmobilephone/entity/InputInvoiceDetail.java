@@ -1,6 +1,5 @@
 package com.example.a0922i1projectmobilephone.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,11 +21,9 @@ public class InputInvoiceDetail {
     @Column(name = "amount")
     private int amount;
     @ManyToOne
-    @JsonBackReference
     @JoinColumn(name = "product_id", referencedColumnName = "productId")
     private Product product;
     @ManyToOne
-    @JsonBackReference
     @JoinColumn(name = "input_invoice_id", referencedColumnName = "inputInvoiceId")
     private InputInvoice inputInvoice;
 
