@@ -1,6 +1,6 @@
 package com.example.a0922i1projectmobilephone.controller;
 import com.example.a0922i1projectmobilephone.dto.report.ReportDTO;
-import com.example.a0922i1projectmobilephone.service.output_invoice.OutputInvoiceService;
+import com.example.a0922i1projectmobilephone.service.report.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.Map;
 @CrossOrigin(origins = "*",maxAge = 3600)
 public class ReportController {
     @Autowired
-    private OutputInvoiceService outPutInvoiceService;
+    private ReportService outPutInvoiceService;
     @PostMapping("/report")
     public ResponseEntity<?> find(@RequestBody ReportDTO reportDTO) {
         Map<String, Long> result = new HashMap<>();

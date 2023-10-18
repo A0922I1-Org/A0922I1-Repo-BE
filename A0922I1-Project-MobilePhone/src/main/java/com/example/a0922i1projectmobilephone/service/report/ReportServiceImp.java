@@ -1,16 +1,16 @@
-package com.example.a0922i1projectmobilephone.service.output_invoice;
+package com.example.a0922i1projectmobilephone.service.report;
 
 import com.example.a0922i1projectmobilephone.dto.report.Report;
-import com.example.a0922i1projectmobilephone.repository.OutputInvoiceRepository;
+import com.example.a0922i1projectmobilephone.repository.report.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class OutputInvoiceServiceImp implements OutputInvoiceService {
+public class ReportServiceImp implements ReportService {
     @Autowired
-    private OutputInvoiceRepository reportRepository;
+    private ReportRepository reportRepository;
 
 
     @Override

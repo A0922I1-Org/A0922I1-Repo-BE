@@ -1,4 +1,4 @@
-package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.report;
 
 import com.example.a0922i1projectmobilephone.dto.report.Report;
 import com.example.a0922i1projectmobilephone.entity.OutputInvoice;
@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface OutputInvoiceRepository extends JpaRepository<OutputInvoice, Integer> {
+public interface ReportRepository extends JpaRepository<OutputInvoice, Integer> {
 
     @Query(value = "select count(*) from output_invoice o where o.output_invoice_day >=:fromDay and o.output_invoice_day<=:toDay", nativeQuery = true)
     long CountAll(@Param("fromDay") String fromDay, @Param("toDay") String toDay);

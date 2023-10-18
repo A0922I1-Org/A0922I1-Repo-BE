@@ -1,2 +1,21 @@
-package com.example.a0922i1projectmobilephone.validate;public class FormatProductId {
+package com.example.a0922i1projectmobilephone.validate;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+public class FormatProductId implements ConstraintValidator<ValidateFormatProductId,Integer> {
+    private String regex;
+
+    @Override
+    public void initialize(ValidateFormatProductId annotation) {
+        regex = annotation.regex();
+    }
+
+    @Override
+    public boolean isValid(Integer value, ConstraintValidatorContext context) {
+        if (value == null) {
+            return true;
+        }
+        return String.valueOf(value).matches(regex);
+    }
 }

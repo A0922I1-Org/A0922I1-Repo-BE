@@ -1,6 +1,6 @@
-package com.example.a0922i1projectmobilephone.service.output_invoice;
+package com.example.a0922i1projectmobilephone.service.report;
 
-public interface OutputInvoiceService {
+public interface ReportService {
   long countById(String fromDay , String toDay , Integer id);
 
   long countAll(String fromDay, String toDay);

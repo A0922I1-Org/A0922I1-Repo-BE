@@ -1,4 +1,6 @@
 package com.example.a0922i1projectmobilephone.dto.report;
+import com.example.a0922i1projectmobilephone.validate.ValidateFormat;
+import com.example.a0922i1projectmobilephone.validate.ValidateFormatProductId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,14 +11,14 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class ReportDTO {
     @NotNull
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @ValidateFormat
     private String fromDate;
     @NotNull
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @ValidateFormat
     private String toDate;
     @NotNull
     private String reportType;
-    @NotNull
+    @ValidateFormatProductId
     private Integer productId;
 
 }

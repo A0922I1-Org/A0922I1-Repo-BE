@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fef2dc6-b5a7-4ce1-aa45-f43ea15ee24f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A0922I1-Project-MobilePhone/.gradle/8.2.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/A0922I1-Project-MobilePhone/.gradle/8.2.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A0922I1-Project-MobilePhone/.gradle/8.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/A0922I1-Project-MobilePhone/.gradle/8.2.1/fileHashes/fileHashes.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +26,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/project/A0922I1-Repo-BE/A0922I1-Project-MobilePhone",
+    "last_opened_file_path": "G:/Codegym/A0922I1-Repo-BE/A0922I1-Project-MobilePhone",
     "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
@@ -39,6 +40,7 @@
       <updated>1696996936249</updated>
       <workItem from="1696996942182" duration="224000" />
       <workItem from="1696997203370" duration="55000" />
+      <workItem from="1697635510405" duration="51000" />
     </task>
     <servers />
   </component>
