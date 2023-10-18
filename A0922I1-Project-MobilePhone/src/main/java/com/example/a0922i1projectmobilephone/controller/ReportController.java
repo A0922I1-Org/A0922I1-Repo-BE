@@ -1,6 +1,6 @@
 package com.example.a0922i1projectmobilephone.controller;
 import com.example.a0922i1projectmobilephone.dto.report.ReportDTO;
-import com.example.a0922i1projectmobilephone.service.OutputInvoiceService;
+import com.example.a0922i1projectmobilephone.service.output_invoice.OutputInvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
