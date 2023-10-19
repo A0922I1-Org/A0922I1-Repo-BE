@@ -44,21 +44,26 @@ public class ProductController {
     @GetMapping("/product/list")
     public ResponseEntity<Page<Product>> getProductList(
             Model model,
-            @RequestParam("brandName") Optional<String> brand,
-            @RequestParam("sellingPrice") Optional<String> price,
-            @RequestParam("productName") Optional<String> name,
-            @RequestParam("productCpu") Optional<String> cpu,
-            @RequestParam("page") Optional<Integer> page,
-            @RequestParam("size") Optional<Integer> size,
-            @RequestParam("sort") Optional<String> sort,
-            @RequestParam("direction") Optional<Boolean> direction) {
+            @RequestParam(value = "brandName",required = false) Optional<String> brand,
+            @RequestParam(value = "sellingPrice",required = false) Optional<String> price,
+            @RequestParam(value = "productName",required = false) Optional<String> name,
+            @RequestParam(value = "productCpu",required = false) Optional<String> cpu,
+            @RequestParam(value = "page",required = false) Optional<Integer> page,
+            @RequestParam(value = "size",required = false) Optional<Integer> size,
+            @RequestParam(value = "sort",required = false) Optional<String> sort,
+            @RequestParam(value = "direction",required = false) Optional<Boolean> direction) {
         Integer currentPage = page.orElse(1);
         Integer pageSize = size.orElse(8);
         String brandName = brand.orElse(null);
         String sellingPrice = price.orElse(null);
         String productName = name.orElse(null);
         String productCpu = cpu.orElse(null);
+        brandName = "".equals(brandName) ? null : brandName;
+        sellingPrice = "".equals(sellingPrice) ? null : sellingPrice;
+        productName = "".equals(productName) ? null : productName;
+        productCpu = "".equals(productCpu) ? null : productCpu;
         String sortField = sort.orElse("product_id");
+        sortField = "".equals(sortField) ? "product_id" : sortField;
         Boolean directionSort = direction.orElse(true);
         model.addAttribute("currentPage", currentPage);
         Page<Product> products;
