@@ -2,6 +2,8 @@ package com.example.a0922i1projectmobilephone.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
+
 
 import lombok.*;
 import javax.persistence.*;
@@ -45,6 +47,7 @@ public class Product {
     @JsonBackReference
     private Set<OutputInvoiceDetail> outputInvoiceDetails;
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
     @JsonManagedReference
     private Category category;
