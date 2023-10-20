@@ -1,5 +1,6 @@
 package com.example.a0922i1projectmobilephone.service.loginImpl;
 
+import com.example.a0922i1projectmobilephone.entity.Provider;
 import com.example.a0922i1projectmobilephone.entity.User;
 import com.example.a0922i1projectmobilephone.repository.login_repo.IUserRepository;
 import org.springframework.stereotype.Service;
@@ -47,4 +48,13 @@ public class UserServiceImpl implements IUserService {
         userRepository.changePassword(username,newPass);
     }
 
+    public void processOAuthPostLogin(String username) {
+        User existUser = userRepository.findByUsername(username);
+        if (existUser == null) {
+            User newUser = new User();
+            newUser.setUsername(username);
+            newUser.setProvider(Provider.GOOGLE);
+            userRepository.save(newUser);
+        }
+    }
 }

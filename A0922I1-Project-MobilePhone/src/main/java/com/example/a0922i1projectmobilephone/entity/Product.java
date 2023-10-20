@@ -49,7 +49,7 @@ public class Product {
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
-    @JsonManagedReference
+
     private Category category;
     @ManyToOne
     @JsonManagedReference

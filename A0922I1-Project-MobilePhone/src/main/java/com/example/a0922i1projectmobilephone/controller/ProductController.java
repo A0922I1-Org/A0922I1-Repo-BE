@@ -47,14 +47,14 @@ public class ProductController {
     @GetMapping("/product/list")
     public ResponseEntity<Page<Product>> getProductList(
             Model model,
-            @RequestParam(value = "brandName",required = false) Optional<String> brand,
-            @RequestParam(value = "sellingPrice",required = false) Optional<String> price,
-            @RequestParam(value = "productName",required = false) Optional<String> name,
-            @RequestParam(value = "productCpu",required = false) Optional<String> cpu,
-            @RequestParam(value = "page",required = false) Optional<Integer> page,
-            @RequestParam(value = "size",required = false) Optional<Integer> size,
-            @RequestParam(value = "sort",required = false) Optional<String> sort,
-            @RequestParam(value = "direction",required = false) Optional<Boolean> direction) {
+            @RequestParam(value = "brandName", required = false) Optional<String> brand,
+            @RequestParam(value = "sellingPrice", required = false) Optional<String> price,
+            @RequestParam(value = "productName", required = false) Optional<String> name,
+            @RequestParam(value = "productCpu", required = false) Optional<String> cpu,
+            @RequestParam(value = "page", required = false) Optional<Integer> page,
+            @RequestParam(value = "size", required = false) Optional<Integer> size,
+            @RequestParam(value = "sort", required = false) Optional<String> sort,
+            @RequestParam(value = "direction", required = false) Optional<Boolean> direction) {
         Integer currentPage = page.orElse(1);
         Integer pageSize = size.orElse(8);
         String brandName = brand.orElse(null);
@@ -79,4 +79,5 @@ public class ProductController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 }
