@@ -33,6 +33,10 @@ public class User {
     @Lob
     private String avatar;
 
+    @Enumerated(EnumType.STRING)
+    private Provider provider;
+
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
