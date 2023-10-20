@@ -1,8 +1,8 @@
 package com.example.a0922i1projectmobilephone.controller;
 
 import com.example.a0922i1projectmobilephone.Config.VNPayService;
-import com.example.a0922i1projectmobilephone.dto.VNPayDTO;
-import com.example.a0922i1projectmobilephone.dto.VNPayResponse;
+import com.example.a0922i1projectmobilephone.dto.output_invoice.VNPayDTO;
+import com.example.a0922i1projectmobilephone.dto.output_invoice.VNPayResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,12 +34,8 @@ public ResponseEntity<Map<String, String>> submitOrder(@RequestParam("amount") i
 //    String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
     String baseUrl = "";
     String vnpayUrl = vnPayService.createOrder(orderTotal, orderInfo, baseUrl);
-
-    // Create a JSON response
     Map<String, String> response = new HashMap<>();
     response.put("vnpayUrl", vnpayUrl);
-
-    // Return the JSON response with a 200 OK status
     return ResponseEntity.ok(response);
 }
 
@@ -60,23 +56,4 @@ public ResponseEntity<Map<String, String>> submitOrder(@RequestParam("amount") i
 
         return new ResponseEntity<>(vnPayResponse, HttpStatus.OK);
     }
-
-//    @GetMapping("/vnpay-payment")
-//    public String VNPay(HttpServletRequest request) {
-//        // Process the payment and retrieve necessary data
-//        String orderInfo = request.getParameter("vnp_OrderInfo");
-//        String paymentTime = request.getParameter("vnp_PayDate");
-//        String transactionId = request.getParameter("vnp_TransactionNo");
-//        String totalPrice = request.getParameter("vnp_Amount");
-//
-//        // Construct the URL with query parameters
-//        String redirectUrl = "/payment-success?orderInfo=" + orderInfo +
-//                "&paymentTime=" + paymentTime +
-//                "&transactionId=" + transactionId +
-//                "&totalPrice=" + totalPrice;
-//
-//        // Redirect to the Angular route
-//        return "redirect:" + redirectUrl;
-//    }
-
 }

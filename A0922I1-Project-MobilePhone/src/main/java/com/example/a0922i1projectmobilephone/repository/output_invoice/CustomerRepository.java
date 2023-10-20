@@ -1,7 +1,7 @@
-//package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.output_invoice;//package com.example.a0922i1projectmobilephone.repository;
 //
 //
-//import com.example.a0922i1projectmobilephone.dto.CustomerDTO;
+//import com.example.a0922i1projectmobilephone.dto.CustomerResponseDTO;
 //import com.example.a0922i1projectmobilephone.entity.Customer;
 //import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.data.jpa.repository.Modifying;
@@ -19,7 +19,7 @@
 //    void saveCustomer(@Param("customerName") String customerName, @Param("phoneNumber") String phoneNumber, @Param("address") String address, @Param("email") String email);
 //
 //    @Query("SELECT c.customerId AS customer_id, c.customerName AS customer_name, c.customerPhone AS customer_phone, c.customerAddress AS customer_address, c.customerEmail AS customer_email FROM Customer c WHERE c.customerId = :customerId")
-//    CustomerDTO findCustomerById(@Param("customerId") Integer customerId);
+//    CustomerResponseDTO findCustomerById(@Param("customerId") Integer customerId);
 //
 //    @Query(value = "SELECT MAX(customer_id) FROM customer", nativeQuery = true)
 //    Integer getLastCustomerId();

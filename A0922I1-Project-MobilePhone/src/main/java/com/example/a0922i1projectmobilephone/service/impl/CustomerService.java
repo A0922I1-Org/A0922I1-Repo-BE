@@ -1,14 +1,12 @@
 package com.example.a0922i1projectmobilephone.service.impl;
 import com.example.a0922i1projectmobilephone.entity.Customer;
-import com.example.a0922i1projectmobilephone.repository.IRepositoryCustomer;
+import com.example.a0922i1projectmobilephone.repository.output_invoice.IRepositoryCustomer;
 import com.example.a0922i1projectmobilephone.service.ICustomerService;
 import com.example.a0922i1projectmobilephone.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-
 
 @Service
 public class CustomerService implements ICustomerService {

@@ -1,6 +1,6 @@
-//package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.output_invoice;//package com.example.a0922i1projectmobilephone.repository;
 //
-//import com.example.a0922i1projectmobilephone.dto.ProductDTO;
+//import com.example.a0922i1projectmobilephone.dto.ProductResponseDTO;
 //import com.example.a0922i1projectmobilephone.entity.Product;
 //import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.data.jpa.repository.Modifying;
@@ -13,7 +13,7 @@
 //public interface ProductRepository extends JpaRepository<Product, Integer> {
 //
 //        @Query(value = "SELECT product_id, cost_product, quantity_product FROM product WHERE product_id = ?1", nativeQuery = true)
-//        ProductDTO findProductById(Integer productId);
+//        ProductResponseDTO findProductById(Integer productId);
 //
 //        @Modifying
 //        @Transactional

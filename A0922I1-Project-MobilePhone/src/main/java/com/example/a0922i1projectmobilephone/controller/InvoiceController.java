@@ -1,5 +1,6 @@
 package com.example.a0922i1projectmobilephone.controller;
 
+import com.example.a0922i1projectmobilephone.dto.output_invoice.OutputInvoiceDTO;
 import com.example.a0922i1projectmobilephone.entity.OutputInvoice;
 import com.example.a0922i1projectmobilephone.service.OutputInvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +19,18 @@ public class InvoiceController {
     private OutputInvoiceService outputInvoiceService;
 
     @PostMapping("/payment")
-    public ResponseEntity<?> payment(@RequestBody OutputInvoice request) {
+    public ResponseEntity<?> payment(@RequestBody OutputInvoiceDTO request) {
         outputInvoiceService.payment(request);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 //    @GetMapping("/product")
-//    public Optional<ProductDTO> findById(){
+//    public Optional<ProductResponseDTO> findById(){
 //        return outputInvoiceService.findByIdProduct1(1);
 //    }
 //
 //    @GetMapping("/customer")
-//    public Optional<CustomerDTO> findById1(){
+//    public Optional<CustomerResponseDTO> findById1(){
 //        return outputInvoiceService.findByIdCustomer2(1);
 //    }
 }

@@ -1,4 +1,4 @@
-package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.output_invoice;
 
 import com.example.a0922i1projectmobilephone.entity.OutputInvoiceDetail;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
-package com.example.a0922i1projectmobilephone.repository;
+package com.example.a0922i1projectmobilephone.repository.output_invoice;
 
-import com.example.a0922i1projectmobilephone.dto.CustomerDTO;
+import com.example.a0922i1projectmobilephone.dto.output_invoice.CustomerResponseDTO;
 import com.example.a0922i1projectmobilephone.entity.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -37,7 +37,7 @@ public interface IRepositoryCustomer extends JpaRepository<Customer, Integer> {
     void saveCustomer(@Param("customerName") String customerName, @Param("phoneNumber") String phoneNumber, @Param("address") String address, @Param("email") String email);
 
     @Query("SELECT c.customerId AS customer_id, c.customerName AS customer_name, c.customerPhone AS customer_phone, c.customerAddress AS customer_address, c.customerEmail AS customer_email FROM Customer c WHERE c.customerId = :customerId")
-    CustomerDTO findCustomerById(@Param("customerId") Integer customerId);
+    CustomerResponseDTO findCustomerById(@Param("customerId") Integer customerId);
 
     @Query(value = "SELECT MAX(customer_id) FROM customer", nativeQuery = true)
     Integer getLastCustomerId();

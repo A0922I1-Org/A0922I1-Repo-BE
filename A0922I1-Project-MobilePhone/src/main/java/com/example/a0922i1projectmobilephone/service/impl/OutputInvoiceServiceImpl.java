@@ -1,19 +1,16 @@
 package com.example.a0922i1projectmobilephone.service.impl;
 
-
-import com.example.a0922i1projectmobilephone.dto.*;
-import com.example.a0922i1projectmobilephone.entity.Customer;
-import com.example.a0922i1projectmobilephone.entity.OutputInvoice;
-import com.example.a0922i1projectmobilephone.entity.OutputInvoiceDetail;
-import com.example.a0922i1projectmobilephone.entity.Product;
-import com.example.a0922i1projectmobilephone.repository.*;
+import com.example.a0922i1projectmobilephone.dto.output_invoice.*;
+import com.example.a0922i1projectmobilephone.repository.output_invoice.IRepositoryCustomer;
+import com.example.a0922i1projectmobilephone.repository.output_invoice.IRepositoryProduct;
+import com.example.a0922i1projectmobilephone.repository.output_invoice.OutputInvoiceDetailRepository;
+import com.example.a0922i1projectmobilephone.repository.output_invoice.OutputInvoiceRepository;
 import com.example.a0922i1projectmobilephone.service.OutputInvoiceService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
+import java.time.LocalDateTime;
 
 @Service
 public class OutputInvoiceServiceImpl implements OutputInvoiceService {
@@ -24,48 +21,49 @@ public class OutputInvoiceServiceImpl implements OutputInvoiceService {
     @Autowired
     private IRepositoryCustomer customerRepository;
     @Autowired
-    private IRepositoryProduct   productRepository;
+    private IRepositoryProduct productRepository;
 
 
     @Override
     @Transactional
-    public void payment(OutputInvoice request) {
-        OutputInvoice outputInvoice = new OutputInvoice();
-        Customer customer = request.getCustomer();
+    public void payment(OutputInvoiceDTO request) {
+        OutputInvoiceDTO outputInvoice = new OutputInvoiceDTO();
+        CustomerDTO customer = request.getCustomerDTO();
         Integer customerId = customer.getCustomerId();
         if (customer.getCustomerId() == null) {
             customerRepository.saveCustomer(customer.getCustomerName(), customer.getCustomerAddress(), customer.getCustomerPhone(), customer.getCustomerEmail());
             customerId = customerRepository.getLastCustomerId();
         }
 
-        CustomerDTO customerDTO = customerRepository.findCustomerById(customerId);
+        CustomerResponseDTO customerResponseDTO = customerRepository.findCustomerById(customerId);
         outputInvoice.setPaymentMethod(request.getPaymentMethod());
         outputInvoice.setTotalPrice(0.0);
-
-        invoiceRepository.saveOutputInvoice(outputInvoice.getPaymentMethod(), outputInvoice.getTotalPrice(), customerDTO.getCustomer_id());
+        LocalDateTime currentDate = LocalDateTime.now();
+        outputInvoice.setDateOutputInvoice(currentDate);
+        invoiceRepository.saveOutputInvoice(outputInvoice.getPaymentMethod(), outputInvoice.getTotalPrice(), outputInvoice.getDateOutputInvoice(), customerResponseDTO.getCustomer_id());
         outputInvoice.setOutputInvoiceId(invoiceRepository.getLastOutputInvoiceId());
 
-        if (request.getOutputInvoiceDetail() != null) {
-            for (OutputInvoiceDetail outputInvoiceDetail : request.getOutputInvoiceDetail()) {
-                Integer productId = outputInvoiceDetail.getProduct().getProductId();
-                ProductDTO productDTO = productRepository.findProductById(productId);
-                Integer costPrice = productDTO.getCost_product();
-                Integer quantityProduct = productDTO.getQuantity_product();
-                Product product = new Product();
+        if (request.getOutputInvoiceDetails() != null) {
+            for (OutputInvoiceDetailDTO outputInvoiceDetail : request.getOutputInvoiceDetails()) {
+                Integer productId = outputInvoiceDetail.getProductDTO().getProductId();
+                ProductResponseDTO productResponseDTO = productRepository.findProductById(productId);
+                Integer costPrice = productResponseDTO.getCost_product();
+                Integer quantityProduct = productResponseDTO.getQuantity_product();
+                ProductDTO product = new ProductDTO();
                 product.setProductId(productId);
                 product.setCostPrice(costPrice);
-                outputInvoiceDetail.setProduct(product);
+                outputInvoiceDetail.setProductDTO(product);
 
                 outputInvoiceDetail.setQuantity(outputInvoiceDetail.getQuantity());
-                outputInvoiceDetail.setSubTotal(outputInvoiceDetail.getProduct().getCostPrice() * outputInvoiceDetail.getQuantity());
+                outputInvoiceDetail.setSubTotal(outputInvoiceDetail.getProductDTO().getCostPrice() * outputInvoiceDetail.getQuantity());
                 if (quantityProduct < outputInvoiceDetail.getQuantity()) {
                     throw new IllegalArgumentException("Số lượng sản phẩm không đủ.");
                 }
                 product.setQuantity(quantityProduct - outputInvoiceDetail.getQuantity());
 
-                outputInvoiceDetail.setOutputInvoice(outputInvoice);
+                outputInvoiceDetail.setOutputInvoiceDTO(outputInvoice);
 
-                invoiceDetailRepository.saveOutputInvoiceDetail(outputInvoiceDetail.getQuantity(), outputInvoiceDetail.getSubTotal(), outputInvoiceDetail.getOutputInvoice().getOutputInvoiceId(), outputInvoiceDetail.getProduct().getProductId());
+                invoiceDetailRepository.saveOutputInvoiceDetail(outputInvoiceDetail.getQuantity(), outputInvoiceDetail.getSubTotal(), outputInvoiceDetail.getOutputInvoiceDTO().getOutputInvoiceId(), outputInvoiceDetail.getProductDTO().getProductId());
                 productRepository.updateProduct(product.getProductId(), product.getQuantity());
                 outputInvoice.setTotalPrice(outputInvoice.getTotalPrice() + outputInvoiceDetail.getSubTotal());
             }

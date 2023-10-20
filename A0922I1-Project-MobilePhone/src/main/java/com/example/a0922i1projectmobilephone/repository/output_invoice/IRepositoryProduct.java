@@ -1,5 +1,5 @@
-package com.example.a0922i1projectmobilephone.repository;
-import com.example.a0922i1projectmobilephone.dto.ProductDTO;
+package com.example.a0922i1projectmobilephone.repository.output_invoice;
+import com.example.a0922i1projectmobilephone.dto.output_invoice.ProductResponseDTO;
 import com.example.a0922i1projectmobilephone.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +31,7 @@ public interface IRepositoryProduct extends JpaRepository<Product, Integer> {
     Product findById(int id);
 
     @Query(value = "SELECT product_id, cost_product, quantity_product FROM product WHERE product_id = ?1", nativeQuery = true)
-    ProductDTO findProductById(Integer productId);
+    ProductResponseDTO findProductById(Integer productId);
 
     @Modifying
     @org.springframework.transaction.annotation.Transactional

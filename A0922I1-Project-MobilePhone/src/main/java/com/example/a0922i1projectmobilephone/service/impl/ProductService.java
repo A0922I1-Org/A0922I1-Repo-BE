@@ -1,6 +1,6 @@
 package com.example.a0922i1projectmobilephone.service.impl;
 import com.example.a0922i1projectmobilephone.entity.Product;
-import com.example.a0922i1projectmobilephone.repository.IRepositoryProduct;
+import com.example.a0922i1projectmobilephone.repository.output_invoice.IRepositoryProduct;
 import com.example.a0922i1projectmobilephone.service.IProductService;
 import com.example.a0922i1projectmobilephone.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
