@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -29,8 +28,26 @@ public class Employee {
     private String numberPhoneEmployee;
     @Column(name = "position_employee")
     private String positionEmployee;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Employee(String nameEmployee,
+                    String addressEmployee,
+                    Date birthdayEmployee,
+                    String positionEmployee,
+                    String username,
+                    String email,
+                    String avatar,
+                    String encode) {
+        this.nameEmployee = nameEmployee;
+        this.addressEmployee = addressEmployee;
+        this.birthdayEmployee = birthdayEmployee;
+        this.positionEmployee = positionEmployee;
+        this.user = new User();
+        this.user.setUsername(username);
+        this.user.setEmail(email);
+        this.user.setAvatar(avatar);
+        this.user.setPassword(encode);
+    }
 }

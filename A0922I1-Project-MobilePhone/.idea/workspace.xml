@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e127c345-df23-4155-95e9-39f71900a413" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/ReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/ReportController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/supplierController/SupplierController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/FormatDate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/ValidateFormat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/IEmployeeRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/IRoleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/IUserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/security/userprincal/UserDetailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/security/userprincal/UserDetailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/IEmployeeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/IRoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/ISupplierService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/IUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/Impl/EmployeeServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/Impl/RoleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/Impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/OutputInvoiceService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/OutputInvoiceServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/supplierService/Impl/SupplierServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/service/supplierService/Impl/SupplierServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/supplierController/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/SupplierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/IEmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/login_repo/IEmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/IRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/login_repo/IRoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/login_repo/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/security/userprincal/UserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/security/userprincal/UserDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/IEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/loginImpl/IEmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/IProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/IRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/loginImpl/IRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/ISupplierService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/loginImpl/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/Impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/loginImpl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/Impl/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/Impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/loginImpl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/loginImpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/OutputInvoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/output_invoice/OutputInvoiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/OutputInvoiceServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/output_invoice/OutputInvoiceServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/supplierService/Impl/SupplierServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/supplierService/Impl/SupplierServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/validate/FormatDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/validate/FormatDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="A0922I1-Project-MobilePhone" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="A0922I1-Project-MobilePhone" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2WbNJrT9WRLU2flc7qD1Kub10YK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelOrder2": "2",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth2": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/project/A0922I1-Repo-BE/A0922I1-Project-MobilePhone",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "spring.configuration.checksum": "42c7da4c4c29862f953a1ab1241d4c7c"
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.A0922I1ProjectMobilePhoneApplication">
+    <configuration name="A0922I1-Project-MobilePhone [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="A0922I1ProjectMobilePhoneApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="A0922I1-Project-MobilePhone.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.a0922i1projectmobilephone.A0922I1ProjectMobilePhoneApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.A0922I1-Project-MobilePhone [dependencies]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e127c345-df23-4155-95e9-39f71900a413" name="Changes" comment="" />
+      <created>1696997252170</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696997252170</updated>
+      <workItem from="1696997253682" duration="2946000" />
+      <workItem from="1697002127622" duration="841000" />
+      <workItem from="1697005173156" duration="9893000" />
+      <workItem from="1697022666882" duration="1712000" />
+      <workItem from="1697030347265" duration="1629000" />
+      <workItem from="1697042788466" duration="2679000" />
+      <workItem from="1697076552752" duration="137000" />
+      <workItem from="1697091467353" duration="435000" />
+      <workItem from="1697092457745" duration="3029000" />
+      <workItem from="1697120248869" duration="1196000" />
+      <workItem from="1697130651063" duration="320000" />
+      <workItem from="1697131047317" duration="1014000" />
+      <workItem from="1697132750599" duration="499000" />
+      <workItem from="1697136981592" duration="1381000" />
+      <workItem from="1697144018983" duration="4676000" />
+      <workItem from="1697175729800" duration="4044000" />
+      <workItem from="1697186228097" duration="752000" />
+      <workItem from="1697189685612" duration="1206000" />
+      <workItem from="1697204526579" duration="687000" />
+      <workItem from="1697205353348" duration="96000" />
+      <workItem from="1697205752073" duration="685000" />
+      <workItem from="1697207439679" duration="128000" />
+      <workItem from="1697207699011" duration="1193000" />
+      <workItem from="1697212335391" duration="820000" />
+      <workItem from="1697213444128" duration="693000" />
+      <workItem from="1697214404828" duration="983000" />
+      <workItem from="1697215618200" duration="77000" />
+      <workItem from="1697215988515" duration="7595000" />
+      <workItem from="1697223904443" duration="1684000" />
+      <workItem from="1697225942802" duration="429000" />
+      <workItem from="1697226499541" duration="96000" />
+      <workItem from="1697226645653" duration="196000" />
+      <workItem from="1697227838160" duration="877000" />
+      <workItem from="1697287427996" duration="1080000" />
+      <workItem from="1697288564216" duration="911000" />
+      <workItem from="1697289550651" duration="236000" />
+      <workItem from="1697289833178" duration="1577000" />
+      <workItem from="1697295612301" duration="2469000" />
+      <workItem from="1697300235507" duration="720000" />
+      <workItem from="1697312515796" duration="324000" />
+      <workItem from="1697313264797" duration="2038000" />
+      <workItem from="1697318089039" duration="1039000" />
+      <workItem from="1697438128971" duration="2487000" />
+      <workItem from="1697440862598" duration="178000" />
+      <workItem from="1697441073010" duration="118000" />
+      <workItem from="1697441916944" duration="146000" />
+      <workItem from="1697442710855" duration="256000" />
+      <workItem from="1697443102097" duration="402000" />
+      <workItem from="1697446905703" duration="42000" />
+      <workItem from="1697615106188" duration="1571000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,15 +1,18 @@
 package com.example.a0922i1projectmobilephone.controller;
 
+import com.example.a0922i1projectmobilephone.entity.Customer;
 import com.example.a0922i1projectmobilephone.entity.Product;
 import com.example.a0922i1projectmobilephone.service.product.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.*;
 
@@ -76,5 +79,4 @@ public class ProductController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(products, HttpStatus.OK);
-    }
 }

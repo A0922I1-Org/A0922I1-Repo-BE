@@ -1,13 +1,13 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Time;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
 @Entity
@@ -24,15 +24,15 @@ public class OutputInvoice {
 
     @Column(name = "total_price")
     private double totalPrice;
-
-    @Column(name="date_output_invoice")
-    private LocalDateTime dateOutputInvoice;
-
+  
+    @Column(name="output_invoice_day")
+    private Date dayOutput;
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private Customer customer;
     @OneToMany(mappedBy = "outputInvoice" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<OutputInvoiceDetail> outputInvoiceDetail;
-
 
 }

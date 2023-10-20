@@ -1,7 +1,7 @@
 package com.example.a0922i1projectmobilephone.service.homepage;
 
 import com.example.a0922i1projectmobilephone.entity.Product;
-import com.example.a0922i1projectmobilephone.repository.HomePageRepository;
+import com.example.a0922i1projectmobilephone.repository.home_page.HomePageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
