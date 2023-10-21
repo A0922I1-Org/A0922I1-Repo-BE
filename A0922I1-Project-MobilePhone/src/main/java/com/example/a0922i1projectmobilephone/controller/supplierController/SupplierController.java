@@ -2,7 +2,8 @@ package com.example.a0922i1projectmobilephone.controller.supplierController;
 
 import com.example.a0922i1projectmobilephone.dto.supplier.SupplierDtoCreateUpdate;
 import com.example.a0922i1projectmobilephone.entity.Supplier;
-import com.example.a0922i1projectmobilephone.service.ISupplierService;
+import com.example.a0922i1projectmobilephone.service.supplierService.list.IListSupplierService;
+import com.example.a0922i1projectmobilephone.validate.SupplierValidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -15,16 +16,22 @@ import org.springframework.validation.annotation.Validated;
 import com.example.a0922i1projectmobilephone.service.supplierService.create.ICreateSupplierService;
 import com.example.a0922i1projectmobilephone.service.supplierService.update.IUpdateSupplierService;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/api/suppliers")
 public class SupplierController {
     @Autowired
-    private ISupplierService supplierService;
+    IListSupplierService supplierService;
 
     @Autowired
     ICreateSupplierService createSupplierService;
     @Autowired
     IUpdateSupplierService updateSupplierService;
+    @Autowired
+    SupplierValidate supplierValidate;
     @GetMapping("/paged")
     public ResponseEntity<Page<Supplier>> getAllSupplier(
             @RequestParam(defaultValue = "1") int pageNo,
@@ -77,38 +84,41 @@ public class SupplierController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<SupplierDtoCreateUpdate> addSupplier(
+    public ResponseEntity<?> addSupplier(
             @Validated @RequestBody SupplierDtoCreateUpdate supplier,
             BindingResult bindingResult
     ){
+        Map<String, String> errordata = supplierValidate.checkValidate(createSupplierService.checkdata(supplier));
         if (bindingResult.hasErrors()){
             return new ResponseEntity<>(supplier, HttpStatus.BAD_REQUEST);
-
+        }if (!errordata.isEmpty()){
+            return new ResponseEntity<>(errordata, HttpStatus.BAD_REQUEST);
         }else {
-            this.createSupplierService.addNewSupplier(supplier);
-
+            createSupplierService.addNewSupplier(supplier);
+            return new ResponseEntity<>(supplier, HttpStatus.CREATED);
         }
-        return new ResponseEntity<>(supplier, HttpStatus.CREATED);
+
     }
-    @GetMapping ("/edit{supplier_id}")
+    @GetMapping ("/edit/{supplier_id}")
     public ResponseEntity<Supplier> editSupplier(
             @PathVariable int supplier_id){
         Supplier supplier = updateSupplierService.findById(supplier_id);
         return new ResponseEntity<>(supplier, HttpStatus.OK);
     }
     @PostMapping("/update")
-    public ResponseEntity<SupplierDtoCreateUpdate> updateSuppier(
+    public ResponseEntity<?> updateSuppier(
             @Validated @RequestBody SupplierDtoCreateUpdate supplier,
             BindingResult bindingResult
     ){
+        Map<String, String> errordata = supplierValidate.checkValidate(updateSupplierService.checkData(supplier));
         if (bindingResult.hasErrors()){
             return new ResponseEntity<>(supplier, HttpStatus.BAD_REQUEST);
-
+        }if (!errordata.isEmpty()){
+            return new ResponseEntity<>(errordata, HttpStatus.BAD_REQUEST);
         }else {
-            this.updateSupplierService.updateSupplier(supplier);
-
+            updateSupplierService.updateSupplier(supplier);
+            return new ResponseEntity<>(supplier, HttpStatus.CREATED);
         }
-        return new ResponseEntity<>(supplier, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

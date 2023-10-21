@@ -1,8 +1,8 @@
-package com.example.a0922i1projectmobilephone.service.supplierService.Impl;
+package com.example.a0922i1projectmobilephone.service.supplierService.list.Impl;
 
 import com.example.a0922i1projectmobilephone.entity.Supplier;
 import com.example.a0922i1projectmobilephone.repository.supplierRepository.ISupplierRepository;
-import com.example.a0922i1projectmobilephone.service.ISupplierService;
+import com.example.a0922i1projectmobilephone.service.supplierService.list.IListSupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class SupplierServiceImpl implements ISupplierService {
+public class ListSupplierServiceImpl implements IListSupplierService {
     @Autowired
     private ISupplierRepository supplierRepository;
 

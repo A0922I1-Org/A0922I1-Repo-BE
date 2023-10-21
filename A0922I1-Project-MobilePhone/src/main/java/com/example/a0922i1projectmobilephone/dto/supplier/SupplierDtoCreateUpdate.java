@@ -7,6 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+import java.util.Objects;
 
 
 @Getter
@@ -23,6 +24,7 @@ public class SupplierDtoCreateUpdate {
     private String supplierPhone;
     @Email
     @NotBlank(message = "Email không được để trống")
+    @Pattern(regexp = "^[a-zA-Z0-9@.]+$")
     private String supplierEmail;
     @Pattern(regexp = "^[a-zA-Z0-9_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ \n]+$")
     @NotBlank(message = "Địa chỉ không được để trống")
@@ -46,4 +48,13 @@ public class SupplierDtoCreateUpdate {
         this.supplierAddress = supplierAddress;
     }
 
-  }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SupplierDtoCreateUpdate that = (SupplierDtoCreateUpdate) o;
+        return Objects.equals(supplierId, that.supplierId) && Objects.equals(supplierName, that.supplierName) && Objects.equals(supplierPhone, that.supplierPhone) && Objects.equals(supplierEmail, that.supplierEmail) && Objects.equals(supplierAddress, that.supplierAddress);
+    }
+
+
+}

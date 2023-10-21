@@ -54,6 +54,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2WbNJrT9WRLU2flc7qD1Kub10YK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -71,11 +75,22 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/project/A0922I1-Repo-BE/A0922I1-Project-MobilePhone&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;NghiaBH-c-u-supplier&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/project_mobie_phone/BE/A0922I1-Repo-BE/A0922I1-Project-MobilePhone&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;42c7da4c4c29862f953a1ab1241d4c7c&quot;
+    &quot;spring.configuration.checksum&quot;: &quot;42c7da4c4c29862f953a1ab1241d4c7c&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.a0922i1projectmobilephone.service.supplierService.list" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.A0922I1ProjectMobilePhoneApplication">
     <configuration name="A0922I1-Project-MobilePhone [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -96,6 +111,7 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="A0922I1ProjectMobilePhoneApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -168,6 +184,14 @@
       <workItem from="1697442710855" duration="256000" />
       <workItem from="1697443102097" duration="402000" />
       <workItem from="1697446905703" duration="42000" />
+      <workItem from="1697594110419" duration="4259000" />
+      <workItem from="1697625451161" duration="11525000" />
+      <workItem from="1697678900354" duration="12409000" />
+      <workItem from="1697726700537" duration="2156000" />
+      <workItem from="1697758833038" duration="13444000" />
+      <workItem from="1697801529383" duration="780000" />
+      <workItem from="1697851409985" duration="1583000" />
+      <workItem from="1697874561285" duration="3000" />
     </task>
     <servers />
   </component>
@@ -184,5 +208,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/supplierController/SupplierController.java</url>
+          <line>108</line>
+          <properties class="com.example.a0922i1projectmobilephone.controller.supplierController.SupplierController" method="updateSuppier">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

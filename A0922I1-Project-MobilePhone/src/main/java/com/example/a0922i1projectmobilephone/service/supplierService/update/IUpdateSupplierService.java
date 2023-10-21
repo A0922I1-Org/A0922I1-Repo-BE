@@ -5,6 +5,7 @@ import com.example.a0922i1projectmobilephone.entity.Supplier;
 
 public interface IUpdateSupplierService {
     Supplier findById(int supplier_id);
-    void updateSupplier(SupplierDtoCreateUpdate supplier);
+    SupplierDtoCreateUpdate updateSupplier(SupplierDtoCreateUpdate supplier);
+    SupplierDtoCreateUpdate checkData(SupplierDtoCreateUpdate supplier);
 
 }
