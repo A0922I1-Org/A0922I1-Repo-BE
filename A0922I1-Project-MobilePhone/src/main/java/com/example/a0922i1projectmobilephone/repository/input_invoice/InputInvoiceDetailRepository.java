@@ -19,7 +19,7 @@ public interface InputInvoiceDetailRepository extends JpaRepository<InputInvoice
 //            " JOIN product p ON i_detail.product_id = p.product_id" +
 //            " JOIN input_invoice i ON i_detail.input_invoice_id = i.input_invoice_id" +
 //            " JOIN supplier s ON i.supplier_id = s.supplier_id" , nativeQuery = true)
-    @Query(value = "select iid from InputInvoiceDetail iid")
+    @Query(value = "select iid from InputInvoiceDetail iid order by iid.inputInvoice.inputInvoiceDate DESC ")
     Page<InputInvoiceDetail> getInputInvoiceDetail(Pageable pageable);
 
 
