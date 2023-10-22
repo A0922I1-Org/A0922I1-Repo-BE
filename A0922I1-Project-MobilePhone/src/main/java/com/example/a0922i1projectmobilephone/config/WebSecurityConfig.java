@@ -71,9 +71,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/public/**").permitAll() // Cho phép truy cập không cần đăng nhập
-                .antMatchers("/admin/**").hasRole("ADMIN") // Cần quyền ADMIN
-                .antMatchers("/user/**").hasRole("USER") // Cần quyền USER
+                .antMatchers("/api/auth/signIn"
+                        , "/api/products"
+                        , "/api/auth/checkExistingEmail"
+                        , "/api/auth/checkExistingUsername"
+                        , "/api/auth/checkCurrentPassword"
+                        , "/api/auth/inforEmployee"
+                        , "/api/auth/signUp")
+                .permitAll() // Cho phép truy cập không cần đăng nhập
                 .anyRequest().authenticated()
                 .and().exceptionHandling()
                 .authenticationEntryPoint(jwtEntryPoint)
