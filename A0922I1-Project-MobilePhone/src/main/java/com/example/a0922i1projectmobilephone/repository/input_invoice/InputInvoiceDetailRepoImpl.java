@@ -13,6 +13,9 @@ import javax.persistence.Query;
 
 import javax.transaction.Transactional;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -22,11 +25,12 @@ public class InputInvoiceDetailRepoImpl {
     @PersistenceContext
     private EntityManager em;
 
-    public Page<InputInvoiceDetail> search(String supplierName, String productName, Date startDate, Date endDate, Pageable pageable) {
-        String sql_search = "SELECT iid.inputInvoiceCost," +
-                " iid.amount, " +
-                " iid.product," +
-                " iid.inputInvoice FROM InputInvoiceDetail iid" +
+    public Page<InputInvoiceDetail> search(String supplierName, String productName, String startDate, String endDate, Pageable pageable) {
+        SimpleDateFormat pattern = new SimpleDateFormat("yyyy-MM-dd");
+
+
+        String sql_search = "SELECT iid" +
+                " FROM InputInvoiceDetail iid" +
                 " WHERE 1=1";
         if (!supplierName.isEmpty()){
             sql_search += " AND iid.inputInvoice.supplier.supplierName LIKE :supplierName";
@@ -34,12 +38,31 @@ public class InputInvoiceDetailRepoImpl {
         if (!productName.isEmpty()){
             sql_search += " AND iid.product.productName LIKE :productName";
         }
-        if (startDate!=null){
+
+        Date startDateConverted = null;
+        if (!startDate.isEmpty()){
+            try {
+                startDateConverted = pattern.parse(startDate);
+//                startDate = pattern.format(startDateConverted);
+
+
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
             sql_search += " AND iid.inputInvoice.inputInvoiceDate >= :startDate";
         }
-        if (endDate!=null){
-            sql_search += " AND i.inputInvoice.inputInvoiceDate <= :endDate";
+
+        Date endDateConverted = null;
+        if (!endDate.isEmpty()){
+            try {
+                endDateConverted = pattern.parse(endDate);
+//                endDate = pattern.format(endDateConverted);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+            sql_search += " AND iid.inputInvoice.inputInvoiceDate <= :endDate";
         }
+        sql_search += " ORDER BY iid.inputInvoice.inputInvoiceDate desc";
         Query query = em.createQuery(sql_search);
         if (!supplierName.isEmpty()) {
             query.setParameter("supplierName", "%" + supplierName + "%");
@@ -47,11 +70,11 @@ public class InputInvoiceDetailRepoImpl {
         if (!productName.isEmpty()) {
             query.setParameter("productName", "%" + productName + "%");
         }
-        if (startDate != null) {
-            query.setParameter("startDate",startDate);
+        if (!startDate.isEmpty()) {
+            query.setParameter("startDate",startDateConverted);
         }
-        if (endDate !=null) {
-            query.setParameter("endDate", endDate);
+        if (!endDate.isEmpty()) {
+            query.setParameter("endDate", endDateConverted);
         }
 
         List<InputInvoiceDetail> resultList = query.getResultList();
