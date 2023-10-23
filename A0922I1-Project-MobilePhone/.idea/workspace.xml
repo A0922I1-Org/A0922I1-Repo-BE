@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e127c345-df23-4155-95e9-39f71900a413" name="Changes" comment="" />
+    <list default="true" id="e127c345-df23-4155-95e9-39f71900a413" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/OutputInvoiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/ManagerPurchaseHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/OutputInvoiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/OutputInvoiceRepository.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,16 +60,23 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
 }</component>
+=======
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+>>>>>>> main
   <component name="ProjectId" id="2WbNJrT9WRLU2flc7qD1Kub10YK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
@@ -89,6 +102,29 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.a0922i1projectmobilephone.service.supplierService.list" />
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelOrder2": "2",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth2": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/A0922I1-Repo-BE/back-end/A0922I1-Repo-BE/A0922I1-Project-MobilePhone",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "spring.configuration.checksum": "ab9b16f0dc82e59c3cf9a4a287b5c2ce"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.a0922i1projectmobilephone.controller" />
+      <recent name="com.example.a0922i1projectmobilephone.entity" />
+>>>>>>> main
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.A0922I1ProjectMobilePhoneApplication">
@@ -184,6 +220,7 @@
       <workItem from="1697442710855" duration="256000" />
       <workItem from="1697443102097" duration="402000" />
       <workItem from="1697446905703" duration="42000" />
+<<<<<<< HEAD
       <workItem from="1697594110419" duration="4259000" />
       <workItem from="1697625451161" duration="11525000" />
       <workItem from="1697678900354" duration="12409000" />
@@ -192,6 +229,13 @@
       <workItem from="1697801529383" duration="780000" />
       <workItem from="1697851409985" duration="1583000" />
       <workItem from="1697874561285" duration="3000" />
+=======
+      <workItem from="1697615106188" duration="1571000" />
+      <workItem from="1697624707310" duration="46000" />
+      <workItem from="1697632688136" duration="6443000" />
+      <workItem from="1697783690241" duration="743000" />
+      <workItem from="1697784754938" duration="1095000" />
+>>>>>>> main
     </task>
     <servers />
   </component>

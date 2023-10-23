@@ -1,8 +1,7 @@
 package com.example.a0922i1projectmobilephone.security.userprincal;
 
 import com.example.a0922i1projectmobilephone.entity.User;
-import com.example.a0922i1projectmobilephone.repository.IUserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.a0922i1projectmobilephone.repository.login_repo.IUserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -12,10 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/input-invoice")
@@ -29,22 +26,19 @@ public class InputInvoiceController {
 
     @GetMapping("/list")
     public ResponseEntity<Page<InputInvoiceDetail>> getAllInputInvoiceDetail(
+            @RequestParam(required = false) String supplierName,
+            @RequestParam(required = false) String productName,
+            @RequestParam(required = false) String startDate,
+            @RequestParam(required = false) String endDate,
             @RequestParam(defaultValue = "0") int pageNo,
             @RequestParam(defaultValue = "8") int pageSize
-    ){
-        Page<InputInvoiceDetail> inputInvoiceDetails = this.inputInvoiceDetailService.getInputInvoiceDetail(pageNo, pageSize);
-        return new ResponseEntity<>(inputInvoiceDetails, HttpStatus.OK);
-    }
-    @GetMapping("/search")
-    public ResponseEntity<Page<InputInvoiceDetail>> search(
-            @RequestParam String supplierName,
-            @RequestParam String productName,
-            @RequestParam String startDate,
-            @RequestParam String endDate,
-            @RequestParam(defaultValue = "1") int pageNo,
-            @RequestParam(defaultValue = "10") int pageSize
-    ){
-        Page<InputInvoiceDetail> inputInvoiceDetails = this.inputInvoiceDetailService.search(supplierName, productName,startDate,endDate,pageNo-1,pageSize);
+            ){
+        Page<InputInvoiceDetail> inputInvoiceDetails = null;
+        if (supplierName.isEmpty()&&productName.isEmpty()&&startDate.isEmpty()&&endDate.isEmpty()) {
+             inputInvoiceDetails = this.inputInvoiceDetailService.getInputInvoiceDetail(pageNo, pageSize);
+        } else {
+            inputInvoiceDetails = this.inputInvoiceDetailService.search(supplierName, productName,startDate,endDate,pageNo,pageSize);
+        }
         return new ResponseEntity<>(inputInvoiceDetails, HttpStatus.OK);
     }
 

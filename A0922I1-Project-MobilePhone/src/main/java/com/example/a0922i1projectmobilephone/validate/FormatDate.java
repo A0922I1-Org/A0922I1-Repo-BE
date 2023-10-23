@@ -1,6 +1,12 @@
 package com.example.a0922i1projectmobilephone.validate;
 
+<<<<<<< HEAD
     import javax.validation.ConstraintValidator;
+=======
+
+
+import javax.validation.ConstraintValidator;
+>>>>>>> main
 import javax.validation.ConstraintValidatorContext;
 
 public class FormatDate implements ConstraintValidator<ValidateFormat,String> {

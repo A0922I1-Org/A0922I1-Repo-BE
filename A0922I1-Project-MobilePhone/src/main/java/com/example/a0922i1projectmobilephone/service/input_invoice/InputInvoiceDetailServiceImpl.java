@@ -33,33 +33,7 @@ public class InputInvoiceDetailServiceImpl implements InputInvoiceDetailService 
     @Override
     public Page<InputInvoiceDetail> search(String supplierName, String productName, String startDate, String endDate, int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
-        Date startDateConverted = null;
-        Date endDateConverted = null;
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        if (!startDate.isEmpty()) {
-            try {
-
-                startDateConverted = dateFormat.parse(startDate);
-                System.out.println(startDateConverted);
-
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
-        if (!endDate.isEmpty()) {
-            try {
-
-                endDateConverted = dateFormat.parse(endDate);
-
-                System.out.println(endDateConverted);
-
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return this.inputInvoiceDetailRepo.search(supplierName, productName, startDateConverted, endDateConverted, pageable);
+        return this.inputInvoiceDetailRepo.search(supplierName, productName, startDate, endDate, pageable);
 
     }
 
