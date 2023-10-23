@@ -4,8 +4,6 @@ import com.example.a0922i1projectmobilephone.dto.input_invoice.ProductInputDto;
 import com.example.a0922i1projectmobilephone.entity.InputInvoiceDetail;
 import org.springframework.data.domain.Page;
 
-import java.util.Date;
-
 public interface InputInvoiceDetailService {
     Page<InputInvoiceDetail> getInputInvoiceDetail(int pageNo, int pageSize);
     Page<InputInvoiceDetail> search(String supplierName, String productName, String startDate, String endDate, int pageNo, int pageSize);

@@ -71,10 +71,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors().and().csrf().disable()
                 .authorizeRequests()
+//                .antMatchers("/public/**").permitAll() // Cho phép truy cập không cần đăng nhập
+//                .antMatchers("/admin/**").hasRole("ADMIN") // Cần quyền ADMIN
+//                .antMatchers("/user/**").hasRole("USER") // Cần quyền USER
+                .antMatchers("/**").permitAll()
                 .antMatchers("/public/**").permitAll() // Cho phép truy cập không cần đăng nhập
                 .antMatchers("/admin/**").hasRole("ADMIN") // Cần quyền ADMIN
-                .antMatchers("/user/**").hasRole("USER") // Cần quyền USER
-                .anyRequest().authenticated()
+                .antMatchers("/user/**").hasRole("USER") // Cần quyền USER.anyRequest().authenticated()
                 .and().exceptionHandling()
                 .authenticationEntryPoint(jwtEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
