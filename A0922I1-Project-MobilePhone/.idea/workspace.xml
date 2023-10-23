@@ -15,8 +15,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WebSecurityConfig$1.class.uniqueId1" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WebSecurityConfig$1.class.uniqueId1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WebSecurityConfig.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WebSecurityConfig.class.uniqueId0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,6 +198,9 @@
       <workItem from="1697783690241" duration="743000" />
       <workItem from="1697784754938" duration="1944000" />
       <workItem from="1697966522392" duration="12026000" />
+      <workItem from="1698005082295" duration="210000" />
+      <workItem from="1698039421216" duration="6505000" />
+      <workItem from="1698063764879" duration="2810000" />
     </task>
     <servers />
   </component>
