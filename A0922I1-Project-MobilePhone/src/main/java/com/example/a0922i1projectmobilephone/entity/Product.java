@@ -1,7 +1,11 @@
 package com.example.a0922i1projectmobilephone.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
+
+import lombok.*;
 import javax.persistence.*;
 import java.util.Set;
 @Entity
@@ -12,7 +16,7 @@ import java.util.Set;
 @Setter
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
     @Column(name = "name_product")
     private String productName;
@@ -37,13 +41,18 @@ public class Product {
     @Column(name = "description_product")
     private String description;
     @OneToMany(mappedBy = "product" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<InputInvoiceDetail> inputInvoiceDetails;
     @OneToMany(mappedBy = "product" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<OutputInvoiceDetail> outputInvoiceDetails;
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
+
     private Category category;
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "brand_id", referencedColumnName = "brandId")
     private Brand brand;
 }

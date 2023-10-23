@@ -20,7 +20,7 @@ public class Brand {
     private Integer brandId;
     @Column(name = "brand_name")
     private String brandName;
-    @JsonBackReference
     @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<Product> product;
 }
