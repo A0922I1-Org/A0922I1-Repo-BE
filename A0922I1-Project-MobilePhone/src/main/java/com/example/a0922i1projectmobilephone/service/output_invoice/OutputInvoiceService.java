@@ -20,6 +20,7 @@ public interface OutputInvoiceService {
     long calculateRevenue(String fromDate, String toDate);
 
 
+
     //thuận
     Page<ManagerPurchaseHistory> getAll(int pageNo, int pageSize);
 

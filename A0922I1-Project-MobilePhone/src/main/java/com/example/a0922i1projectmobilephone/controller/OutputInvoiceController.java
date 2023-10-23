@@ -45,6 +45,7 @@ public class OutputInvoiceController {
                 return new ResponseEntity<>(page, HttpStatus.OK);
             default:
                 page = outputInvoiceService.getAll(pageNo, pageSize);
+
                 return new ResponseEntity<>(page, HttpStatus.OK);
         }
     }

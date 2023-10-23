@@ -75,7 +75,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/admin/**").hasRole("ADMIN") // Cần quyền ADMIN
 //                .antMatchers("/user/**").hasRole("USER") // Cần quyền USER
                 .antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/public/**").permitAll() // Cho phép truy cập không cần đăng nhập
+                .antMatchers("/admin/**").hasRole("ADMIN") // Cần quyền ADMIN
+                .antMatchers("/user/**").hasRole("USER") // Cần quyền USER.anyRequest().authenticated()
                 .and().exceptionHandling()
                 .authenticationEntryPoint(jwtEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

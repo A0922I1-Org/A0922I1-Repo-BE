@@ -41,7 +41,7 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
         CustomerDTO customer = request.getCustomerDTO();
         Integer customerId = customer.getCustomerId();
         if (customer.getCustomerId() == null) {
-            customerRepository.saveCustomer(customer.getCustomerName(),customer.getCustomerPhone(), customer.getCustomerAddress(), customer.getCustomerEmail());
+            customerRepository.saveCustomer(customer.getCustomerName(), customer.getCustomerPhone(), customer.getCustomerAddress(), customer.getCustomerEmail());
             customerId = customerRepository.getLastCustomerId();
         }
 
@@ -97,7 +97,7 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
         reports = outputInvoiceRepository.findByDayAndProductId(fromDate, toDate, productId);
         long totalRevenue = 0;
         for (Report report : reports) {
-            double revenue = report.getCost() - (report.getInput_invoice_cost()/report.getAmount());
+            double revenue = report.getCost() - (report.getInput_invoice_cost() / report.getAmount());
             totalRevenue += revenue;
         }
         return totalRevenue;
@@ -109,7 +109,7 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
         reports = outputInvoiceRepository.findByDay(fromDate, toDate);
         long totalRevenue = 0;
         for (Report report : reports) {
-            double revenue = report.getCost() - (report.getInput_invoice_cost()/report.getAmount());
+            double revenue = report.getCost() - (report.getInput_invoice_cost() / report.getAmount());
             totalRevenue += revenue;
         }
         return totalRevenue;
@@ -121,6 +121,7 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         return outputInvoiceRepository.getAll(pageable);
     }
+
     @Override
     public Page<ManagerPurchaseHistory> sortByTotalPrice(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
@@ -150,5 +151,4 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         return outputInvoiceRepository.sortByQuantity(pageable);
     }
-
 }

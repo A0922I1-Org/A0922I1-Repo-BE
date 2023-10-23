@@ -33,7 +33,6 @@ public interface IRepositoryCustomer extends JpaRepository<Customer, Integer> {
                                   @Param("isAll") int isAll);
     @Query(value = "select * from customer  where customer_id = ?1", nativeQuery = true)
     Customer findById(int id);
-
     /**
      * NhanTP
      * Create Customer are not in the list
