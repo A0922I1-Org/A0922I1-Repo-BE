@@ -43,18 +43,18 @@ public interface OutputInvoiceRepository extends JpaRepository<OutputInvoice, In
     @Query(value = "SELECT MAX(output_invoice_id) FROM output_invoice", nativeQuery = true)
     Integer getLastOutputInvoiceId();
 
-    @Query(value = "select count(*) from output_invoice o where o.output_invoice_day >=:fromDay and o.output_invoice_day<=:toDay", nativeQuery = true)
+    @Query(value = "select count(*) from output_invoice o where o.date_output_invoice >=:fromDay and o.date_output_invoice<=:toDay", nativeQuery = true)
     long CountAll(@Param("fromDay") String fromDay, @Param("toDay") String toDay);
 
-    @Query(value = "select count(*) from (select p.product_id,p.product_name,p.cost,o.output_invoice_day,id.amount,id.input_invoice_cost from output_invoice o join output_invoice_detail od on o.output_invoice_id = od.output_invoice_id join product p on p.product_id = od.product_id join input_invoice_detail id on id.product_id = p.product_id where o.output_invoice_day >=:fromDay and o.output_invoice_day<=:toDay and p.product_id = :productId) as report", nativeQuery = true)
+    @Query(value = "select count(*) from (select p.product_id,p.name_product,p.cost_product,p.selling_price_product,o.date_output_invoice from output_invoice o join output_invoice_detail od on o.output_invoice_id = od.output_invoice_id join product p on p.product_id = od.product_id  where o.date_output_invoice >=:fromDay and o.date_output_invoice<=:toDay and p.product_id = :productId) as report", nativeQuery = true)
     long CountByID(@Param("fromDay") String fromDay, @Param("toDay") String toDay, @Param("productId") Integer id);
 
 
-    @Query(value = "select p.product_id,p.product_name,p.cost,o.output_invoice_day,id.amount,id.input_invoice_cost from output_invoice o join output_invoice_detail od on o.output_invoice_id = od.output_invoice_id join product p on p.product_id = od.product_id join input_invoice_detail id on id.product_id = p.product_id where o.output_invoice_day >=:fromDay and o.output_invoice_day<=:toDay",nativeQuery = true)
+    @Query(value = "select p.product_id,p.name_product,p.cost_product,p.selling_price_product,o.date_output_invoice from output_invoice o join output_invoice_detail od on o.output_invoice_id = od.output_invoice_id join product p on p.product_id = od.product_id  where o.date_output_invoice >=:fromDay and o.date_output_invoice<=:toDay",nativeQuery = true)
     List<Report>findByDay(@Param("fromDay")String fromDay,@Param("toDay")String toDay);
 
 
-    @Query(value = "select p.product_id,p.product_name,p.cost,o.output_invoice_day,id.amount,id.input_invoice_cost from output_invoice o join output_invoice_detail od on o.output_invoice_id = od.output_invoice_id join product p on p.product_id = od.product_id join input_invoice_detail id on id.product_id = p.product_id where o.output_invoice_day >=:fromDay and o.output_invoice_day<=:toDay and p.product_id=:productId",nativeQuery = true)
+    @Query(value = "select p.product_id,p.name_product,p.cost_product,p.selling_price_product,o.date_output_invoice from output_invoice o join output_invoice_detail od on o.output_invoice_id = od.output_invoice_id join product p on p.product_id = od.product_id  where o.date_output_invoice >=:fromDay and o.date_output_invoice<=:toDay and p.product_id=:productId",nativeQuery = true)
     List<Report>findByDayAndProductId(@Param("fromDay")String fromDay,@Param("toDay")String toDay,@Param("productId")Integer id);
 
 
