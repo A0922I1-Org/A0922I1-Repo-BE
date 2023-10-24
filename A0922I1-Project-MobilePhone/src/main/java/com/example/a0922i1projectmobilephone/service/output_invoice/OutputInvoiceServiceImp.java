@@ -97,7 +97,7 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
         reports = outputInvoiceRepository.findByDayAndProductId(fromDate, toDate, productId);
         long totalRevenue = 0;
         for (Report report : reports) {
-            double revenue = report.getCost() - (report.getInput_invoice_cost() / report.getAmount());
+            double revenue = report.getSelling_price_product()-report.getCost_product();
             totalRevenue += revenue;
         }
         return totalRevenue;
@@ -109,7 +109,7 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
         reports = outputInvoiceRepository.findByDay(fromDate, toDate);
         long totalRevenue = 0;
         for (Report report : reports) {
-            double revenue = report.getCost() - (report.getInput_invoice_cost() / report.getAmount());
+            double revenue = report.getSelling_price_product()-report.getCost_product();;
             totalRevenue += revenue;
         }
         return totalRevenue;
