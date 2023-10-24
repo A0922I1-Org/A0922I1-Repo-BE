@@ -69,4 +69,12 @@ public class SupplierServiceImpl implements ISupplierService {
         }
     }
 
+    @Override
+    public Page<Supplier> getSuppliers(String name, String address, String phone, Pageable pageable) {
+        if (name == null && address == null && phone == null) {
+            return supplierRepository.getAllSuppliers(pageable);
+        } else {
+            return supplierRepository.getAllSuppliers(name, address, phone, pageable);
+        }
+    }
 }

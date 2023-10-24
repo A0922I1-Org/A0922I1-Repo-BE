@@ -1,19 +1,25 @@
 package com.example.a0922i1projectmobilephone.controller;
 
 import com.example.a0922i1projectmobilephone.dto.supplier.SupplierDtoCreateUpdate;
+import com.example.a0922i1projectmobilephone.entity.Product;
 import com.example.a0922i1projectmobilephone.entity.Supplier;
 import com.example.a0922i1projectmobilephone.service.supplierService.ISupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 
 import com.example.a0922i1projectmobilephone.service.supplierService.create.ICreateSupplierService;
 import com.example.a0922i1projectmobilephone.service.supplierService.update.IUpdateSupplierService;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/suppliers")
@@ -25,6 +31,7 @@ public class SupplierController {
     ICreateSupplierService createSupplierService;
     @Autowired
     IUpdateSupplierService updateSupplierService;
+
     @GetMapping("/paged")
     public ResponseEntity<Page<Supplier>> getAllSupplier(
             @RequestParam(defaultValue = "1") int pageNo,
@@ -74,6 +81,40 @@ public class SupplierController {
             @RequestParam(defaultValue = "8") int pageSize) {
         Page<Supplier> page = supplierService.searchSuppliers(name, address, phone, pageNo, pageSize);
         return new ResponseEntity<>(page, HttpStatus.OK);
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<Page<Supplier>> searchSupplier(
+            Model model,
+            @RequestParam(value = "name", required = false) Optional<String> nameParam,
+            @RequestParam(value = "address", required = false) Optional<String> addressParam,
+            @RequestParam(value = "phone", required = false) Optional<String> phoneParam,
+            @RequestParam(value = "pageNo", required = false) Optional<Integer> page,
+            @RequestParam(value = "pageSize", required = false) Optional<Integer> size,
+            @RequestParam(value = "sort", required = false) Optional<String> sort,
+            @RequestParam(value = "direction", required = false) Optional<Boolean> direction) {
+        Integer currentPage = page.orElse(1);
+        Integer pageSize = size.orElse(8);
+        String name = nameParam.orElse(null);
+        String address = addressParam.orElse(null);
+        String phone = phoneParam.orElse(null);
+        name = "".equals(name) ? null : name;
+        address = "".equals(address) ? null : address;
+        phone = "".equals(phone) ? null : phone;
+        String sortField = sort.orElse("supplier_id");
+        sortField = "".equals(sortField) ? "supplier_id" : sortField;
+        Boolean directionSort = direction.orElse(false);
+        model.addAttribute("currentPage", currentPage);
+        Page<Supplier> suppliers;
+        if (directionSort) {
+            suppliers = supplierService.getSuppliers(name,address,phone, PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).ascending()));
+        } else {
+            suppliers = supplierService.getSuppliers(name,address,phone, PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).descending()));
+        }
+        if (suppliers.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(suppliers, HttpStatus.OK);
     }
 
     @PostMapping("/create")

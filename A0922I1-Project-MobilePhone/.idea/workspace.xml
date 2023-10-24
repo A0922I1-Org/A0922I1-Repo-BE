@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e127c345-df23-4155-95e9-39f71900a413" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/A0922I1-Project-MobilePhone.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HomePageService.class.uniqueId14" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/A0922I1-Repo-BE.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/com.example.A0922I1-Project-MobilePhone.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2.1/checksums/sha1-checksums.bin" afterDir="false" />
@@ -26,11 +17,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/A0922I1-Project-MobilePhone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/A0922I1-Project-MobilePhone.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/A0922I1-Project-MobilePhone.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/A0922I1-Project-MobilePhone.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/A0922I1-Project-MobilePhone.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/A0922I1-Project-MobilePhone.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/A0922I1ProjectMobilePhoneApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/A0922I1ProjectMobilePhoneApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/OAuth2/CustomOAuth2User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/OAuth2/CustomOAuth2User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/VNPayConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/VNPayConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/VNPayService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/VNPayService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/AuthController.class" afterDir="false" />
@@ -41,9 +36,18 @@
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/ProductController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/ReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/ReportController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/SupplierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/SupplierController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/VNPayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/controller/VNPayController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/input_invoice/InputInvoiceDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/input_invoice/InputInvoiceDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/input_invoice/ProductInputDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/input_invoice/ProductInputDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/input_invoice/SupplierIdDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/input_invoice/SupplierIdDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/CustomerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/CustomerDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/CustomerResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/CustomerResponseDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/OutputInvoiceDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/OutputInvoiceDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/OutputInvoiceDetailDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/OutputInvoiceDetailDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/ProductDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/ProductDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/ProductResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/ProductResponseDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/VNPayDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/VNPayDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/VNPayResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/output_invoice/VNPayResponse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/reponse/JwtResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/reponse/JwtResponse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/reponse/ReponseMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/reponse/ReponseMessage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/report/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/dto/report/Report.class" afterDir="false" />
@@ -79,6 +83,9 @@
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/login_repo/IEmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/login_repo/IEmployeeRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/login_repo/IRoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/login_repo/IRoleRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/login_repo/IUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/login_repo/IUserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/output_invoice/IRepositoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/output_invoice/IRepositoryProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/output_invoice/OutputInvoiceDetailRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/output_invoice/OutputInvoiceDetailRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/output_invoice/OutputInvoiceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/output_invoice/OutputInvoiceRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/product/IProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/product/IProductRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/supplierRepository/ISupplierRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/supplierRepository/ISupplierRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/supplierRepository/create/ICreateSupplierRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/repository/supplierRepository/create/ICreateSupplierRepository.class" afterDir="false" />
@@ -126,20 +133,13 @@
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/validate/ValidateFormatProductId.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/validate/ValidateFormatProductId.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/validate/formValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/a0922i1projectmobilephone/validate/formValidation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/IRepositoryProduct.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/InputInvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/InputInvoiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/OutputInvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/OutputInvoiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/OutputInvoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/entity/OutputInvoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/customer_repo/IRepositoryCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/customer_repo/IRepositoryCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/input_invoice/InputInvoiceDetailRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/input_invoice/InputInvoiceDetailRepoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/input_invoice/InputInvoiceDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/input_invoice/InputInvoiceDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/product/IProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/product/IProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/product/IRepositoryProduct.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/input_invoice/InputInvoiceDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/input_invoice/InputInvoiceDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/input_invoice/InputInvoiceDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/input_invoice/InputInvoiceDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/output_invoice/OutputInvoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/output_invoice/OutputInvoiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/output_invoice/OutputInvoiceServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/output_invoice/OutputInvoiceServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/controller/SupplierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/supplierRepository/ISupplierRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/repository/supplierRepository/ISupplierRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/supplierService/ISupplierService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/supplierService/ISupplierService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/supplierService/Impl/SupplierServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/a0922i1projectmobilephone/service/supplierService/Impl/SupplierServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,11 +165,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="A0922I1-Project-MobilePhone" type="f1a62948:ProjectNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="A0922I1-Project-MobilePhone" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -192,7 +187,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2WbNJrT9WRLU2flc7qD1Kub10YK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -212,10 +207,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/A0922I1-Repo-BE/back-end/A0922I1-Repo-BE/A0922I1-Project-MobilePhone",
+    "last_opened_file_path": "G:/IT/Final code module 6/A0922I1-Repo-BE/A0922I1-Project-MobilePhone",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "spring.configuration.checksum": "ab9b16f0dc82e59c3cf9a4a287b5c2ce"
+    "spring.configuration.checksum": "ac46f7d5ae51917c9a1289df99a57805",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -247,12 +247,18 @@
       <method v="2" />
     </configuration>
     <configuration name="A0922I1ProjectMobilePhoneApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-19" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="A0922I1-Project-MobilePhone.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.a0922i1projectmobilephone.A0922I1ProjectMobilePhoneApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Gradle.A0922I1-Project-MobilePhone [dependencies]" />
+      <item itemvalue="Spring Boot.A0922I1ProjectMobilePhoneApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.A0922I1-Project-MobilePhone [dependencies]" />
@@ -321,6 +327,8 @@
       <workItem from="1697632688136" duration="6443000" />
       <workItem from="1697783690241" duration="743000" />
       <workItem from="1697784754938" duration="1095000" />
+      <workItem from="1698154161118" duration="10000" />
+      <workItem from="1698154181329" duration="8831000" />
     </task>
     <servers />
   </component>
