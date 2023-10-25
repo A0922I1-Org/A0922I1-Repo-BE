@@ -30,16 +30,16 @@ public interface OutputInvoiceRepository extends JpaRepository<OutputInvoice, In
 
     // thuận
 
-    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.product_name ) SEPARATOR ', ') AS productName\n" +
+    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.name_product ) SEPARATOR ', ') AS productName\n" +
             "FROM output_invoice AS o\n" +
             "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
             "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
             "JOIN product AS p ON p.product_id = od.product_id\n" +
-            "GROUP BY o.output_invoice_id ", nativeQuery = true)
+            "GROUP BY o.output_invoice_id", nativeQuery = true)
     Page<ManagerPurchaseHistory> getAll(Pageable pageable);
 
 
-    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.product_name ) SEPARATOR ', ') AS productName\n" +
+    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.name_product ) SEPARATOR ', ') AS productName\n" +
             "FROM output_invoice AS o\n" +
             "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
             "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
@@ -47,23 +47,23 @@ public interface OutputInvoiceRepository extends JpaRepository<OutputInvoice, In
             "GROUP BY o.output_invoice_id " +
             "ORDER BY customer_name ", nativeQuery = true)
     Page<ManagerPurchaseHistory>sortByCustomerName(Pageable pageable);
-    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.product_name ) SEPARATOR ', ') AS productName\n" +
-            "FROM output_invoice AS o \n" +
-            "JOIN customer AS c ON c.customer_id = o.customer_id \n" +
-            "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id \n" +
-            "JOIN product AS p ON p.product_id = od.product_id \n" +
-            "GROUP BY o.output_invoice_id\t\n" +
-            "ORDER BY p.product_name ASC,od.quantity ", nativeQuery = true)
+    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.name_product ) SEPARATOR ', ') AS productName\n" +
+            "FROM output_invoice AS o\n" +
+            "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
+            "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
+            "JOIN product AS p ON p.product_id = od.product_id\n" +
+            "GROUP BY o.output_invoice_id " +
+            "ORDER BY p.name_product ASC,od.quantity ", nativeQuery = true)
     Page<ManagerPurchaseHistory>sortByProduct_name(Pageable pageable);
-    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.product_name ) SEPARATOR ', ') AS productName\n" +
-            "FROM output_invoice AS o \n" +
-            "JOIN customer AS c ON c.customer_id = o.customer_id \n" +
-            "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id \n" +
-            "JOIN product AS p ON p.product_id = od.product_id \n" +
+    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.name_product ) SEPARATOR ', ') AS productName\n" +
+            "FROM output_invoice AS o\n" +
+            "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
+            "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
+            "JOIN product AS p ON p.product_id = od.product_id\n" +
             "GROUP BY o.output_invoice_id "+
             "ORDER BY quantity DESC ", nativeQuery = true)
     Page<ManagerPurchaseHistory>sortByQuantity(Pageable pageable);
-    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.product_name ) SEPARATOR ', ') AS productName\n" +
+    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.name_product ) SEPARATOR ', ') AS productName\n" +
             "FROM output_invoice AS o\n" +
             "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
             "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
@@ -73,7 +73,7 @@ public interface OutputInvoiceRepository extends JpaRepository<OutputInvoice, In
     Page<ManagerPurchaseHistory>sortByDateOutputInvoice(Pageable pageable);
 
 
-    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.product_name ) SEPARATOR ', ') AS productName\n" +
+    @Query(value = "SELECT o.output_invoice_id as outputInvoiceId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, GROUP_CONCAT(CONCAT(od.quantity, ' ', p.name_product ) SEPARATOR ', ') AS productName\n" +
             "FROM output_invoice AS o\n" +
             "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
             "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
