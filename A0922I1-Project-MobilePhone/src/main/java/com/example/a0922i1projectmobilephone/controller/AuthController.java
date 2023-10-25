@@ -26,11 +26,12 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 @RequestMapping("/api/auth")
 @RestController
@@ -48,6 +49,9 @@ public class AuthController {
     AuthenticationManager authenticationManager;
     @Autowired
     JwtProvider jwtProvider;
+
+    @Autowired
+    private ClientRegistrationRepository clientRegistrationRepository;
 
 
     @PostMapping("/signUp")
@@ -129,7 +133,7 @@ public class AuthController {
     @PostMapping("/checkCurrentPassword")
     public ResponseEntity<?> changePassword(@RequestBody ChangePassword changePassword) {
         // Kiểm tra tài khoản có tồn tại hay không
-            User user = userService.findByUsername(changePassword.getUsername());
+        User user = userService.findByUsername(changePassword.getUsername());
         if (user == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Tài khoản không tồn tại");
         }
@@ -143,7 +147,6 @@ public class AuthController {
         } else {
             System.out.println("It does not match");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Mật khẩu hiện tại không đúng");
-
         }
     }
 
@@ -164,5 +167,16 @@ public class AuthController {
         Employee employee = employeeService.findByUser_Username(username);
         // Trả về thông tin người dùng
         return ResponseEntity.ok(employee);
+    }
+
+    @GetMapping("/google/sendData")
+    public ResponseEntity<String> handleGoogleCallback(OAuth2AuthenticationToken token) {
+        System.out.println(token);
+        OAuth2User oauth2User = token.getPrincipal();
+        System.out.println(oauth2User);
+        String email = oauth2User.getAttribute("email");
+
+        // Xử lý email hoặc lưu trữ thông tin người dùng theo nhu cầu
+        return ResponseEntity.ok(email);
     }
 }

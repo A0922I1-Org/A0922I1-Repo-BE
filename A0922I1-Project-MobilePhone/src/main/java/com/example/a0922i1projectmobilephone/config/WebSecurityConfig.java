@@ -1,11 +1,12 @@
 package com.example.a0922i1projectmobilephone.config;
 
-import com.example.a0922i1projectmobilephone.OAuth2.CustomOAuth2User;
+import com.example.a0922i1projectmobilephone.entity.User;
 import com.example.a0922i1projectmobilephone.security.jwt.JwtEntryPoint;
 import com.example.a0922i1projectmobilephone.security.jwt.JwtTokenFilter;
 import com.example.a0922i1projectmobilephone.security.userprincal.UserDetailService;
 import com.example.a0922i1projectmobilephone.service.loginImpl.UserServiceImpl;
 import com.example.a0922i1projectmobilephone.service.oauth2Service.CustomOAuth2UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +19,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -90,9 +92,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                                         Authentication authentication) throws IOException, ServletException {
-                        CustomOAuth2User oauthUser = (CustomOAuth2User) authentication.getPrincipal();
-                        userService.processOAuthPostLogin(oauthUser.getEmail());
-                        response.sendRedirect("");
+                        DefaultOidcUser oidcUser = (DefaultOidcUser) authentication.getPrincipal();
+                        String email = oidcUser.getAttributes().get("email").toString();
+                        userService.processOAuthPostLogin(email);
+                        if (userService.existsByEmail(email)) {
+                            User user = userService.findByEmail(email);
+                            if(user != null) {
+                                oidcUser.getAttributes().get(user.getUsername());
+                                user.setEmail(email);
+                                ObjectMapper objectMapper = new ObjectMapper();
+                                String userDataJson = objectMapper.writeValueAsString(user);
+                                response.setContentType("application/json");
+                                response.getWriter().write(userDataJson);
+                            }
+                        }
+                        System.out.println("gà");
                     }
                 });
     }
