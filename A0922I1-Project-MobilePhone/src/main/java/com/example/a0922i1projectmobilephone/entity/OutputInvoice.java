@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -25,7 +24,8 @@ public class OutputInvoice {
     @Column(name = "total_price")
     private double totalPrice;
 
-    @Column(name="date_output_invoice")
+
+    @Column(name = "date_output_invoice")
     private LocalDateTime dateOutputInvoice;
 
     @ManyToOne

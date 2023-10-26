@@ -15,11 +15,6 @@ import org.springframework.web.bind.annotation.*;
 public class OutputInvoiceController {
     @Autowired
     private OutputInvoiceServiceImp outputInvoiceService;
-    @PostMapping("/payment")
-    public ResponseEntity<?> payment(@RequestBody OutputInvoiceDTO request) {
-        outputInvoiceService.saveOutputInvoice(request);
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
 
     @GetMapping("/managerPurchaseHistory")
     public ResponseEntity<Page<ManagerPurchaseHistory>> getAll(
@@ -45,10 +40,18 @@ public class OutputInvoiceController {
                 return new ResponseEntity<>(page, HttpStatus.OK);
             default:
                 page = outputInvoiceService.getAll(pageNo, pageSize);
-
                 return new ResponseEntity<>(page, HttpStatus.OK);
         }
     }
+
+
+    @PostMapping("/payment")
+    public ResponseEntity<?> payment(@RequestBody OutputInvoiceDTO request) {
+        outputInvoiceService.saveOutputInvoice(request);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+
 }
 
 
