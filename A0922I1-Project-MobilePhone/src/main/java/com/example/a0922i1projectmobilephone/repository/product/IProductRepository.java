@@ -15,18 +15,18 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface IProductRepository extends JpaRepository<Product, Integer> {
-    @Query(value = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id",
-            countQuery = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id",
+    @Query(value = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id where p.delete_flag=0",
+            countQuery = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id where p.delete_flag=0",
             nativeQuery = true)
     Page<Product> findAllProducts(Pageable pageable);
 
-    @Query(value = "SELECT p.* FROM Product p where p.product_id =:productId",
+    @Query(value = "SELECT p.* FROM Product p where p.product_id =:productId and p.delete_flag=0",
             nativeQuery = true)
     Product findProductById(@Param("productId") Integer productId);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM Product p where p.product_id =:productId",
+    @Query(value = "UPDATE Product p set p.delete_flag =1  where p.product_id =:productId",
             nativeQuery = true)
     void deleteProductById(@Param("productId") Integer productId);
 
@@ -35,14 +35,16 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
             "AND p.selling_price_product >= :minPrice " +
             "AND p.selling_price_product <= :maxPrice " +
             "AND (p.name_product LIKE CONCAT('%', :productName, '%') or :productName is null)" +
-            "AND (p.product_cpu_product LIKE CONCAT('%', :productCpu, '%') or :productCpu is null)",
+            "AND (p.product_cpu_product LIKE CONCAT('%', :productCpu, '%') or :productCpu is null)" +
+            "and (p.delete_flag = 0)",
             countQuery = "SELECT p.* FROM Product p " +
                     "JOIN Brand b ON p.brand_id = b.brand_id " +
                     "WHERE (b.brand_name = :brandName or :brandName is null)" +
                     "AND p.selling_price_product >= :minPrice " +
                     "AND p.selling_price_product <= :maxPrice " +
                     "AND (p.name_product LIKE CONCAT('%', :productName, '%') or :productName is null)" +
-                    "AND (p.product_cpu_product LIKE CONCAT('%', :productCpu, '%') or :productCpu is null)",
+                    "AND (p.product_cpu_product LIKE CONCAT('%', :productCpu, '%') or :productCpu is null)" +
+                    "and (p.delete_flag = 0)",
             nativeQuery = true)
     Page<Product> searchProducts(@Param("brandName") String brandName,
                                  @Param("minPrice") Double minPrice,
@@ -54,12 +56,14 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
     @Query(value = "SELECT p.* FROM Product p JOIN Brand b ON p.brand_id = b.brand_id " +
             "WHERE (b.brand_name = :brandName or :brandName is null)" +
             "AND (p.name_product LIKE CONCAT('%', :productName, '%') or :productName is null)" +
-            "AND (p.product_cpu_product LIKE CONCAT('%', :productCpu, '%') or :productCpu is null)",
+            "AND (p.product_cpu_product LIKE CONCAT('%', :productCpu, '%') or :productCpu is null)" +
+            "and (p.delete_flag = 0)",
             countQuery = "SELECT p.* FROM Product p " +
                     "JOIN Brand b ON p.brand_id = b.brand_id " +
                     "WHERE (b.brand_name = :brandName or :brandName is null)" +
                     "AND (p.name_product LIKE CONCAT('%', :productName, '%') or :productName is null)" +
-                    "AND (p.product_cpu_product LIKE CONCAT('%', :productCpu, '%') or :productCpu is null)",
+                    "AND (p.product_cpu_product LIKE CONCAT('%', :productCpu, '%') or :productCpu is null)" +
+                    "and (p.delete_flag = 0)",
             nativeQuery = true)
     Page<Product> searchProducts(@Param("brandName") String brandName,
                                  @Param("productName") String productName,
