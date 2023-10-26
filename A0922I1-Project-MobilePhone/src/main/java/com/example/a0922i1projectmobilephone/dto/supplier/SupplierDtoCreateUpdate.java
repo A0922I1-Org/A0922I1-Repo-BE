@@ -19,7 +19,7 @@ public class SupplierDtoCreateUpdate {
     @Pattern(regexp = "^[a-zA-Z0-9-()*_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]+$")
     @NotEmpty
     private String supplierName;
-    @Pattern(regexp = "^(0[2-9]\\d{8,9})$")
+    @Pattern(regexp = "^(0[1-9]\\d{8})$")
     @NotEmpty(message = "Số điện thoại không được để trống")
     private String supplierPhone;
     @Email

@@ -19,13 +19,11 @@ import org.springframework.validation.annotation.Validated;
 import com.example.a0922i1projectmobilephone.service.supplierService.create.ICreateSupplierService;
 import com.example.a0922i1projectmobilephone.service.supplierService.update.IUpdateSupplierService;
 
-<<<<<<< HEAD
-import java.util.List;
+
 import java.util.Map;
-import java.util.Objects;
-=======
+
 import java.util.Optional;
->>>>>>> main
+
 
 @RestController
 @RequestMapping("/api/suppliers")
@@ -37,12 +35,10 @@ public class SupplierController {
     ICreateSupplierService createSupplierService;
     @Autowired
     IUpdateSupplierService updateSupplierService;
-<<<<<<< HEAD
+
     @Autowired
     SupplierValidate supplierValidate;
-=======
 
->>>>>>> main
     @GetMapping("/paged")
     public ResponseEntity<Page<Supplier>> getAllSupplier(
             @RequestParam(defaultValue = "1") int pageNo,
