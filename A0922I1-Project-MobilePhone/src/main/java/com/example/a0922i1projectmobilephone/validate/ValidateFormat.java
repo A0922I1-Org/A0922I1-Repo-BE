@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy =FormatDate.class)
 public @interface ValidateFormat {
     String message() default
-            "Ngày không được lớn hơn hiện tại";
+            "Không đúng format";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

@@ -1,5 +1,6 @@
 package com.example.a0922i1projectmobilephone.controller;
 
+import com.example.a0922i1projectmobilephone.dto.output_invoice.OutputInvoiceDTO;
 import com.example.a0922i1projectmobilephone.entity.ManagerPurchaseHistory;
 import com.example.a0922i1projectmobilephone.service.output_invoice.OutputInvoiceServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 public class OutputInvoiceController {
     @Autowired
-    private OutputInvoiceServiceImp output_invoiceService;
+    private OutputInvoiceServiceImp outputInvoiceService;
 
     @GetMapping("/managerPurchaseHistory")
     public ResponseEntity<Page<ManagerPurchaseHistory>> getAll(
@@ -23,25 +24,34 @@ public class OutputInvoiceController {
         Page<ManagerPurchaseHistory> page;
         switch (sort) {
             case "customerName":
-                page = output_invoiceService.sortByCustomerName(pageNo, pageSize);
+                page = outputInvoiceService.sortByCustomerName(pageNo, pageSize);
                 return new ResponseEntity<>(page, HttpStatus.OK);
             case "productName":
-                page = output_invoiceService.sortByProductName(pageNo, pageSize);
+                page = outputInvoiceService.sortByProductName(pageNo, pageSize);
                 return new ResponseEntity<>(page, HttpStatus.OK);
             case "totalPrice":
-                page = output_invoiceService.sortByTotalPrice(pageNo, pageSize);
+                page = outputInvoiceService.sortByTotalPrice(pageNo, pageSize);
                 return new ResponseEntity<>(page, HttpStatus.OK);
             case "quantity":
-                page = output_invoiceService.sortByQuantity(pageNo, pageSize);
+                page = outputInvoiceService.sortByQuantity(pageNo, pageSize);
                 return new ResponseEntity<>(page, HttpStatus.OK);
             case "time":
-                page = output_invoiceService.sortByDateOutputInvoice(pageNo, pageSize);
+                page = outputInvoiceService.sortByDateOutputInvoice(pageNo, pageSize);
                 return new ResponseEntity<>(page, HttpStatus.OK);
             default:
-                page = output_invoiceService.getAll(pageNo, pageSize);
+                page = outputInvoiceService.getAll(pageNo, pageSize);
                 return new ResponseEntity<>(page, HttpStatus.OK);
         }
     }
+
+
+    @PostMapping("/payment")
+    public ResponseEntity<?> payment(@RequestBody OutputInvoiceDTO request) {
+        outputInvoiceService.saveOutputInvoice(request);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+
 }
 
 

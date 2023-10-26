@@ -4,12 +4,10 @@ public interface Report {
 
         Integer getProduct_id();
 
-        String getProduct_name();
-        Integer getCost();
+        String getName_product();
+        Integer getCost_product();
 
-        Date getOutput_invoice_day();
-        int getAmount();
-
-        Double getInput_invoice_cost();
+        Date getDate_output_invoice();
+        Integer getSelling_price_product();
 
 }

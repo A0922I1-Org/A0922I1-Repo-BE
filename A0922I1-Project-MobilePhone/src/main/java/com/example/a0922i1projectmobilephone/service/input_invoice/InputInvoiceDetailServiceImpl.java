@@ -45,11 +45,11 @@ public class InputInvoiceDetailServiceImpl implements InputInvoiceDetailService 
             if (p.getProductId() == null){
                 int productId = productRepo.addNewProduct(p);
                 System.out.println(productId);
-               p.setProductId(productId);
-               this.inputInvoiceDetailRepo.addInputInvoiceDetail(p, inputInvoiceId);
+                p.setProductId(productId);
+                this.inputInvoiceDetailRepo.addInputInvoiceDetail(p, inputInvoiceId);
             }else {
                 this.inputInvoiceDetailRepo.addInputInvoiceDetail(p, inputInvoiceId);
-               this.productRepo.adjustQuantityAndCost(p);
+                this.productRepo.adjustQuantityAndCost(p);
             }
         }
     }

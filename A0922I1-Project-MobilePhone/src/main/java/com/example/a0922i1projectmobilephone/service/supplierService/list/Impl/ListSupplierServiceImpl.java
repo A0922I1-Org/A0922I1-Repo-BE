@@ -70,4 +70,13 @@ public class ListSupplierServiceImpl implements IListSupplierService {
         }
     }
 
+    @Override
+    public Page<Supplier> getSuppliers(String name, String address, String phone, Pageable pageable) {
+        if (name == null && address == null && phone == null) {
+            return supplierRepository.getAllSuppliers(pageable);
+        } else {
+            return supplierRepository.getAllSuppliers(name, address, phone, pageable);
+        }
+    }
+
 }

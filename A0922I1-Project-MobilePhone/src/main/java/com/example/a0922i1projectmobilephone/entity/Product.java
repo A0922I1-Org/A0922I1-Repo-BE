@@ -55,4 +55,6 @@ public class Product {
     @JsonManagedReference
     @JoinColumn(name = "brand_id", referencedColumnName = "brandId")
     private Brand brand;
+    @Column(name = "delete_flag",columnDefinition = "Boolean default FALSE")
+    Boolean deleteFlag;
 }
