@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -22,6 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -73,8 +75,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/**")
-                .permitAll() // Cho phép truy cập không cần đăng nhập
+                .antMatchers("/api/auth/signUp").hasAuthority("ADMIN")
+                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling()
                 .authenticationEntryPoint(jwtEntryPoint)
@@ -100,10 +102,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             if(user != null) {
                                 oidcUser.getAttributes().get(user.getUsername());
                                 user.setEmail(email);
+                                oidcUser.getAttributes().get(user.getRole());
                                 ObjectMapper objectMapper = new ObjectMapper();
                                 String userDataJson = objectMapper.writeValueAsString(user);
                                 response.setContentType("application/json");
                                 response.getWriter().write(userDataJson);
+                                RestTemplate restTemplate = new RestTemplate();
+                                ResponseEntity<User> userResponse = restTemplate.getForEntity("http://localhost:8080/api/auth/user-data", User.class);
+
+                                // Lấy dữ liệu từ response và sử dụng nó
+                                User userData = userResponse.getBody();
                             }
                         }
                         System.out.println("gà");

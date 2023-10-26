@@ -26,12 +26,12 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
-import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 @RequestMapping("/api/auth")
 @RestController
@@ -112,23 +112,25 @@ public class AuthController {
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword()));
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            String token = jwtProvider.createToken(authentication);
-            UserPrinciple UserPrinciple = (UserPrinciple) SecurityContextHolder.getContext()
-                    .getAuthentication()
-                    .getPrincipal();
-            return ResponseEntity.ok(
-                    new JwtResponse(
-                            token,
-                            UserPrinciple.getUsername(),
-                            UserPrinciple.getAuthorities()
-                    )
-            );
+            if (authentication.isAuthenticated()) {
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+                String token = jwtProvider.createToken(authentication);
+                UserPrinciple UserPrinciple = (UserPrinciple) SecurityContextHolder.getContext()
+                        .getAuthentication()
+                        .getPrincipal();
+                return ResponseEntity.ok(
+                        new JwtResponse(
+                                token,
+                                UserPrinciple.getUsername(),
+                                UserPrinciple.getAuthorities()
+                        )
+                );
+            }
         } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Sai tên người dùng hoặc mật khẩu");
         }
+        return null;
     }
-
 
     @PostMapping("/checkCurrentPassword")
     public ResponseEntity<?> changePassword(@RequestBody ChangePassword changePassword) {
@@ -169,14 +171,5 @@ public class AuthController {
         return ResponseEntity.ok(employee);
     }
 
-    @GetMapping("/google/sendData")
-    public ResponseEntity<String> handleGoogleCallback(OAuth2AuthenticationToken token) {
-        System.out.println(token);
-        OAuth2User oauth2User = token.getPrincipal();
-        System.out.println(oauth2User);
-        String email = oauth2User.getAttribute("email");
 
-        // Xử lý email hoặc lưu trữ thông tin người dùng theo nhu cầu
-        return ResponseEntity.ok(email);
-    }
 }
