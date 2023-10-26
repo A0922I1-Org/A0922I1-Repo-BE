@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<module version="4">
+=======
 <module external.linked.project.id="A0922I1-Project-MobilePhone:test" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="com.example" external.system.module.type="sourceSet" external.system.module.version="0.0.1-SNAPSHOT" type="JAVA_MODULE" version="4">
+>>>>>>> main
   <component name="FacetManager">
     <facet type="web" name="Web">
       <configuration>
@@ -21,6 +25,8 @@
       <configuration />
     </facet>
   </component>
+<<<<<<< HEAD
+=======
   <component name="NewModuleRootManager">
     <output-test url="file://$MODULE_DIR$/../../build/classes/java/test" />
     <exclude-output />
@@ -135,4 +141,5 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.sun.activation:jakarta.activation:1.2.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.junit.platform:junit-platform-engine:1.8.2" level="project" />
   </component>
+>>>>>>> main
 </module>

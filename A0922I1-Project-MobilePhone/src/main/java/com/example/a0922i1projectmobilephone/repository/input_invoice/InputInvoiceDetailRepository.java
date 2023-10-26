@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface InputInvoiceDetailRepository extends JpaRepository<InputInvoiceDetail, Integer> {
 
-//    @Query(value ="SELECT i.input_invoice_date AS inputInvoiceDate," +
+    //    @Query(value ="SELECT i.input_invoice_date AS inputInvoiceDate," +
 //            " i_detail.amount AS amount, i_detail.input_invoice_cost AS inputInvoiceCost," +
 //            " p.name_product AS productName," +
 //            " s.supplier_name AS supplierName" +

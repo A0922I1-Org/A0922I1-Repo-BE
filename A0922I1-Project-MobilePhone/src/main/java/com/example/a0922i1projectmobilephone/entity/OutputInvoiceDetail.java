@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Setter
 public class OutputInvoiceDetail {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer outputInvoiceDetailId;
     @Column(name = "quantity")
     private int quantity;

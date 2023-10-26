@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Set;
 @Entity
 @AllArgsConstructor
@@ -17,7 +16,7 @@ import java.util.Set;
 @Setter
 public class OutputInvoice {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer outputInvoiceId;
     @Column(name = "payment_method")
     private String paymentMethod;
@@ -25,8 +24,10 @@ public class OutputInvoice {
     @Column(name = "total_price")
     private double totalPrice;
 
+
     @Column(name = "date_output_invoice")
     private LocalDateTime dateOutputInvoice;
+
     @ManyToOne
     @JsonBackReference
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")

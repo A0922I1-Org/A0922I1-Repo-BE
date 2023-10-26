@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
     @Column(name = "customer_name")
     private String customerName;
@@ -22,8 +22,8 @@ public class Customer {
     private String customerPhone;
     @Column(name = "customer_address")
     private String customerAddress;
-    @Column(name = "customer_age")
-    private int customerAge;
+    @Column(name = "customer_age", nullable = true)
+    private Integer customerAge;
     @Column(name = "customer_email")
     private String customerEmail;
     @OneToMany(mappedBy = "customer" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)

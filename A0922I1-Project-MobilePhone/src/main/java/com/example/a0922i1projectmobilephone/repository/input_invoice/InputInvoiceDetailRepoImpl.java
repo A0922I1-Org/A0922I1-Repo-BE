@@ -86,7 +86,7 @@ public class InputInvoiceDetailRepoImpl {
 
     public int addInputInvoiceDetail(ProductInputDto dto, int inputInvoiceId){
         em.createNativeQuery("insert into input_invoice_detail(amount, input_invoice_cost,input_invoice_id,product_id)" +
-                "values (?1, ?2, ?3, ?4)")
+                        "values (?1, ?2, ?3, ?4)")
                 .setParameter(1, dto.getQuantity())
                 .setParameter(2, dto.getCostPrice())
                 .setParameter(3, inputInvoiceId)
@@ -96,4 +96,3 @@ public class InputInvoiceDetailRepoImpl {
     }
 
 }
-
