@@ -19,9 +19,9 @@ public class UpdateSupplierService implements IUpdateSupplierService {
 
 
     @Override
-    public Supplier findById(int supplier_id) {
+    public Supplier findById(int id) {
 
-        return iUpdateSupplierRepository.findById(supplier_id);
+        return iUpdateSupplierRepository.findById(id);
     }
 
     @Override
@@ -39,7 +39,6 @@ public class UpdateSupplierService implements IUpdateSupplierService {
                     supplier.setSupplierPhone("errorPhone");
             }if (supplier1.getSupplierEmail().equals(supplier.getSupplierEmail())) {
                     supplier.setSupplierEmail("errorEmail");
-                    return supplier;
             }
     }
         return supplier;

@@ -32,8 +32,6 @@ public class CreateSupplierService implements ICreateSupplierService {
             }
             if (supplier1.getSupplierEmail().equals(supplier.getSupplierEmail())) {
                 supplier.setSupplierEmail("errorEmail");
-                return supplier;
-
             }
 
         }

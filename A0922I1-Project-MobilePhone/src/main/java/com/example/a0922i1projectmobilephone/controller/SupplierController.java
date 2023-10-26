@@ -2,12 +2,8 @@ package com.example.a0922i1projectmobilephone.controller;
 
 import com.example.a0922i1projectmobilephone.dto.supplier.SupplierDtoCreateUpdate;
 import com.example.a0922i1projectmobilephone.entity.Supplier;
-<<<<<<< HEAD:A0922I1-Project-MobilePhone/src/main/java/com/example/a0922i1projectmobilephone/controller/supplierController/SupplierController.java
 import com.example.a0922i1projectmobilephone.service.supplierService.list.IListSupplierService;
 import com.example.a0922i1projectmobilephone.validate.SupplierValidate;
-=======
-import com.example.a0922i1projectmobilephone.service.supplierService.ISupplierService;
->>>>>>> main:A0922I1-Project-MobilePhone/src/main/java/com/example/a0922i1projectmobilephone/controller/SupplierController.java
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
