@@ -1,5 +1,7 @@
 package com.example.a0922i1projectmobilephone.repository.supplierRepository.create.impl;
 
+import com.example.a0922i1projectmobilephone.dto.supplier.SupplierDtoCreateUpdate;
+import com.example.a0922i1projectmobilephone.entity.Supplier;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

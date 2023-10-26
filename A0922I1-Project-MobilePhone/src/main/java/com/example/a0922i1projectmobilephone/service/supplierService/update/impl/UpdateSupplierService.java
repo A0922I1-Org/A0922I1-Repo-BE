@@ -19,13 +19,28 @@ public class UpdateSupplierService implements IUpdateSupplierService {
 
 
     @Override
-    public Supplier findById(int supplier_id) {
+    public Supplier findById(int id) {
 
-        return iUpdateSupplierRepository.findById(supplier_id);
+        return iUpdateSupplierRepository.findById(id);
     }
 
     @Override
-    public void updateSupplier(SupplierDtoCreateUpdate supplier) {
-        updateSupplierRepository.updateSupplier(supplier.getSupplierAddress(), supplier.getSupplierEmail(), supplier.getSupplierName(),supplier.getSupplierPhone(),supplier.getSupplierId());
+    public SupplierDtoCreateUpdate updateSupplier(SupplierDtoCreateUpdate supplier) {
+        updateSupplierRepository.updateSupplier(supplier.getSupplierAddress(), supplier.getSupplierEmail(), supplier.getSupplierName(), supplier.getSupplierPhone(), supplier.getSupplierId());
+        return supplier;
+    }
+    @Override
+    public SupplierDtoCreateUpdate checkData(SupplierDtoCreateUpdate supplier) {
+        for (Supplier supplier1 : iUpdateSupplierRepository.findAllSupplier()) {
+            if (supplier1.getSupplierId().equals(supplier.getSupplierId())) {continue;}
+            if (supplier.getSupplierName().equals(supplier1.getSupplierName())) {
+                    supplier.setSupplierName("errorName");
+            }if (supplier1.getSupplierPhone().equals(supplier.getSupplierPhone())) {
+                    supplier.setSupplierPhone("errorPhone");
+            }if (supplier1.getSupplierEmail().equals(supplier.getSupplierEmail())) {
+                    supplier.setSupplierEmail("errorEmail");
+            }
+    }
+        return supplier;
     }
 }
