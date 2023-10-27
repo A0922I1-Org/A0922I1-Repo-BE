@@ -1,11 +1,10 @@
 package com.example.a0922i1projectmobilephone.controller;
 
-
-import com.example.a0922i1projectmobilephone.dto.reponse.JwtResponse;
-import com.example.a0922i1projectmobilephone.dto.reponse.ReponseMessage;
 import com.example.a0922i1projectmobilephone.dto.request.ChangePassword;
 import com.example.a0922i1projectmobilephone.dto.request.SignInForm;
 import com.example.a0922i1projectmobilephone.dto.request.SignUpForm;
+import com.example.a0922i1projectmobilephone.dto.reponse.JwtResponse;
+import com.example.a0922i1projectmobilephone.dto.reponse.ReponseMessage;
 import com.example.a0922i1projectmobilephone.entity.Employee;
 import com.example.a0922i1projectmobilephone.entity.Role;
 import com.example.a0922i1projectmobilephone.entity.RoleName;
@@ -38,31 +37,29 @@ import java.util.Set;
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class AuthController {
     @Autowired
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
     @Autowired
-    RoleServiceImpl roleService;
+    private RoleServiceImpl roleService;
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
     @Autowired
-    EmployeeServiceImpl employeeService;
+    private EmployeeServiceImpl employeeService;
     @Autowired
-    AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;
     @Autowired
-    JwtProvider jwtProvider;
-
+    private JwtProvider jwtProvider;
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
-
 
     @PostMapping("/signUp")
     public ResponseEntity<?> register(@RequestBody SignUpForm signUpForm) {
         if (userService.existsByUsername(signUpForm.getUser().getUsername())) {
-            return new ResponseEntity<>(new ReponseMessage("user đã tồn tại"), HttpStatus.OK);
+            return new ResponseEntity<>(new ReponseMessage("Người dùng đã tồn tại"), HttpStatus.OK);
         }
         if (userService.existsByEmail(signUpForm.getUser().getEmail())) {
-            return new ResponseEntity<>(new ReponseMessage("email đã tồn tại"), HttpStatus.OK);
+            return new ResponseEntity<>(new ReponseMessage("Email đã tồn tại"), HttpStatus.OK);
         }
-        //Xử lý Role
+        // Xử lý Role
         Set<String> strRoles = signUpForm.getRole();
         Set<Role> roles = new HashSet<>();
         Iterator<String> iterator = strRoles.iterator();
@@ -100,36 +97,32 @@ public class AuthController {
                 passwordEncoder.encode(signUpForm.getUser().getPassword())
         );
         BeanUtils.copyProperties(signUpForm, employee);
-        employee.getUser().setPassword(passwordEncoder.encode(signUpForm.getUser().getPassword()));
-        employee.getUser().setRole(roles);
+        User user = employee.getUser();
+        user.setPassword(passwordEncoder.encode(signUpForm.getUser().getPassword()));
+        user.setRole(roles);
         employeeService.saveEmployee(employee);
-        return new ResponseEntity<>(new ReponseMessage("Tạo account thành công!!!"), HttpStatus.OK);
+        return new ResponseEntity<>(new ReponseMessage("Tạo tài khoản thành công!!!"), HttpStatus.OK);
     }
-
 
     @PostMapping("/signIn")
     public ResponseEntity<?> login(@RequestBody SignInForm signInForm) {
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword()));
-            if (authentication.isAuthenticated()) {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
                 String token = jwtProvider.createToken(authentication);
-                UserPrinciple UserPrinciple = (UserPrinciple) SecurityContextHolder.getContext()
+                UserPrinciple userPrinciple = (UserPrinciple) SecurityContextHolder.getContext()
                         .getAuthentication()
                         .getPrincipal();
                 return ResponseEntity.ok(
                         new JwtResponse(
                                 token,
-                                UserPrinciple.getUsername(),
-                                UserPrinciple.getAuthorities()
-                        )
-                );
-            }
+                                userPrinciple.getUsername(),
+                                userPrinciple.getAuthorities()
+                        ));
         } catch (AuthenticationException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Sai tên người dùng hoặc mật khẩu");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Sai tên đăng nhập hoặc mật khẩu");
         }
-        return null;
     }
 
     @PostMapping("/checkCurrentPassword")
@@ -162,14 +155,9 @@ public class AuthController {
         return userService.existsByEmail(email);
     }
 
-
     @GetMapping("/inforEmployee")
     public ResponseEntity<Employee> getEmployeeForLoggedInUser(@RequestParam String username) {
-        // Dựa vào username, truy vấn thông tin người dùng từ cơ sở dữ liệu
         Employee employee = employeeService.findByUser_Username(username);
-        // Trả về thông tin người dùng
         return ResponseEntity.ok(employee);
     }
-
-
 }
