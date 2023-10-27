@@ -11,15 +11,9 @@ public interface ISupplierRepository extends JpaRepository<Supplier, Integer> {
     @Query(value = "SELECT * FROM supplier", nativeQuery = true)
     Page<Supplier> findAllSupplier(Pageable pageable);
 
-    @Query(value = "SELECT * FROM supplier ORDER BY supplier_id ", nativeQuery = true)
-    Page<Supplier> sortBySupplierIdAscend(Pageable pageable);
 
-    @Query(value = "SELECT * FROM supplier ORDER BY supplier_name ", nativeQuery = true)
-    Page<Supplier> sortBySupplierNameAscend(Pageable pageable);
-    @Query(value = "SELECT * FROM supplier ORDER BY supplier_id DESC ", nativeQuery = true)
-    Page<Supplier> sortBySupplierIdReduce(Pageable pageable);
-    @Query(value = "SELECT * FROM supplier ORDER BY supplier_name DESC ", nativeQuery = true)
-    Page<Supplier> sortBySupplierNameReduce(Pageable pageable);
+    @Query(value = "DELETE FROM supplier WHERE id = ?1", nativeQuery = true)
+    void deleteById(int id);
 
     @Query(value = "SELECT * FROM supplier s " +
             "WHERE (:name IS NULL OR s.supplier_name LIKE CONCAT('%', :name, '%')) " +
