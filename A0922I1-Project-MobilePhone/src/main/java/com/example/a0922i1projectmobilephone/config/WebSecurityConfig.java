@@ -71,7 +71,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors().and().csrf().disable()
                 .authorizeRequests()
-
                 .antMatchers("/**").permitAll() // Cho phép truy cập không cần đăng nhập// Cần quyền USER
                 .anyRequest().authenticated()
 

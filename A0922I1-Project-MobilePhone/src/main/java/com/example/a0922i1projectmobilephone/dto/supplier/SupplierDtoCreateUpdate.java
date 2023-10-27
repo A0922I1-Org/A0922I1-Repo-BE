@@ -21,12 +21,12 @@ public class SupplierDtoCreateUpdate {
     private String supplierName;
     @Pattern(regexp = "^(0[1-9]\\d{8})$")
     @NotEmpty(message = "Số điện thoại không được để trống")
-    private String supplierPhone;
+        private String supplierPhone;
     @Email
     @NotBlank(message = "Email không được để trống")
     @Pattern(regexp = "^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\\.[a-zA-Z]{2,}$")
     private String supplierEmail;
-    @Pattern(regexp = "^[a-zA-Z0-9-_()*ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ \n]+$")
+    @Pattern(regexp = "^[a-zA-Z0-9-_/.()*ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ \n]+$")
     @NotBlank(message = "Địa chỉ không được để trống")
     private String supplierAddress;
 
