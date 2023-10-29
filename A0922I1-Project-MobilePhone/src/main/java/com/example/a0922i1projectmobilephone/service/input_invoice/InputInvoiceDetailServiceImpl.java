@@ -38,13 +38,12 @@ public class InputInvoiceDetailServiceImpl implements InputInvoiceDetailService 
     }
 
     @Override
-    public void addInputInvoiceDetail(ProductInputDto[] dto, int inputInvoiceId) {
+    public void addInputInvoiceDetail(ProductInputDto[] dto, int inputInvoiceId, int supplierId) {
         System.out.println("InputInvoice ID: " + inputInvoiceId);
 
         for (ProductInputDto p: dto){
             if (p.getProductId() == null){
-                int productId = productRepo.addNewProduct(p);
-                System.out.println(productId);
+                int productId = productRepo.addNewProduct(p,supplierId);
                 p.setProductId(productId);
                 this.inputInvoiceDetailRepo.addInputInvoiceDetail(p, inputInvoiceId);
             }else {

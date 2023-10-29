@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 
 public interface ISupplierRepository extends JpaRepository<Supplier, Integer> {
-    @Query(value = "SELECT * FROM supplier", nativeQuery = true)
+    @Query(value = "SELECT * FROM Supplier s WHERE s.delete_flag = 0", nativeQuery = true)
     Page<Supplier> findAllSupplier(Pageable pageable);
 
     @Modifying

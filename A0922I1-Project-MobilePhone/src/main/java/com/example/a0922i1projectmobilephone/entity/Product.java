@@ -57,4 +57,6 @@ public class Product {
     private Brand brand;
     @Column(name = "delete_flag",columnDefinition = "Boolean default FALSE")
     Boolean deleteFlag;
+    @Column(name = "is_publish", columnDefinition = "Boolean default FALSE")
+    Boolean isPublish;
 }

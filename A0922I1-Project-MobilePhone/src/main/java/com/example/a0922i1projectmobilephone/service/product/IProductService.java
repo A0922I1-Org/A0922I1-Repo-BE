@@ -7,5 +7,5 @@ import org.springframework.data.domain.Pageable;
 public interface IProductService {
     Product findProductById (Integer productId);
     boolean deleteProductById (Integer productId);
-    Page<Product> getProductList (String brandName, String sellingPrice, String productName, String productCpu, Pageable pageable);
+    Page<Product> getProductList (String brandName, String sellingPrice, String productName, String productCpu,boolean isOnSaleScreen, Pageable pageable);
 }

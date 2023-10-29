@@ -27,19 +27,32 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Page<Product> getProductList(String brandName, String sellingPrice, String productName, String productCpu, Pageable pageable) {
+    public Page<Product> getProductList(String brandName, String sellingPrice, String productName, String productCpu, boolean isOnSaleScreen, Pageable pageable) {
         Double minPrice = null;
         Double maxPrice = null;
         if (brandName == null && sellingPrice == null && productName == null && productCpu == null) {
-            return iRepositoryProduct.findAllProducts(pageable);
+            if (isOnSaleScreen){
+                return iRepositoryProduct.findAllProductForSaleScreen(pageable);
+            }else {
+                return iRepositoryProduct.findAllProducts(pageable);
+            }
         } else {
             if (sellingPrice == null) {
-                return iRepositoryProduct.searchProducts(brandName, productName, productCpu, pageable);
+                if (isOnSaleScreen){
+                    return iRepositoryProduct.searchProductForSaleScreen(brandName, productName, productCpu, pageable);
+                }else {
+                    return iRepositoryProduct.searchProducts(brandName, productName, productCpu, pageable);
+                }
             } else {
                 String[] priceRange = sellingPrice.split("-");
                 minPrice = Double.parseDouble(priceRange[0]);
                 maxPrice = Double.parseDouble(priceRange[1]);
-                return iRepositoryProduct.searchProducts(brandName, minPrice, maxPrice, productName, productCpu, pageable);
+                if (isOnSaleScreen){
+                    return iRepositoryProduct.searchProductForSaleScreen(brandName, minPrice, maxPrice, productName, productCpu, pageable);
+                }else{
+                    return iRepositoryProduct.searchProducts(brandName, minPrice, maxPrice, productName, productCpu, pageable);
+                }
+
             }
         }
     }
