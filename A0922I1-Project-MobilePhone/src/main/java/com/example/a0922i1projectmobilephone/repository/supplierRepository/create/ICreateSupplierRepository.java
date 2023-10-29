@@ -15,4 +15,5 @@ public interface ICreateSupplierRepository extends JpaRepository<Supplier, Integ
     @Query(value = "SELECT * FROM supplier", nativeQuery = true)
     List<Supplier> findAllSupplier();
 
+
 }

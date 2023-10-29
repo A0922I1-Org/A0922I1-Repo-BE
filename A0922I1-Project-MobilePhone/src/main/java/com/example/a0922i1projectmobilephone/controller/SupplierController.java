@@ -22,6 +22,7 @@ import com.example.a0922i1projectmobilephone.service.supplierService.update.IUpd
 
 import java.util.Map;
 
+import java.util.Objects;
 import java.util.Optional;
 
 
@@ -30,12 +31,10 @@ import java.util.Optional;
 public class SupplierController {
     @Autowired
     IListSupplierService supplierService;
-
     @Autowired
     ICreateSupplierService createSupplierService;
     @Autowired
     IUpdateSupplierService updateSupplierService;
-
     @Autowired
     SupplierValidate supplierValidate;
 
@@ -56,8 +55,6 @@ public class SupplierController {
         return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
-
-
     @GetMapping("/sort/id")
     public ResponseEntity<Page<Supplier>> sortByIdSupplier(
             @RequestParam(defaultValue = "1") int pageNo,
@@ -67,13 +64,11 @@ public class SupplierController {
         return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
-
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteSupplier(@PathVariable Integer id) {
         if (!supplierService.existsById(id)) {
             return new ResponseEntity<>("Nhà cung cấp không tồn tại", HttpStatus.NOT_FOUND);
         }
-
         supplierService.deleteById(id);
         return new ResponseEntity<>("Đã xóa nhà cung cấp thành công", HttpStatus.OK);
     }
@@ -125,13 +120,17 @@ public class SupplierController {
 
     @PostMapping("/create")
     public ResponseEntity<?> addSupplier(
-            @Validated @RequestBody SupplierDtoCreateUpdate supplier,
-            BindingResult bindingResult
+            @RequestBody SupplierDtoCreateUpdate supplier
     ){
-        Map<String, String> errordata = supplierValidate.checkValidate(createSupplierService.checkdata(supplier));
-        if (bindingResult.hasErrors()){
+        if (Objects.equals(supplier.getSupplierName(), "")
+                || Objects.equals(supplier.getSupplierPhone(), "")
+                || Objects.equals(supplier.getSupplierEmail(), "")
+                || Objects.equals(supplier.getSupplierAddress(), "")){
             return new ResponseEntity<>(supplier, HttpStatus.BAD_REQUEST);
-        }if (!errordata.isEmpty()){
+
+        }
+        Map<String, String> errordata = supplierValidate.checkValidate(createSupplierService.checkData(supplier));
+        if (!errordata.isEmpty()){
             return new ResponseEntity<>(errordata, HttpStatus.BAD_REQUEST);
         }else {
             createSupplierService.addNewSupplier(supplier);
@@ -150,10 +149,15 @@ public class SupplierController {
             @Validated @RequestBody SupplierDtoCreateUpdate supplier,
             BindingResult bindingResult
     ){
-        Map<String, String> errordata = supplierValidate.checkValidate(updateSupplierService.checkData(supplier));
-        if (bindingResult.hasErrors()){
+        if (Objects.equals(supplier.getSupplierName(), "")
+                || Objects.equals(supplier.getSupplierPhone(), "")
+                || Objects.equals(supplier.getSupplierEmail(), "")
+                || Objects.equals(supplier.getSupplierAddress(), "")){
             return new ResponseEntity<>(supplier, HttpStatus.BAD_REQUEST);
-        }if (!errordata.isEmpty()){
+
+        }
+        Map<String, String> errordata = supplierValidate.checkValidate(updateSupplierService.checkData(supplier));
+        if (!errordata.isEmpty()){
             return new ResponseEntity<>(errordata, HttpStatus.BAD_REQUEST);
         }else {
             updateSupplierService.updateSupplier(supplier);
