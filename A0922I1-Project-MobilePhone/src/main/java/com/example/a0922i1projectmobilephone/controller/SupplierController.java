@@ -47,7 +47,6 @@ public class SupplierController {
     }
 
 
-<<<<<<< HEAD
     @GetMapping("/sort/id")
     public ResponseEntity<Page<Supplier>> sortByIdSupplier(
             @RequestParam(defaultValue = "1") int pageNo,
@@ -56,10 +55,6 @@ public class SupplierController {
         Page<Supplier> page = supplierService.sortBySupplierId(flag,pageNo, pageSize);
         return new ResponseEntity<>(page, HttpStatus.OK);
     }
-=======
-
-
->>>>>>> main
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteSupplier(@PathVariable Integer id) {
