@@ -16,12 +16,13 @@ public class CreateSupplierRepository {
     @PersistenceContext
     private EntityManager entityManager;
     public void addNewSupplier(String address, String email, String name, String phone){
-            entityManager.createNativeQuery("insert into supplier(supplier_address,supplier_email,supplier_name,supplier_phone)" +
-                    "VALUES(?, ?, ?, ?)")
+            entityManager.createNativeQuery("insert into supplier(supplier_address,supplier_email,supplier_name,supplier_phone,delete_flag)" +
+                    "VALUES(?, ?, ?, ?,?)")
                     .setParameter(1, address)
                     .setParameter(2, email)
                     .setParameter(3,name)
                     .setParameter(4, phone)
+                    .setParameter(5, 0)
                     .executeUpdate();
     }
 
