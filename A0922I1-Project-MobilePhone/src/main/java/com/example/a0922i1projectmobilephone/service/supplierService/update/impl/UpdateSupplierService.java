@@ -8,6 +8,9 @@ import com.example.a0922i1projectmobilephone.service.supplierService.update.IUpd
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class UpdateSupplierService implements IUpdateSupplierService {
     @Autowired
@@ -15,12 +18,8 @@ public class UpdateSupplierService implements IUpdateSupplierService {
     @Autowired
     UpdateSupplierRepository updateSupplierRepository;
 
-
-
-
     @Override
     public Supplier findById(int id) {
-
         return iUpdateSupplierRepository.findById(id);
     }
 
@@ -29,18 +28,19 @@ public class UpdateSupplierService implements IUpdateSupplierService {
         updateSupplierRepository.updateSupplier(supplier.getSupplierAddress(), supplier.getSupplierEmail(), supplier.getSupplierName(), supplier.getSupplierPhone(), supplier.getSupplierId());
         return supplier;
     }
-    @Override
+
     public SupplierDtoCreateUpdate checkData(SupplierDtoCreateUpdate supplier) {
-        for (Supplier supplier1 : iUpdateSupplierRepository.findAllSupplier()) {
-            if (supplier1.getSupplierId().equals(supplier.getSupplierId())) {continue;}
-            if (supplier.getSupplierName().equals(supplier1.getSupplierName())) {
-                    supplier.setSupplierName("errorName");
-            }if (supplier1.getSupplierPhone().equals(supplier.getSupplierPhone())) {
-                    supplier.setSupplierPhone("errorPhone");
-            }if (supplier1.getSupplierEmail().equals(supplier.getSupplierEmail())) {
-                    supplier.setSupplierEmail("errorEmail");
-            }
-    }
-        return supplier;
+        List<String> checkData = new ArrayList<>();
+        checkData.add(updateSupplierRepository.findByName(supplier.getSupplierName(), supplier.getSupplierId()));
+        checkData.add(updateSupplierRepository.findByPhone(supplier.getSupplierPhone(), supplier.getSupplierId()));
+        checkData.add(updateSupplierRepository.findByEmail(supplier.getSupplierEmail(), supplier.getSupplierId()));
+
+        if (supplier.getSupplierName().equals(checkData.get(0))){
+            supplier.setSupplierName("errorNameData");
+        }if (supplier.getSupplierPhone().equals(checkData.get(1))){
+            supplier.setSupplierPhone("errorPhoneData");
+        }if (supplier.getSupplierEmail().equals(checkData.get(2))){
+            supplier.setSupplierEmail("errorEmailData");
+        }return supplier;
     }
 }
