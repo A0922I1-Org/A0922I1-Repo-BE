@@ -1,8 +1,11 @@
 package com.example.a0922i1projectmobilephone.service.output_invoice;
 
+import com.example.a0922i1projectmobilephone.dto.managerPurchaseHistory.DetailHistory;
 import com.example.a0922i1projectmobilephone.dto.output_invoice.OutputInvoiceDTO;
-import com.example.a0922i1projectmobilephone.entity.ManagerPurchaseHistory;
+import com.example.a0922i1projectmobilephone.dto.managerPurchaseHistory.ManagerPurchaseHistory;
 import org.springframework.data.domain.Page;
+
+import java.util.List;
 
 public interface OutputInvoiceService {
     /**
@@ -24,13 +27,19 @@ public interface OutputInvoiceService {
     //thuận
     Page<ManagerPurchaseHistory> getAll(int pageNo, int pageSize);
 
-    Page<ManagerPurchaseHistory> sortByTotalPrice(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByTotalPriceDESC(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByTotalPriceASC(int pageNo, int pageSize);
 
-    Page<ManagerPurchaseHistory> sortByCustomerName(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByCustomerNameDESC(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByCustomerNameASC(int pageNo, int pageSize);
 
-    Page<ManagerPurchaseHistory> sortByProductName(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByProductNameDESC(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByProductNameASC(int pageNo, int pageSize);
 
-    Page<ManagerPurchaseHistory> sortByDateOutputInvoice(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByDateOutputInvoiceDESC(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByDateOutputInvoiceASC(int pageNo, int pageSize);
 
-    Page<ManagerPurchaseHistory> sortByQuantity(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByQuantityDESC(int pageNo, int pageSize);
+    Page<ManagerPurchaseHistory> sortByQuantityASC(int pageNo, int pageSize);
+    List<DetailHistory> findById(int id);
 }

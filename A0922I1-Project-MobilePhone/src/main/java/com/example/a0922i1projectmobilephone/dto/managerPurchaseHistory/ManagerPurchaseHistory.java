@@ -1,4 +1,4 @@
-package com.example.a0922i1projectmobilephone.entity;
+package com.example.a0922i1projectmobilephone.dto.managerPurchaseHistory;
 
 import java.time.LocalDateTime;
 
@@ -7,4 +7,5 @@ public interface ManagerPurchaseHistory {
     Double getTotalPrice();
     LocalDateTime getDateOutputInvoice();
     String getProductName();
+    int getOutputInvoiceId();
 }
