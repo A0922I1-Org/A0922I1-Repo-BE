@@ -47,7 +47,7 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
 
         CustomerResponseDTO customerResponseDTO = customerRepository.findCustomerById(customerId);
         outputInvoice.setPaymentMethod(request.getPaymentMethod());
-        outputInvoice.setTotalPrice(0.0);
+        outputInvoice.setTotalPrice(0);
         LocalDateTime currentDate = LocalDateTime.now();
         outputInvoice.setDateOutputInvoice(currentDate);
         outputInvoiceRepository.saveOutputInvoice(outputInvoice.getPaymentMethod(), outputInvoice.getTotalPrice(), outputInvoice.getDateOutputInvoice(), customerResponseDTO.getCustomer_id());
