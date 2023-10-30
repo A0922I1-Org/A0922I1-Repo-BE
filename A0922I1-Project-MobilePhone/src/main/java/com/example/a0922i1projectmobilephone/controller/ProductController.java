@@ -54,7 +54,8 @@ public class ProductController {
             @RequestParam(value = "page", required = false) Optional<Integer> page,
             @RequestParam(value = "size", required = false) Optional<Integer> size,
             @RequestParam(value = "sort", required = false) Optional<String> sort,
-            @RequestParam(value = "direction", required = false) Optional<Boolean> direction) {
+            @RequestParam(value = "direction", required = false) Optional<Boolean> direction,
+            @RequestParam(value = "isOnSaleScreen",required = false) boolean isOnSaleScreen) {
         Integer currentPage = page.orElse(1);
         Integer pageSize = size.orElse(8);
         String brandName = brand.orElse(null);
@@ -71,9 +72,9 @@ public class ProductController {
         model.addAttribute("currentPage", currentPage);
         Page<Product> products;
         if (directionSort) {
-            products = iProductService.getProductList(brandName, sellingPrice, productName, productCpu, PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).ascending()));
+            products = iProductService.getProductList(brandName, sellingPrice, productName, productCpu, isOnSaleScreen, PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).ascending()));
         } else {
-            products = iProductService.getProductList(brandName, sellingPrice, productName, productCpu, PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).descending()));
+            products = iProductService.getProductList(brandName, sellingPrice, productName, productCpu, isOnSaleScreen, PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).descending()));
         }
         if (products.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -91,7 +92,8 @@ public class ProductController {
             @RequestParam(value = "page", required = false) Optional<Integer> page,
             @RequestParam(value = "size", required = false) Optional<Integer> size,
             @RequestParam(value = "sort", required = false) Optional<String> sort,
-            @RequestParam(value = "direction", required = false) Optional<Boolean> direction) {
+            @RequestParam(value = "direction", required = false) Optional<Boolean> direction,
+            @RequestParam(value = "isOnSaleScreen",required = false) boolean isOnSaleScreen) {
         Integer currentPage = page.orElse(1);
         Integer pageSize = size.orElse(8);
         String brandName = brand.orElse(null);
@@ -108,9 +110,9 @@ public class ProductController {
         model.addAttribute("currentPage", currentPage);
         Page<Product> products;
         if (directionSort) {
-            products = iProductService.getProductList(brandName, sellingPrice, productName, productCpu, PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).ascending()));
+            products = iProductService.getProductList(brandName, sellingPrice, productName, productCpu, isOnSaleScreen, PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).ascending()));
         } else {
-            products = iProductService.getProductList(brandName, sellingPrice, productName, productCpu, PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).descending()));
+            products = iProductService.getProductList(brandName, sellingPrice, productName, productCpu, isOnSaleScreen,PageRequest.of(currentPage - 1, pageSize, Sort.by(sortField).descending()));
         }
         ResponseProduct responseProduct = new ResponseProduct(products,iBrandService.findAllBrands());
         return new ResponseEntity<>(responseProduct, HttpStatus.OK);

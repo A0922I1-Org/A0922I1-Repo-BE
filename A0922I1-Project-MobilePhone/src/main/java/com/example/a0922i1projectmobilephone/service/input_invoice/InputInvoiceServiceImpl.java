@@ -19,7 +19,7 @@ public class InputInvoiceServiceImpl implements InputInvoiceService {
         Date currentDate = new Date();
         int inputInvoiceId = this.inputInvoiceRepoImpl.addNewInputInvoice(currentDate, dto.getSupplier().getSupplierId());
         if (inputInvoiceId != 0){
-            inputInvoiceDetailService.addInputInvoiceDetail(dto.getProductInputDto(), inputInvoiceId);
+            inputInvoiceDetailService.addInputInvoiceDetail(dto.getProductInputDto(), inputInvoiceId,dto.getSupplier().getSupplierId());
         }
         return 0;
     }

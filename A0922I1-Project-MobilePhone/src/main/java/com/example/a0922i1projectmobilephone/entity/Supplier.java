@@ -27,4 +27,6 @@ public class Supplier {
     @OneToMany(mappedBy = "supplier" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JsonBackReference
     private Set<InputInvoice> inputInvoice;
+    @Column(name = "delete_flag",columnDefinition = "Boolean default FALSE")
+    Boolean deleteFlag;
 }

@@ -1,10 +1,10 @@
 package com.example.a0922i1projectmobilephone.service.output_invoice;
 
+import com.example.a0922i1projectmobilephone.dto.managerPurchaseHistory.DetailHistory;
 import com.example.a0922i1projectmobilephone.dto.output_invoice.*;
 import com.example.a0922i1projectmobilephone.dto.report.Report;
-import com.example.a0922i1projectmobilephone.entity.ManagerPurchaseHistory;
+import com.example.a0922i1projectmobilephone.dto.managerPurchaseHistory.ManagerPurchaseHistory;
 import com.example.a0922i1projectmobilephone.repository.customer_repo.IRepositoryCustomer;
-import com.example.a0922i1projectmobilephone.repository.output_invoice.IRepositoryProduct;
 import com.example.a0922i1projectmobilephone.repository.output_invoice.OutputInvoiceDetailRepository;
 import com.example.a0922i1projectmobilephone.repository.output_invoice.OutputInvoiceRepository;
 import com.example.a0922i1projectmobilephone.repository.product.IProductRepository;
@@ -83,17 +83,23 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
 
     @Override
     public long countById(String fromDay, String toDay, Integer id) {
+        fromDay += " 00:00:00";
+        toDay += " 23:59:59";
         return outputInvoiceRepository.CountByID(fromDay, toDay, id);
     }
 
     @Override
     public long countAll(String fromDay, String toDay) {
+        fromDay += " 00:00:00";
+        toDay += " 23:59:59";
         return outputInvoiceRepository.CountAll(fromDay, toDay);
     }
 
     @Override
     public long calculateRevenueByProductId(String fromDate, String toDate, Integer productId) {
         List<Report> reports = null;
+        fromDate += " 00:00:00";
+        toDate += " 23:59:59";
         reports = outputInvoiceRepository.findByDayAndProductId(fromDate, toDate, productId);
         long totalRevenue = 0;
         for (Report report : reports) {
@@ -106,7 +112,9 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
     @Override
     public long calculateRevenue(String fromDate, String toDate) {
         List<Report> reports = null;
-        reports = outputInvoiceRepository.findByDay(fromDate, toDate);
+        fromDate += " 00:00:00";
+        toDate += " 23:59:59";
+        reports = outputInvoiceRepository.findByDay(fromDate,toDate);
         long totalRevenue = 0;
         for (Report report : reports) {
             double revenue = report.getSelling_price_product()-report.getCost_product();
@@ -123,32 +131,67 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
     }
 
     @Override
-    public Page<ManagerPurchaseHistory> sortByTotalPrice(int pageNo, int pageSize) {
+    public Page<ManagerPurchaseHistory> sortByTotalPriceDESC(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        return outputInvoiceRepository.sortByTotalPrice(pageable);
+        return outputInvoiceRepository.sortByTotalPriceDESC(pageable);
     }
 
     @Override
-    public Page<ManagerPurchaseHistory> sortByCustomerName(int pageNo, int pageSize) {
+    public Page<ManagerPurchaseHistory> sortByTotalPriceASC(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        return outputInvoiceRepository.sortByCustomerName(pageable);
+        return outputInvoiceRepository.sortByTotalPriceASC(pageable);
     }
 
     @Override
-    public Page<ManagerPurchaseHistory> sortByProductName(int pageNo, int pageSize) {
+    public Page<ManagerPurchaseHistory> sortByCustomerNameDESC(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        return outputInvoiceRepository.sortByProduct_name(pageable);
+        return outputInvoiceRepository.sortByCustomerNameDESC(pageable);
     }
 
     @Override
-    public Page<ManagerPurchaseHistory> sortByDateOutputInvoice(int pageNo, int pageSize) {
+    public Page<ManagerPurchaseHistory> sortByCustomerNameASC(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        return outputInvoiceRepository.sortByDateOutputInvoice(pageable);
+        return outputInvoiceRepository.sortByCustomerNameASC(pageable);
     }
 
     @Override
-    public Page<ManagerPurchaseHistory> sortByQuantity(int pageNo, int pageSize) {
+    public Page<ManagerPurchaseHistory> sortByProductNameDESC(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        return outputInvoiceRepository.sortByQuantity(pageable);
+        return outputInvoiceRepository.sortByProductNameDESC(pageable);
+    }
+
+    @Override
+    public Page<ManagerPurchaseHistory> sortByProductNameASC(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return outputInvoiceRepository.sortByProductNameASC(pageable);
+    }
+
+    @Override
+    public Page<ManagerPurchaseHistory> sortByDateOutputInvoiceDESC(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return outputInvoiceRepository.sortByDateOutputInvoiceDESC(pageable);
+    }
+
+    @Override
+    public Page<ManagerPurchaseHistory> sortByDateOutputInvoiceASC(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return outputInvoiceRepository.sortByDateOutputInvoiceASC(pageable);
+    }
+
+    @Override
+    public Page<ManagerPurchaseHistory> sortByQuantityDESC(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return outputInvoiceRepository.sortByQuantityDESC(pageable);
+    }
+
+    @Override
+    public Page<ManagerPurchaseHistory> sortByQuantityASC(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return outputInvoiceRepository.sortByQuantityASC(pageable);
+    }
+
+    @Override
+    public List<DetailHistory> findById(int id) {
+        return outputInvoiceRepository.detail(id);
     }
 }
