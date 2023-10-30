@@ -83,17 +83,23 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
 
     @Override
     public long countById(String fromDay, String toDay, Integer id) {
+        fromDay += " 00:00:00";
+        toDay += " 23:59:59";
         return outputInvoiceRepository.CountByID(fromDay, toDay, id);
     }
 
     @Override
     public long countAll(String fromDay, String toDay) {
+        fromDay += " 00:00:00";
+        toDay += " 23:59:59";
         return outputInvoiceRepository.CountAll(fromDay, toDay);
     }
 
     @Override
     public long calculateRevenueByProductId(String fromDate, String toDate, Integer productId) {
         List<Report> reports = null;
+        fromDate += " 00:00:00";
+        toDate += " 23:59:59";
         reports = outputInvoiceRepository.findByDayAndProductId(fromDate, toDate, productId);
         long totalRevenue = 0;
         for (Report report : reports) {
@@ -106,7 +112,9 @@ public class OutputInvoiceServiceImp implements OutputInvoiceService {
     @Override
     public long calculateRevenue(String fromDate, String toDate) {
         List<Report> reports = null;
-        reports = outputInvoiceRepository.findByDay(fromDate, toDate);
+        fromDate += " 00:00:00";
+        toDate += " 23:59:59";
+        reports = outputInvoiceRepository.findByDay(fromDate,toDate);
         long totalRevenue = 0;
         for (Report report : reports) {
             double revenue = report.getSelling_price_product()-report.getCost_product();

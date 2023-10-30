@@ -66,7 +66,7 @@ public interface OutputInvoiceRepository extends JpaRepository<OutputInvoice, In
             "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
             "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
             "JOIN product AS p ON p.product_id = od.product_id\n" +
-            "GROUP BY o.output_invoice_id "
+            "ORDER BY o.date_output_invoice DESC"
             , nativeQuery = true)
     Page<ManagerPurchaseHistory> getAll(Pageable pageable);
     @Query(value = "SELECT o.quantity as quantity, o.sub_total as subTotal,p.name_product as productName\n" +
@@ -128,7 +128,7 @@ public interface OutputInvoiceRepository extends JpaRepository<OutputInvoice, In
             "JOIN customer AS c ON c.customer_id = o.customer_id\n" +
             "JOIN output_invoice_detail AS od ON od.output_invoice_id = o.output_invoice_id\n" +
             "JOIN product AS p ON p.product_id = od.product_id\n" +
-            "GROUP BY o.output_invoice_id " +
+
             "ORDER BY date_output_invoice ASC ", nativeQuery = true)
     Page<ManagerPurchaseHistory>sortByDateOutputInvoiceASC(Pageable pageable);
     @Query(value = "SELECT o.output_invoice_id as outputInvoiceId,od.output_invoice_detail_id as outputInvoiceDetailId, c.customer_name as customerName, o.total_price as totalPrice, o.date_output_invoice as dateOutputInvoice, p.name_product as productName\n" +
