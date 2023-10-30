@@ -31,12 +31,15 @@ public class CustomerServiceImpl implements ICustomerService {
     public Page<Customer> listCustomers(int page, String option, String search, String numberPhone) {
         int isAll = 0;
 
-        if (StringUtils.isEmpty(option) && StringUtils.isEmpty(numberPhone) ) {
+        if (StringUtils.isEmpty(option) && StringUtils.isEmpty(numberPhone) && StringUtils.isEmpty(search)) {
             isAll = 1;
 
         }
         if(StringUtils.isEmpty(numberPhone)){
             numberPhone = null;
+        }
+        if (StringUtils.isEmpty(search) && !StringUtils.isEmpty(numberPhone)){
+            return iRepositoryCustomer.searchCustomerPhone(Pageable.ofSize(8).withPage(page), numberPhone);
         }
         return iRepositoryCustomer.searchCustomer(Pageable.ofSize(8).withPage(page), option, search, numberPhone, isAll);
     }
