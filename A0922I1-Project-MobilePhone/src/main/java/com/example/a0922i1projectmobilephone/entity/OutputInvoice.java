@@ -22,7 +22,7 @@ public class OutputInvoice {
     private String paymentMethod;
 
     @Column(name = "total_price")
-    private double totalPrice;
+    private Integer totalPrice;
 
 
     @Column(name = "date_output_invoice")

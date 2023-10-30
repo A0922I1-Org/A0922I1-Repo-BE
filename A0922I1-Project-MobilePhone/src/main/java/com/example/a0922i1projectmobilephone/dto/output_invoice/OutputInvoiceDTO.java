@@ -14,7 +14,7 @@ import java.util.List;
 public class OutputInvoiceDTO {
     private Integer outputInvoiceId;
     private String paymentMethod;
-    private double totalPrice;
+    private Integer totalPrice;
     private LocalDateTime dateOutputInvoice;
     private CustomerDTO customerDTO;
     private List<OutputInvoiceDetailDTO> outputInvoiceDetails;

@@ -14,5 +14,4 @@ public class VNPayDTO {
     String paymentTime;
     String transactionId;
     String totalPrice;
-
 }
