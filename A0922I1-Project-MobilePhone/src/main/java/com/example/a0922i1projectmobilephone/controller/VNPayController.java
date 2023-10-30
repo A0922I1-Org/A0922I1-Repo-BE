@@ -19,7 +19,7 @@ public class VNPayController {
     @Autowired
     private VNPayService vnPayService;
 @PostMapping("/submitOrder")
-public ResponseEntity<Map<String, String>> submitOrder(@RequestParam("amount") int orderTotal,
+public ResponseEntity<Map<String, String>> submitOrder(@RequestParam("amount") long orderTotal,
                                                        @RequestParam("orderInfo") String orderInfo) {
     String baseUrl = "";
     String vnpayUrl = vnPayService.createOrder(orderTotal, orderInfo, baseUrl);
