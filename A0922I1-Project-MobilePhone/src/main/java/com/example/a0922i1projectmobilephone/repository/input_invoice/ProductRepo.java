@@ -14,13 +14,13 @@ public class ProductRepo {
     @PersistenceContext
     EntityManager em;
 
-    public int addNewProduct(ProductInputDto product){
+    public int addNewProduct(ProductInputDto product, int supplierId){
         boolean isDone = false;
         if (em.createNativeQuery("insert into mobilephone.product(back_camera_product, cost_product, " +
                         "description_product, front_camera_product, image_url_product, product_cpu_product, " +
                         "name_product, product_storage_product, quantity_product, screen_size_product, " +
-                        "selling_price_product, brand_id, category_id)" +
-                        "values(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13)")
+                        "selling_price_product, brand_id, category_id, delete_flag)" +
+                        "values(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13,?14)")
                 .setParameter(1, "Yeu cau cap nhat")
                 .setParameter(2, product.getCostPrice())
                 .setParameter(3, "Yeu cau cap nhat")
@@ -32,8 +32,9 @@ public class ProductRepo {
                 .setParameter(9, product.getQuantity())
                 .setParameter(10, "Yeu cau cap nhat")
                 .setParameter(11, null)
-                .setParameter(12, null)
-                .setParameter(13, null).executeUpdate() >0){
+                .setParameter(12, supplierId)
+                .setParameter(13, 1)
+                .setParameter(14,0).executeUpdate() >0){
             isDone =true;
         }
         if (isDone){
