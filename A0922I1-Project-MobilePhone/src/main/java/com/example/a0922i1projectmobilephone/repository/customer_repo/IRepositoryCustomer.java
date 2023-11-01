@@ -17,16 +17,15 @@ import javax.transaction.Transactional;
 @Repository
 public interface IRepositoryCustomer extends JpaRepository<Customer, Integer> {
 
-    @Query(value = "select customer_id, customer_phone, customer_name , customer_address, customer_age, customer_email " +
-            " from customer " +
-            "WHERE\n" +
-            "    (\n" +
-            "        (:option = 'name' AND customer_name LIKE %:search%) OR\n" +
-            "        (:option = 'age' AND customer_age  = :search) OR\n" +
-            "        (:option = 'address' AND customer_address LIKE %:search%)\n" +
-            "    )\n" +
-            "    OR :isAll = 1" +
-            "    OR customer_phone LIKE %:numberPhone%\n", nativeQuery = true)
+    @Query(value = "SELECT customer_id, customer_phone, customer_name, customer_address, customer_age, customer_email " +
+            "FROM customer " +
+            "WHERE " +
+            "(:option = 'name' AND (customer_name LIKE %:search% OR :search is null) OR " +
+            ":option = 'age' AND (customer_age = :search OR :search is null) OR " +
+            ":option = 'address' AND (customer_address LIKE %:search% OR :search is null) OR " +
+            ":isAll = 1) AND " +
+            "(customer_phone LIKE %:numberPhone% OR :numberPhone is null)",
+            nativeQuery = true)
     Page<Customer> searchCustomer(Pageable pageable, @Param("option") String option,
                                   @Param("search") String search,
                                   @Param("numberPhone") String numberPhone,
@@ -53,5 +52,10 @@ public interface IRepositoryCustomer extends JpaRepository<Customer, Integer> {
      */
     @Query(value = "SELECT MAX(customer_id) FROM customer", nativeQuery = true)
     Integer getLastCustomerId();
+    @Query(value = "SELECT customer_id, customer_phone, customer_name, customer_address, customer_age, customer_email " +
+            "FROM customer where customer_phone  LIKE %:numberPhone%",
+            nativeQuery = true)
+    Page<Customer> searchCustomerPhone(Pageable pageable,  @Param("numberPhone") String numberPhone);
+
 
 }
